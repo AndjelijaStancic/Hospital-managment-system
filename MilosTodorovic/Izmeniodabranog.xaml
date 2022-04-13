@@ -1,0 +1,40 @@
+﻿<Window xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Class="SIMSWPF.Izmeniodabranog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMSWPF"
+        mc:Ignorable="d"
+        Title="Izmeniodabranog" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="0" Grid.Row="1" DataContext="{Binding SelectedItem, ElementName=Izmeniodabranog1}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0"><Run Text="Vreme pocetka termina:"/></TextBlock>
+
+            <TextBlock Grid.Column="0" Grid.Row="1"><Run Text="Broj sale:"/></TextBlock>
+
+
+            <ComboBox Grid.Column="1" Grid.Row="1"  Name ="Brojsale"  Text="{Binding IzabraniTermin.Brojsale}"/>
+
+            <xctk:DateTimePicker  Grid.Column="1" Grid.Row="0" Name ="Vremepocetkatermina"  Text="{Binding vremepocetkatermina}"/>
+        </Grid>
+    </Grid>
+</Window>

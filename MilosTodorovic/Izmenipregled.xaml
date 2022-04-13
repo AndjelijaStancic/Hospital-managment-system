@@ -1,0 +1,28 @@
+﻿<Window x:Class="SIMSWPF.Izmenipregled"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMSWPF"
+        mc:Ignorable="d"
+        Title="Izmenipregled" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dataGridTermini1" ItemsSource="{Binding Termini1}" IsReadOnly="True" 
+                  SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
+                  Height="158" Margin="10,47,0,0" VerticalAlignment="Top" Width="422">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Brojprostorije" Binding="{Binding Brojsale}"/>
+                <DataGridTextColumn Header="Vremepocetkapregleda" Binding="{Binding Vremepocetkatermina}" />
+                <DataGridTextColumn Header="Vremekrajapregleda"  Binding="{Binding Vremekrajatermina}" />
+                
+
+
+
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Izmeni" Click="Izmeniodabranog" HorizontalAlignment="Left" Margin="230,250,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>
