@@ -11,6 +11,7 @@ namespace Model
    {
       operationRoom,
       breakRoom,
+      office,
       appointmentRoom,
       storage
    }

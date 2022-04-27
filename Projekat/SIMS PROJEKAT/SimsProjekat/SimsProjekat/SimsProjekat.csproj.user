@@ -10,16 +10,7 @@
     <Compile Update="AppointmentCrud.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="CreateRoom.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="DeleteRoom.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="RoomCrud.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="ShowRooms.xaml.cs">
+    <Compile Update="RoomOperations.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UpdateRoom.xaml.cs">
@@ -30,19 +21,10 @@
     <Page Update="AppointmentCrud.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="CreateRoom.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="DeleteRoom.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="RoomCrud.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="ShowRooms.xaml">
+    <Page Update="RoomOperations.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UpdateRoom.xaml">

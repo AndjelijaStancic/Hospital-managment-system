@@ -42,7 +42,7 @@ namespace Service
      
       public Room Create(Room room)
       {
-         throw new NotImplementedException();
+            return room_Repository.Create(room);
       }
    
    }

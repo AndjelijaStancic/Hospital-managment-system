@@ -28,14 +28,15 @@ namespace SimsProjekat
        
         private void ShowAppointmentsMenu(object sender, RoutedEventArgs e)
         {
-            var s = new AppointmentCrud();
+            var s = new LoginWindow();
             s.Show();
         }
 
         private void ShowDirectorMenu(object sender, RoutedEventArgs e)
         {
-            var s = new RoomCrud();
+            var s = new RoomOperations();
             s.Show();
         }
+        
     }
 }

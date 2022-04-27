@@ -13,15 +13,15 @@ using System.Linq;
 
 namespace Repository
 {
-   public class RoomRepository
-   {
+    public class RoomRepository
+    {
         private string Path;
         private string Delimiter;
         public Model.Room GetById(int id)
-      {
-         throw new NotImplementedException();
-      }
-        
+        {
+            throw new NotImplementedException();
+        }
+
         public RoomRepository(string path, string delimiter)
         {
             Path = path;
@@ -32,31 +32,28 @@ namespace Repository
             return string.Join(Delimiter,
                 room.Id,
                 room.Name,
-                room.Floor,
-                (int)room.Type);
-                //room.Available);
+                (int)room.Type,
+                room.Floor);
+            
         }
 
         public Room ConvertRoom(string CsvFormat)
         {
             var tokens = CsvFormat.Split(Delimiter.ToCharArray());
-            return new Room(
-                int.Parse(tokens[0]),
-                tokens[1],
-                int.Parse(tokens[2]),
-                int.Parse(tokens[3]));
-                //bool.Parse(tokens[4])) ;
+            int Id = int.Parse(tokens[0]);
+            String Name = tokens[1];
+            int TypeRoom = int.Parse(tokens[2]);
+            int Floor = int.Parse(tokens[3]);
+            return new Room(Id,Name,TypeRoom,Floor);
         }
 
         public List<Room> GetAll()
         {
-            return File.ReadAllLines(Path)
-                .Select(ConvertRoom)
-                .ToList();
+            return File.ReadAllLines(Path).Select(ConvertRoom).ToList();
         }
-      
-      public bool Delete(int id)
-      {
+
+        public bool Delete(int id)
+        {
             List<Room> rooms = GetAll().ToList();
             bool delete = false;
             List<string> updated = new List<string>();
@@ -66,7 +63,7 @@ namespace Repository
                 {
                     delete = true;
                     updated.Add(ConvertCsv(room));
-                    
+
                 }
             }
             File.WriteAllLines(Path, updated);
@@ -90,14 +87,30 @@ namespace Repository
             return room;
         }
 
-
+        protected int NewId(List<Room> rooms)
+        {
+            int id = 0;
+            List<Room> rooms1 = GetAll().ToList();
+            foreach (Room room in rooms1)
+            {
+                if(room.Id > id)
+                {
+                    id = room.Id;
+                }
+            }
+            return id;
+        }
         public Room Create(Room room)
-      {
+        {
+            List<Room> rooms = GetAll().ToList();
+            int id = (NewId(rooms));
+            room.Id = ++id;
             File.AppendAllText(Path, ConvertCsv(room) + Environment.NewLine);
             return room;
-       }
-
+            
+        }
         
+
 
     }
 }

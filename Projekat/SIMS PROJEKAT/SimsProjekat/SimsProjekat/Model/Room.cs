@@ -9,25 +9,24 @@ using static Model.RoomType;
 
 namespace Model
 {
-   public class Room
-   {
-      public int Id { get; set; }
+    public class Room
+    {
+        public int Id { get; set; }
 
-      public string Name { get; set; }
+        public string Name { get; set; }
 
-      public RoomType Type { get; set; }
-      public int Floor { get; set; }
-      public bool Available { get; set; }
+        public RoomType Type { get; set; }
+        public int Floor { get; set; }
+        public bool Available { get; set; }
 
-      //public Hospital hospital { get; set; }
+        //public Hospital hospital { get; set; }
 
 
-        public Room(int id, string name, RoomType type, int floor, bool available) 
-      {
+        public Room(int id, string name, RoomType type, int floor)
+        {
             Id = id;
             Name = name;
             Floor = floor;
-            Available = true;
             Type = type;
 
         }
