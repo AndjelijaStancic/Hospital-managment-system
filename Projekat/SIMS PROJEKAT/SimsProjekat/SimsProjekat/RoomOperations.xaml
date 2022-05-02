@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:SimsProjekat"
         mc:Ignorable="d"
         Title="RoomOperations"
-        Height="463"
-        Width="828"
+        Height="485"
+        Width="857"
         ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="roomButton" TargetType="Button">
@@ -16,6 +16,13 @@
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Margin" Value="0,0,6,0"></Setter>
             <Setter Property="Background" Value="#FF142223"></Setter>
+        </Style>
+        <Style x:Key="navButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="Georgia"></Setter>
+            <Setter Property="FontWeight" Value="DemiBold"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Background" Value="#FF2A393A"></Setter>
         </Style>
         <Style x:Key="Title" TargetType="TextBlock">
             <Setter Property="FontSize" Value="18"></Setter>
@@ -28,7 +35,7 @@
 
         <Style x:Key="Table" TargetType="DataGrid">
             <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
-            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
             <Setter Property="FontFamily" Value="Georgia"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="FontSize" Value="14"></Setter>
@@ -44,14 +51,14 @@
             <Setter Property="FontSize" Value="16"></Setter>
             <Setter Property="FontFamily" Value="Georgia"></Setter>
             <Setter Property="Foreground" Value="#FF1F3233"></Setter>
-            
-        </Style>
 
+        </Style>
         <Style x:Key="UpdateButton" TargetType="Button">
             <Setter Property="FontFamily" Value="Georgia"></Setter>
             <Setter Property="Background" Value="#FF1F3233"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
         </Style>
+
         <Style x:Key="Column" TargetType="DataGridCell">
             <Setter Property="BorderBrush" Value="#FF284344"></Setter>
             <Setter Property="Background" Value="#FF375F5F"></Setter>
@@ -65,7 +72,7 @@
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Background" Value="#FF203439"></Setter>
         </Style>
-        
+
         <Style x:Key="BorderAdd" TargetType="Border">
             <Setter Property="Background" Value="White"></Setter>
             <Setter Property="Opacity" Value="0.95"></Setter>
@@ -84,7 +91,7 @@
                           Offset="0" />
         </LinearGradientBrush>
     </Window.Background>
-    <Grid>
+    <Grid Margin="0,0,10,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
@@ -129,7 +136,7 @@
                 </Grid.RowDefinitions>
                 <DataGrid Name="GridRoom"  AutoGenerateColumns="False" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Rooms}" Style="{StaticResource Table}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id"  Width="2*"  Binding="{Binding Id}"  HeaderStyle="{StaticResource Header}" CellStyle="{StaticResource Column}" />
+                        <DataGridTextColumn Header="Id"  Width="2*"  Binding="{Binding Id}"  HeaderStyle="{StaticResource Header}" CellStyle="{StaticResource Column}"/>
                         <DataGridTextColumn Header="Naziv" Width="8*"   Binding="{Binding Name}" HeaderStyle="{StaticResource Header}" CellStyle="{StaticResource Column}"/>
                         <DataGridTextColumn Header="Tip" Width="8*"   Binding="{Binding Type}" HeaderStyle="{StaticResource Header}" CellStyle="{StaticResource Column}"/>
                         <DataGridTextColumn Header="Sprat" Width="2.3*"   Binding="{Binding Floor}" HeaderStyle="{StaticResource Header}" CellStyle="{StaticResource Column}"/>
@@ -231,7 +238,7 @@
                 <Button Name="AddConfirm" Grid.Column="2" Margin="20,15,20,10" Grid.ColumnSpan="2" Grid.Row="4" FontWeight="Medium"  FontSize="15" Click="AddRoomClick">DODAJ</Button>
             </Grid>
         </Border>
-        
+
         <Border Name="WarningDelete" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="5" Grid.RowSpan="3"  Visibility="Collapsed" Style="{StaticResource BorderAdd}" Margin="69,20,71,10">
             <Border.Effect>
                 <DropShadowEffect 
@@ -262,6 +269,40 @@
             </Grid>
         </Border>
 
+        <Grid Grid.ColumnSpan="7"  Grid.RowSpan="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Rectangle Fill="Black"
+                       Opacity="0.4"
+                       Grid.RowSpan="2"
+                       Grid.ColumnSpan="7" Margin="0,0,-11,0"
+                       />
+            <Button Name="DrugsButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"  Click="AllDrugsNav" FontSize="12" Margin="0,7,0,10">LEKOVI</Button>
+            <Button Name="EqpButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2"  Click="AllEqpNav" FontSize="12" Margin="0,7,0,10">OPREMA</Button>
+            <Button Name="RoomAllButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="3"  Click="AllRoomsNav" FontSize="12" Margin="0,7,0,10">PROSTORIJE</Button>
+            <Button Name="StatButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="4"  Click="StatNav" FontSize="12" Margin="0,7,0,10">ANKETA</Button>
+            <Button Name="SettingsButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="5"  Click="SettNav" FontSize="12" Margin="0,7,0,10">PODEŠAVANJA</Button>
+            <Button Name="ProfileButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="6"  Click="ProfileNav" FontSize="12" Margin="0,7,0,10">NALOG</Button>
+            <Image HorizontalAlignment="Center"
+                   Grid.Row="0" 
+                   Grid.RowSpan="2"
+                   Width="46"
+                   Source="/Resources/Icons/Hospital.png" Margin="0,2,0,5"/>
+        </Grid>
+
+        <Frame Name="MainFrame"  Grid.Row="1" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="5" NavigationUIVisibility="Hidden"></Frame>
 
     </Grid>
 </Window>

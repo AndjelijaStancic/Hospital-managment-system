@@ -14,15 +14,19 @@ namespace Service
    {
 
         public readonly RoomRepository room_Repository;
+        public readonly EquipmentRepository equipment_Repository;
+        public readonly EqpMenagmentRepository eqpMen_Repository;
 
-        public RoomService(RoomRepository roomRepository)
+        public RoomService(RoomRepository roomRepository, EquipmentRepository equipmentRepository, EqpMenagmentRepository eqpMenagmentRepository)
         {
             room_Repository = roomRepository;
+            equipment_Repository = equipmentRepository;
+            eqpMen_Repository = eqpMenagmentRepository;
         }
 
         public Room GetById(int id)
       {
-         throw new NotImplementedException();
+            return  room_Repository.GetById(id);
       }
       
       public List<Room> GetAll()
@@ -37,7 +41,17 @@ namespace Service
       
       public bool Delete(int id)
       {
-         return room_Repository.Delete(id);
+            List<Equipment> eqp = this.equipment_Repository.GetAll();
+            List<Equipment> eqsDeletedRoom = new List<Equipment>();
+
+            foreach (Equipment eqpItem in eqp)
+            {
+                if(eqpItem.idRoom == id)
+                {
+                    equipment_Repository.DeleteEqp(eqpItem.idEquipment);
+                }
+            }
+            return room_Repository.Delete(id);
       }
      
       public Room Create(Room room)

@@ -50,7 +50,7 @@
             <TextBox HorizontalAlignment="Left"
                      Height="21"
                      Margin="44,128,0,0"
-                     x:Name="LoginTextBox"
+                     Name="EmailOrUserName"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
                      Width="232"
@@ -66,7 +66,7 @@
                    RenderTransformOrigin="0.552,1.998" />
             <PasswordBox  HorizontalAlignment="Left"
                           Height="21"
-                          x:Name="PasswordTextBox"
+                          Name="PasswordTextBox"
                           Margin="45,185,0,0"
                           VerticalAlignment="Top"
                           Width="232"

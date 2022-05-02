@@ -7,22 +7,25 @@ using System;
 using static Model.Gender;
 using static Model.Address;
 
+
 namespace Model
 {
-   public class User
-   {
-      private int Id { get; set; }
-      private string FirstName { get; set; }
-      private string LastName { get; set; }
-      private string Jmbg { get; set; }
-      private DateTime DateOfBirth { get; set; }
-      private string TelephoneNumber { get; set; }
-    
-      private Gender Gender { get; set; }
+    public class User
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Jmbg { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string TelephoneNumber { get; set; }
+        public string Gender { get; set; }
+        public string Email { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
 
-      public Address Address { get; set; }
+        public string Role { get; set; }
 
-        public User(int id, string firstName, string lastName, string jmbg, DateTime dateOfBirth, string telephoneNumber, Gender gender, Address address)
+        public User(int id, string firstName, string lastName, string jmbg, DateTime dateOfBirth, string telephoneNumber, string gender, string email, string userName, string password, string role)
         {
             Id = id;
             FirstName = firstName;
@@ -31,8 +34,12 @@ namespace Model
             DateOfBirth = dateOfBirth;
             TelephoneNumber = telephoneNumber;
             Gender = gender;
-            Address = address;
+            Email = email;
+            UserName = userName;
+            Password = password;
+            Role = role;
+
         }
     }
 
-}
+ }

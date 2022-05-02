@@ -53,7 +53,7 @@ namespace SimsProjekat {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SimsProjekat;component/updateroom.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SimsProjekat;V1.0.0.0;component/updateroom.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\UpdateRoom.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -19,8 +19,6 @@ namespace Model
         public int Floor { get; set; }
         public bool Available { get; set; }
 
-        //public Hospital hospital { get; set; }
-
 
         public Room(int id, string name, RoomType type, int floor)
         {
@@ -46,7 +44,6 @@ namespace Model
             Floor = floor;
             Available = available;
             Type = (RoomType)type;
-
         }
     }
 }

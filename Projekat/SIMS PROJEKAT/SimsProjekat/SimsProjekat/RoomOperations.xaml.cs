@@ -39,19 +39,31 @@ namespace SimsProjekat
 
             this.Rooms = room_Controller.GetAll();
             this.Names = new List<String>();
-            this.Floors = new List<int>();
+            this.Floors = new List<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
             var roomTypes = Enum.GetValues(typeof(RoomType));
             TypesList = roomTypes.OfType<RoomType>().ToList();
 
             foreach (Room room in Rooms)
             {
                 Names.Add(room.Name);
-                Floors.Add(room.Floor);
             }
 
             this.DataContext = this;
             AllRoomsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
-            
+            RoomAllButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
+
+        }
+        public void RefreshSource()
+        {
+            this.Rooms = this.room_Controller.GetAll();
+            GridRoom.ItemsSource = this.Rooms;
+            GridRoom.Items.Refresh();
+            this.Names.Clear();
+            this.Floors.Clear();
+            foreach (Room room in this.Rooms)
+            {
+                this.Names.Add(room.Name);
+            }
         }
         private void AllRoomButton(object sender, RoutedEventArgs e)
         {
@@ -79,6 +91,10 @@ namespace SimsProjekat
          AllRooms.Visibility = Visibility.Visible;
          AddRoom.Visibility = Visibility.Collapsed;
          UpdateRoom.Visibility = Visibility.Collapsed;
+         RefreshSource();
+         AllRoomsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
+         AddRoomButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF142223");
+         RenovationButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF142223");
 
         }
 
@@ -96,6 +112,7 @@ namespace SimsProjekat
             WarningDelete.Visibility = Visibility.Collapsed;
             AllRooms.Visibility = Visibility.Visible;
             UpdateRoom.Visibility = Visibility.Collapsed;
+            RefreshSource();
         }
         
         private void DenyDelete(object sender, RoutedEventArgs e)
@@ -108,9 +125,8 @@ namespace SimsProjekat
         private void updateButton(object sender, RoutedEventArgs e)
         {
             UpdateRoom.Visibility = Visibility.Visible;
-            AllRooms.Visibility = Visibility.Visible;
+            AllRooms.Visibility = Visibility.Collapsed;
             AddRoom.Visibility = Visibility.Collapsed;
-
         }
         private void UpdateClick(object sender, RoutedEventArgs e)
         {
@@ -129,7 +145,7 @@ namespace SimsProjekat
             AllRooms.Visibility = Visibility.Visible;
             AddRoom.Visibility = Visibility.Collapsed;
             UpdateRoom.Visibility = Visibility.Collapsed;
-
+            RefreshSource();
         }
 
         private void RenovateButton(object sender, RoutedEventArgs e)
@@ -137,5 +153,39 @@ namespace SimsProjekat
             AllRooms.Visibility = Visibility.Collapsed;
         }
 
+        private void AllDrugsNav(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new RoomsPage();
+        }
+
+        private void AllEqpNav(object sender, RoutedEventArgs e)
+        {
+            var eqpShow = new EquipmentPage();
+            eqpShow.Show();
+        }
+
+        private void AllRoomsNav(object sender, RoutedEventArgs e)
+        {
+            AllRooms.Visibility = Visibility.Visible;
+            AddRoom.Visibility = Visibility.Collapsed;
+            UpdateRoom.Visibility = Visibility.Collapsed;
+            AllRoomsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
+            RoomAllButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
+        }
+
+        private void StatNav(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SettNav(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ProfileNav(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new EqPages();
+        }
     }
 }

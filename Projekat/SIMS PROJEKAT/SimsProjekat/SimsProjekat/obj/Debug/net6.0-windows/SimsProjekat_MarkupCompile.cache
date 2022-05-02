@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Andjelija\Desktop\SIMS\Projekat\SIMS PROJEKAT\SimsProjekat\SimsProjekat\App.xaml
-51441819883
+9915758284
 
-29549216115
+39476093687
 1941645785384
-AppointmentCrud.xaml;LoginWindow.xaml;MainWindow.xaml;RoomOperations.xaml;UpdateRoom.xaml;
+AppointmentCrud.xaml;Doctor.xaml;EqPages.xaml;EquipmentPage.xaml;LoginWindow.xaml;Patient.xaml;RoomOperations.xaml;RoomsPage.xaml;Secretary.xaml;
 
 False
 

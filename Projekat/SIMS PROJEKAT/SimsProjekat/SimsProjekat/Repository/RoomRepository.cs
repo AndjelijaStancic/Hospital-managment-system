@@ -17,10 +17,7 @@ namespace Repository
     {
         private string Path;
         private string Delimiter;
-        public Model.Room GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public RoomRepository(string path, string delimiter)
         {
@@ -45,6 +42,23 @@ namespace Repository
             int TypeRoom = int.Parse(tokens[2]);
             int Floor = int.Parse(tokens[3]);
             return new Room(Id,Name,TypeRoom,Floor);
+        }
+
+        public Room GetById(int id)
+        {
+            List<Room> rooms = GetAll().ToList();
+            Room room1 = new Room(-1, "", -1, -1);
+            foreach (Room room in rooms)
+            {
+                if (room.Id == id)
+                {
+                    room1.Id = room.Id;
+                    room1.Name = room.Name;
+                    room1.Type = room.Type;
+                    room1.Floor = room.Floor;
+                }
+            }
+            return room1;
         }
 
         public List<Room> GetAll()
@@ -87,7 +101,7 @@ namespace Repository
             return room;
         }
 
-        protected int NewId(List<Room> rooms)
+        protected int NewId()
         {
             int id = 0;
             List<Room> rooms1 = GetAll().ToList();
@@ -103,7 +117,7 @@ namespace Repository
         public Room Create(Room room)
         {
             List<Room> rooms = GetAll().ToList();
-            int id = (NewId(rooms));
+            int id = (NewId());
             room.Id = ++id;
             File.AppendAllText(Path, ConvertCsv(room) + Environment.NewLine);
             return room;

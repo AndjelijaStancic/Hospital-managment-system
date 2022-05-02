@@ -10,10 +10,25 @@
     <Compile Update="AppointmentCrud.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Doctor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EqPages.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EquipmentPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Patient.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="RoomOperations.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UpdateRoom.xaml.cs">
+    <Compile Update="RoomsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Secretary.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -21,13 +36,25 @@
     <Page Update="AppointmentCrud.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="Doctor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EqPages.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EquipmentPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Patient.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RoomOperations.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UpdateRoom.xaml">
+    <Page Update="RoomsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Secretary.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

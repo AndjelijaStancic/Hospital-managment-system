@@ -14,10 +14,7 @@ namespace Model
       private DateTime ending;
       private Boolean urgent;
       
-      public Patient patient;
-      public Guest guest;
-      public Doctor doctor;
-      public Room room;
+      
    
    }
 }
