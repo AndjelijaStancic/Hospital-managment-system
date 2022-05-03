@@ -59,6 +59,10 @@ namespace Repository
                 {
                     id = equipmentMenagments.idEqpMenag;
                 }
+                else if (equipmentMenagments.idEqpMenag == null)
+                {
+                    id = 0;
+                }
             }
             return id;
         }

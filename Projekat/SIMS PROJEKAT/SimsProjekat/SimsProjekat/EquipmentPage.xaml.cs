@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Controller;
 using Model;
 using System.ComponentModel;
+using System.Threading;
 
 namespace SimsProjekat
 {
@@ -49,6 +50,8 @@ namespace SimsProjekat
             eqpMenagment_Controller = app.EqpMenagmentController;
             room_Controller = app.RoomController;
 
+            
+
             this.Rooms = room_Controller.GetAll();
             this.Names = new List<String>();
 
@@ -56,8 +59,6 @@ namespace SimsProjekat
             {
                 Names.Add(room.Name);
             }
-
-
             this.equipment = eqp_Controller.GetEqpDisplay();
             //Console.WriteLine(equipment.Count);
 
@@ -83,6 +84,16 @@ namespace SimsProjekat
 
         private void AllDrugsNav(object sender, RoutedEventArgs e)
         {
+            
+        }
+
+        public void RefreshSource1()
+        {
+            
+            
+            this.equipment = this.eqp_Controller.GetEqpDisplay();
+            GridEqw.ItemsSource = this.equipment;
+            GridEqw.Items.Refresh();
             
         }
 
@@ -131,6 +142,7 @@ namespace SimsProjekat
             EquipmentMenagment equipmentMenagment = new EquipmentMenagment(-1, IdEqp, idRoom, DateTime.Parse(datePicker1.Text));
             eqpMenagment_Controller.Create(equipmentMenagment);
             EqpMenagment.Visibility = Visibility.Collapsed;
+            RefreshSource1();
         }
     }
 }

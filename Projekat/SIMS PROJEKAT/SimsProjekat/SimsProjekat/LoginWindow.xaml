@@ -12,14 +12,11 @@
         ResizeMode="NoResize">
 
     <Window.Background>
-        <LinearGradientBrush EndPoint="0.4,2"
-                             StartPoint="0.4,0">
+        <LinearGradientBrush EndPoint="0.4,2" StartPoint="0.4,0">
 
-            <GradientStop Color="#FF007DA7"
-                          Offset="0.300" />
+            <GradientStop Color="#FF007DA7" Offset="0.300" />
 
-            <GradientStop Color="Black"
-                          Offset="0" />
+            <GradientStop Color="Black" Offset="0" />
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
@@ -35,10 +32,10 @@
               Margin="49,57,50,51">
             <Grid.Effect>
                 <DropShadowEffect 
-             Direction="270"
-             Opacity="0.8"
-             ShadowDepth="10"
-             BlurRadius="15" />
+                Direction="270"
+                Opacity="0.8"
+                ShadowDepth="10"
+                BlurRadius="15" />
             </Grid.Effect>
 
             <Label Content="Email or username:"
@@ -75,7 +72,9 @@
                    Height="71"
                    VerticalAlignment="Top"
                    Width="66"
-                   Source="/Resources/Icons/hospital.png" Margin="127,22,0,0" RenderTransformOrigin="0.5,0.5" >
+                   Source="/Resources/Icons/hospital.png" 
+                   Margin="127,22,0,0" 
+                   RenderTransformOrigin="0.5,0.5" >
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -97,7 +96,12 @@
                     
                     Click="LoginClick" >
                 <Button.BitmapEffect>
-                    <DropShadowBitmapEffect Color="#FF007DA7" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.5" />
+                    <DropShadowBitmapEffect 
+                        Color="#FF007DA7" 
+                        Direction="320" 
+                        Softness="1" 
+                        ShadowDepth="10" 
+                        Opacity="0.5" />
                 </Button.BitmapEffect>
             </Button>
             <Button FontSize="12"
@@ -110,7 +114,12 @@
                      Height="23"
                      Click="RegisterClick" >
                 <Button.BitmapEffect>
-                    <DropShadowBitmapEffect Color="#FF007DA7" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.5" />
+                    <DropShadowBitmapEffect 
+                        Color="#FF007DA7" 
+                        Direction="320" 
+                        Softness="1" 
+                        ShadowDepth="10" 
+                        Opacity="0.5" />
                 </Button.BitmapEffect>
             </Button>
 

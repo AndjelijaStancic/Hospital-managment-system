@@ -62,8 +62,6 @@ namespace SimsProjekat
                 pat.Show();
                 Close();
             }
-
-
         }
        
         private void RegisterClick(object sender, RoutedEventArgs e)

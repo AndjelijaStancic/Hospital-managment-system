@@ -109,11 +109,44 @@
             <RowDefinition Height="3*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-        <Button Name="AllRoomsButton" Style="{StaticResource roomButton}" Height="50" Grid.Row="1" Grid.Column="3"  Click="AllRoomButton" FontSize="16" Margin="0,6,5,18">PROSTORIJE</Button>
-        <Button Name="AddRoomButton" Style="{StaticResource roomButton}" Height="50" Grid.Row="1" Grid.Column="4"  Click="AddButton" FontSize="16" Margin="0,6,5,18">KREIRANJE</Button>
-        <Button Name="RenovationButton" Style="{StaticResource roomButton}" Height="50" Grid.Row="1" Grid.Column="5" Click="RenovateButton" FontSize="16" Margin="0,6,4,18">RENOVACIJA</Button>
+        <Button 
+            Name="AllRoomsButton" 
+            Style="{StaticResource roomButton}" 
+            Height="50" 
+            Grid.Row="1" 
+            Grid.Column="3"  
+            Click="AllRoomButton" 
+            FontSize="16" 
+            Margin="0,6,5,18">
+            PROSTORIJE</Button>
+        <Button 
+            Name="AddRoomButton" 
+            Style="{StaticResource roomButton}" 
+            Height="50" 
+            Grid.Row="1" 
+            Grid.Column="4" 
+            Click="AddButton" 
+            FontSize="16" 
+            Margin="0,6,5,18">
+            KREIRANJE</Button>
+        <Button 
+            Name="RenovationButton" 
+            Style="{StaticResource roomButton}" 
+            Height="50" 
+            Grid.Row="1" 
+            Grid.Column="5" 
+            Click="RenovateButton" 
+            FontSize="16" 
+            Margin="0,6,4,18">
+            RENOVACIJA</Button>
 
-        <Border Name="AllRooms" Visibility="Visible" Grid.Column="1" Grid.Row="2"  Grid.RowSpan="5" Grid.ColumnSpan="5" >
+        <Border 
+            Name="AllRooms" 
+            Visibility="Visible" 
+            Grid.Column="1" 
+            Grid.Row="2"  
+            Grid.RowSpan="5" 
+            Grid.ColumnSpan="5" >
             <Grid>
                 <Grid.Effect>
                     <DropShadowEffect 
@@ -134,30 +167,83 @@
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="28"></RowDefinition>
                 </Grid.RowDefinitions>
-                <DataGrid Name="GridRoom"  AutoGenerateColumns="False" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Rooms}" Style="{StaticResource Table}">
+                <DataGrid 
+                    Name="GridRoom"  
+                    AutoGenerateColumns="False" 
+                    Grid.Row="2" 
+                    Grid.Column="1" 
+                    ItemsSource="{Binding Rooms}" 
+                    Style="{StaticResource Table}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id"  Width="2*"  Binding="{Binding Id}"  HeaderStyle="{StaticResource Header}" CellStyle="{StaticResource Column}"/>
-                        <DataGridTextColumn Header="Naziv" Width="8*"   Binding="{Binding Name}" HeaderStyle="{StaticResource Header}" CellStyle="{StaticResource Column}"/>
-                        <DataGridTextColumn Header="Tip" Width="8*"   Binding="{Binding Type}" HeaderStyle="{StaticResource Header}" CellStyle="{StaticResource Column}"/>
-                        <DataGridTextColumn Header="Sprat" Width="2.3*"   Binding="{Binding Floor}" HeaderStyle="{StaticResource Header}" CellStyle="{StaticResource Column}"/>
-                        <DataGridTemplateColumn Header="Ažuriranje" Width="4*" HeaderStyle="{StaticResource Header}" CellStyle="{StaticResource Column}">
+                        <DataGridTextColumn 
+                            Header="Id"  
+                            Width="2*"  
+                            Binding="{Binding Id}"  
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Naziv" 
+                            Width="8*"   
+                            Binding="{Binding Name}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Tip" 
+                            Width="8*"   
+                            Binding="{Binding Type}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Sprat" 
+                            Width="2.3*"   
+                            Binding="{Binding Floor}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTemplateColumn 
+                            Header="Ažuriranje" 
+                            Width="4*" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Name="updateButton" Content="ažuriraj" Click="updateButton"  Command="{Binding UpdateSelectedRoom}" Style="{StaticResource UpdateButton}" >
+                                    <Button 
+                                        Name="updateButton" 
+                                        Content="ažuriraj" 
+                                        Click="updateButton"  
+                                        Command="{Binding UpdateSelectedRoom}" 
+                                        Style="{StaticResource UpdateButton}" >
                                         <Button.BitmapEffect>
-                                            <DropShadowBitmapEffect Color="#FF007DA7" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.5" />
+                                            <DropShadowBitmapEffect 
+                                                Color="#FF007DA7" 
+                                                Direction="320" 
+                                                Softness="1" 
+                                                ShadowDepth="10" 
+                                                Opacity="0.5" />
                                         </Button.BitmapEffect>
                                     </Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Brisanje" Width="4*" HeaderStyle="{StaticResource Header}" CellStyle="{StaticResource Column}">
+                        <DataGridTemplateColumn 
+                            Header="Brisanje" 
+                            Width="4*" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}">
 
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Name="deleteButton" Content="obriši" Click="delButton" Style="{StaticResource DeleteButton}">
+                                    <Button 
+                                        Name="deleteButton" 
+                                        Content="obriši" 
+                                        Click="delButton" 
+                                        Style="{StaticResource DeleteButton}">
                                         <Button.BitmapEffect>
-                                            <DropShadowBitmapEffect Color="#FF007DA7" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.5" />
+                                            <DropShadowBitmapEffect 
+                                                Color="#FF007DA7" 
+                                                Direction="320" 
+                                                Softness="1" 
+                                                ShadowDepth="10" 
+                                                Opacity="0.5" />
                                         </Button.BitmapEffect>
                                     </Button>
                                 </DataTemplate>
@@ -168,7 +254,14 @@
             </Grid>
         </Border>
 
-        <Border Name="UpdateRoom" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="5"  Visibility="Collapsed" Style="{StaticResource BorderAdd}" Margin="0,74,5,30">
+        <Border Name="UpdateRoom" 
+                Grid.Column="2" 
+                Grid.Row="1" 
+                Grid.ColumnSpan="3" 
+                Grid.RowSpan="5"  
+                Visibility="Collapsed" 
+                Style="{StaticResource BorderAdd}" 
+                Margin="0,74,5,30">
             <Border.Effect>
                 <DropShadowEffect 
              Direction="270"
@@ -193,17 +286,72 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Column="1"  Grid.ColumnSpan="4" Margin="19,10,19,53" Grid.Row="0" FontFamily="Georgia" TextAlignment="Center" FontWeight="Bold"  FontSize="17" Grid.RowSpan="2" >AŽURIRANJE IZABRANE<LineBreak></LineBreak>PROSTORIJE</TextBlock>
-                <Label  Grid.Row="1"   Content="NAZIV:" FontSize="16" Style="{StaticResource FormLabel}" FontWeight="Medium"  Grid.RowSpan="2" Margin="68,33,51,27" Grid.ColumnSpan="3"/>
-                <TextBox Name="UpdatedName"   Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" Margin="68,34,68,45" Grid.RowSpan="2"/>
-                <Label Grid.ColumnSpan="3"   Content="TIP:" FontWeight="Medium" Style="{StaticResource FormLabel}" FontSize="16" Grid.Row="2" Margin="68,42,63,27" Grid.RowSpan="2"/>
-                <ComboBox Name="AddUpdatedType"  ItemsSource="{Binding Path=TypesList}" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="2" Margin="1,42,68,39" Grid.RowSpan="2"  />
-                <Button Name="UpdateConfirm" Grid.Column="2" Margin="20,15,20,10" Grid.ColumnSpan="2" Grid.Row="4" FontWeight="Medium"  FontSize="15" Click="UpdateClick">AŽURIRAJ</Button>
+                <TextBlock 
+                    Grid.Column="1"  
+                    Grid.ColumnSpan="4" 
+                    Margin="19,10,19,53" 
+                    Grid.Row="0" 
+                    FontFamily="Georgia" 
+                    TextAlignment="Center" 
+                    FontWeight="Bold"  
+                    FontSize="17" 
+                    Grid.RowSpan="2" >
+                    AŽURIRANJE IZABRANE<LineBreak></LineBreak>PROSTORIJE</TextBlock>
+                <Label  
+                    Grid.Row="1"   
+                    Content="NAZIV:" 
+                    FontSize="16" 
+                    Style="{StaticResource FormLabel}" 
+                    FontWeight="Medium"  
+                    Grid.RowSpan="2" 
+                    Margin="68,33,51,27" 
+                    Grid.ColumnSpan="3"/>
+                <TextBox 
+                    Name="UpdatedName"
+                    Grid.Column="2" 
+                    Grid.Row="1" 
+                    Grid.ColumnSpan="4" 
+                    Margin="68,34,68,45" 
+                    Grid.RowSpan="2"/>
+                <Label 
+                    Grid.ColumnSpan="3"   
+                    Content="TIP:" 
+                    FontWeight="Medium" 
+                    Style="{StaticResource FormLabel}" 
+                    FontSize="16" 
+                    Grid.Row="2" 
+                    Margin="68,42,63,27" 
+                    Grid.RowSpan="2"/>
+                <ComboBox 
+                    Name="AddUpdatedType"  
+                    ItemsSource="{Binding Path=TypesList}" 
+                    Grid.Column="3" 
+                    Grid.ColumnSpan="3" 
+                    Grid.Row="2" 
+                    Margin="1,42,68,39" 
+                    Grid.RowSpan="2"  />
+                <Button 
+                    Name="UpdateConfirm" 
+                    Grid.Column="2" 
+                    Margin="20,15,20,10" 
+                    Grid.ColumnSpan="2" 
+                    Grid.Row="4" 
+                    FontWeight="Medium"  
+                    FontSize="15" 
+                    Click="UpdateClick">AŽURIRAJ</Button>
             </Grid>
         </Border>
 
 
-        <Border Name="AddRoom" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="5"  Visibility="Collapsed" Style="{StaticResource BorderAdd}" Margin="0,74,5,30">
+        <Border 
+            Name="AddRoom" 
+            Grid.Column="2" 
+            Grid.Row="1" 
+            Grid.ColumnSpan="3" 
+            Grid.RowSpan="5"  
+            Visibility="Collapsed" 
+            Style="{StaticResource BorderAdd}" 
+            Margin="0,74,5,30">
             <Border.Effect>
                 <DropShadowEffect 
              Direction="270"
@@ -228,18 +376,83 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Column="1"  Grid.ColumnSpan="4" Margin="27,10,27,0" Grid.Row="0" FontFamily="Georgia" TextAlignment="Center" FontWeight="Bold"  FontSize="17" >KREIRANJE NOVE<LineBreak></LineBreak>PROSTORIJE</TextBlock>
-                <Label  Grid.Row="1"   Content="NAZIV:" FontSize="16" Style="{StaticResource FormLabel}" FontWeight="Medium"  Grid.RowSpan="2" Margin="51,32,0,15" Grid.ColumnSpan="2"/>
-                <TextBox Name="NewRoomName" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" Margin="10,34,60,45" Grid.RowSpan="2"/>
-                <Label Grid.ColumnSpan="2"   Content="TIP:" FontWeight="Medium" Style="{StaticResource FormLabel}" FontSize="16" Grid.Row="2" Margin="51,20,10,34" Grid.RowSpan="2"/>
-                <ComboBox Name="AddRoomType"  ItemsSource="{Binding Path=TypesList}" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="2" Margin="10,24,60,3"  />
-                <Label Grid.ColumnSpan="3"  Content="SPRAT:"  FontSize="16" Style="{StaticResource FormLabel}" FontWeight="Medium" Grid.Row="3" Margin="51,10,41,4" RenderTransformOrigin="0.67,-0.097"/>
-                <TextBox Name="NewRoomFloor" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="3" Margin="10,10,60,17"  />
-                <Button Name="AddConfirm" Grid.Column="2" Margin="20,15,20,10" Grid.ColumnSpan="2" Grid.Row="4" FontWeight="Medium"  FontSize="15" Click="AddRoomClick">DODAJ</Button>
+                <TextBlock 
+                    Grid.Column="1"  
+                    Grid.ColumnSpan="4" 
+                    Margin="27,10,27,0" 
+                    Grid.Row="0" 
+                    FontFamily="Georgia" 
+                    TextAlignment="Center" 
+                    FontWeight="Bold"  
+                    FontSize="17" >
+                    KREIRANJE NOVE<LineBreak></LineBreak>PROSTORIJE
+                </TextBlock>
+                <Label  
+                    Grid.Row="1"   
+                    Content="NAZIV:" 
+                    FontSize="16" 
+                    Style="{StaticResource FormLabel}" 
+                    FontWeight="Medium"  
+                    Grid.RowSpan="2" 
+                    Margin="51,32,0,15" 
+                    Grid.ColumnSpan="2"/>
+                <TextBox 
+                    Name="NewRoomName" 
+                    Grid.Column="3" 
+                    Grid.Row="1" 
+                    Grid.ColumnSpan="3" 
+                    Margin="10,34,60,45" 
+                    Grid.RowSpan="2"/>
+                <Label 
+                    Grid.ColumnSpan="2"   
+                    Content="TIP:" 
+                    FontWeight="Medium" 
+                    Style="{StaticResource FormLabel}" 
+                    FontSize="16" 
+                    Grid.Row="2" 
+                    Margin="51,20,10,34" 
+                    Grid.RowSpan="2"/>
+                <ComboBox 
+                    Name="AddRoomType"  
+                    ItemsSource="{Binding Path=TypesList}" 
+                    Grid.Column="3" 
+                    Grid.ColumnSpan="3" 
+                    Grid.Row="2" 
+                    Margin="10,24,60,3"  />
+                <Label 
+                    Grid.ColumnSpan="3"  
+                    Content="SPRAT:"  
+                    FontSize="16" 
+                    Style="{StaticResource FormLabel}" 
+                    FontWeight="Medium" 
+                    Grid.Row="3" 
+                    Margin="51,10,41,4" 
+                    RenderTransformOrigin="0.67,-0.097"/>
+                <TextBox 
+                    Name="NewRoomFloor" 
+                    Grid.Column="3" 
+                    Grid.Row="3" 
+                    Grid.ColumnSpan="3" 
+                    Margin="10,10,60,17"  />
+                <Button Name="AddConfirm" 
+                        Grid.Column="2" 
+                        Margin="20,15,20,10" 
+                        Grid.ColumnSpan="2" 
+                        Grid.Row="4" 
+                        FontWeight="Medium"  
+                        FontSize="15" 
+                        Click="AddRoomClick">DODAJ</Button>
             </Grid>
         </Border>
 
-        <Border Name="WarningDelete" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="5" Grid.RowSpan="3"  Visibility="Collapsed" Style="{StaticResource BorderAdd}" Margin="69,20,71,10">
+        <Border Name="WarningDelete" 
+                Grid.Column="1" 
+                Grid.Row="2" 
+                Grid.ColumnSpan="5" 
+                Grid.RowSpan="3"  
+                Visibility="Collapsed" 
+                Style="{StaticResource BorderAdd}" 
+                Margin="69,20,71,10">
             <Border.Effect>
                 <DropShadowEffect 
              Direction="280"
@@ -261,10 +474,51 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Column="1"  Grid.ColumnSpan="4" Margin="46,29,51,64" Grid.Row="0" FontFamily="Georgia" TextAlignment="Center" FontWeight="Bold"  FontSize="20" Grid.RowSpan="2" >UPOZORENJE</TextBlock>
-                <TextBlock Grid.Column="0"  Grid.ColumnSpan="6" Margin="0,20,0,0" Grid.Row="1" FontFamily="Georgia" TextAlignment="Center" FontWeight="Medium"  FontSize="17" >Da li ste sigurni da želite da obrišete izabranu prostoriju?</TextBlock>
-                <Button Name="CDelete" Grid.Column="1"  Grid.ColumnSpan="2" Grid.Row="3" Margin="15" FontWeight="Medium"  FontSize="15"  Click="ConfirmDelete">DA</Button>
-                <Button Name="DDelete" Grid.Column="3"  Grid.ColumnSpan="2" Grid.Row="3" Margin="15" FontWeight="Medium"  FontSize="15"  Click="DenyDelete">NE</Button>
+                <TextBlock 
+                    Grid.Column="1"  
+                    Grid.ColumnSpan="4" 
+                    Margin="46,29,51,64" 
+                    Grid.Row="0" 
+                    FontFamily="Georgia" 
+                    TextAlignment="Center" 
+                    FontWeight="Bold"  
+                    FontSize="20" 
+                    Grid.RowSpan="2" >
+                    UPOZORENJE
+                </TextBlock>
+                <TextBlock 
+                    Grid.Column="0"  
+                    Grid.ColumnSpan="6" 
+                    Margin="0,20,0,0" 
+                    Grid.Row="1" 
+                    FontFamily="Georgia" 
+                    TextAlignment="Center" 
+                    FontWeight="Medium"  
+                    FontSize="17" >
+                    Da li ste sigurni da želite da obrišete izabranu prostoriju?
+                </TextBlock>
+                <Button 
+                    Name="CDelete" 
+                    Grid.Column="1"  
+                    Grid.ColumnSpan="2" 
+                    Grid.Row="3" 
+                    Margin="15" 
+                    FontWeight="Medium"  
+                    FontSize="15"  
+                    Click="ConfirmDelete">
+                    DA
+                </Button>
+                <Button 
+                    Name="DDelete" 
+                    Grid.Column="3"  
+                    Grid.ColumnSpan="2" 
+                    Grid.Row="3" 
+                    Margin="15" 
+                    FontWeight="Medium"  
+                    FontSize="15"  
+                    Click="DenyDelete">
+                    NE
+                </Button>
 
             </Grid>
         </Border>
@@ -289,12 +543,72 @@
                        Grid.RowSpan="2"
                        Grid.ColumnSpan="7" Margin="0,0,-11,0"
                        />
-            <Button Name="DrugsButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"  Click="AllDrugsNav" FontSize="12" Margin="0,7,0,10">LEKOVI</Button>
-            <Button Name="EqpButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="2"  Click="AllEqpNav" FontSize="12" Margin="0,7,0,10">OPREMA</Button>
-            <Button Name="RoomAllButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="3"  Click="AllRoomsNav" FontSize="12" Margin="0,7,0,10">PROSTORIJE</Button>
-            <Button Name="StatButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="4"  Click="StatNav" FontSize="12" Margin="0,7,0,10">ANKETA</Button>
-            <Button Name="SettingsButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="5"  Click="SettNav" FontSize="12" Margin="0,7,0,10">PODEŠAVANJA</Button>
-            <Button Name="ProfileButton" Style="{StaticResource navButton}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="6"  Click="ProfileNav" FontSize="12" Margin="0,7,0,10">NALOG</Button>
+            <Button 
+                Name="DrugsButton" 
+                Style="{StaticResource navButton}" 
+                Grid.Row="0" 
+                Grid.RowSpan="2" 
+                Grid.Column="1"  
+                Click="AllDrugsNav" 
+                FontSize="12" 
+                Margin="0,7,0,10">
+                LEKOVI
+            </Button>
+            <Button 
+                Name="EqpButton" 
+                Style="{StaticResource navButton}" 
+                Grid.Row="0" 
+                Grid.RowSpan="2" 
+                Grid.Column="2"  
+                Click="AllEqpNav" 
+                FontSize="12" 
+                Margin="0,7,0,10">
+                OPREMA
+            </Button>
+            <Button 
+                Name="RoomAllButton" 
+                Style="{StaticResource navButton}" 
+                Grid.Row="0" 
+                Grid.RowSpan="2" 
+                Grid.Column="3"  
+                Click="AllRoomsNav" 
+                FontSize="12" 
+                Margin="0,7,0,10">
+                PROSTORIJE
+            </Button>
+            <Button 
+                Name="StatButton" 
+                Style="{StaticResource navButton}" 
+                Grid.Row="0" 
+                Grid.RowSpan="2" 
+                Grid.Column="4"  
+                Click="StatNav" 
+                FontSize="12" 
+                Margin="0,7,0,10">
+                ANKETA
+            </Button>
+            <Button 
+                Name="SettingsButton" 
+                Style="{StaticResource navButton}" 
+                Grid.Row="0" 
+                Grid.RowSpan="2" 
+                Grid.Column="5"  
+                Click="SettNav" 
+                FontSize="12" 
+                Margin="0,7,0,10">
+                PODEŠAVANJA
+            </Button>
+            <Button 
+                Name="ProfileButton" 
+                Style="{StaticResource navButton}" 
+                Grid.Row="0" 
+                Grid.RowSpan="2" 
+                Grid.Column="6"  
+                Click="ProfileNav"
+                FontSize="12" 
+                Margin="0,7,0,10">
+                NALOG
+            </Button>
             <Image HorizontalAlignment="Center"
                    Grid.Row="0" 
                    Grid.RowSpan="2"
@@ -302,7 +616,14 @@
                    Source="/Resources/Icons/Hospital.png" Margin="0,2,0,5"/>
         </Grid>
 
-        <Frame Name="MainFrame"  Grid.Row="1" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="5" NavigationUIVisibility="Hidden"></Frame>
+        <Frame Name="MainFrame" 
+               Grid.Row="1" 
+               Grid.RowSpan="5" 
+               Grid.Column="1"
+               Grid.ColumnSpan="5"
+               NavigationUIVisibility="Hidden">
+            
+        </Frame>
 
     </Grid>
 </Window>

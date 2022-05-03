@@ -31,7 +31,7 @@ namespace Service
             return eqpMen_Repository.GetAll();
         }
 
-        public List<EquipmentDisplay> GetAllForPreview()
+        public List<EquipmentDisplay> GetAllDis()
         {
             List<Equipment> eqs = this.equipment_Repository.GetAll();
             List<EquipmentDisplay> eqsDisplay = new List<EquipmentDisplay>();

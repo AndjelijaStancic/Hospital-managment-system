@@ -75,6 +75,9 @@ namespace Repository
                 if (equipment.idEquipment > id)
                 {
                     id = equipment.idEquipment;
+                }else if(equipment.idEquipment == null)
+                {
+                    id = 0;
                 }
             }
             return id;
