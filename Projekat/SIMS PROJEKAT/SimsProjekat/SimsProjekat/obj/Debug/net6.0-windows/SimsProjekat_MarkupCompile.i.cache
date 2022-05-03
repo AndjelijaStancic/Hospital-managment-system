@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Andjelija\Desktop\SIMS\Projekat\SIMS PROJEKAT\SimsProjekat\SimsProjekat\obj\Debug\net6.0-windows\
+C:\Users\Djole\Desktop\Sims_Projekat\Sims\Projekat\SIMS PROJEKAT\SimsProjekat\SimsProjekat\obj\Debug\net6.0-windows\
 SimsProjekat
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Andjelija\Desktop\SIMS\Projekat\SIMS PROJEKAT\SimsProjekat\SimsProjekat\App.xaml
+C:\Users\Djole\Desktop\Sims_Projekat\Sims\Projekat\SIMS PROJEKAT\SimsProjekat\SimsProjekat\App.xaml
 9915758284
 
 411924728504
-1941645785384
+194-1951243044
 AppointmentCrud.xaml;Doctor.xaml;EqPages.xaml;EquipmentPage.xaml;LoginWindow.xaml;Patient.xaml;RoomOperations.xaml;RoomsPage.xaml;Secretary.xaml;
 
-True
+False
 

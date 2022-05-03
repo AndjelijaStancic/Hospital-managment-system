@@ -23,5 +23,11 @@ namespace SimsProjekat
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var crud = new AppointmentCrud();
+            crud.Show();
+        }
     }
 }

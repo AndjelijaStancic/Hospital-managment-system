@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="Patient" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">
+            PACIJENT
+        </Label>
+
+        <Button Grid.Row="1" Margin="40" FontSize="18" Click="Button_Click"> Upravljanje terminima </Button>
     </Grid>
 </Window>
