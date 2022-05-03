@@ -22,23 +22,28 @@ namespace Controller
       {
          throw new NotImplementedException();
       }
-      
-      public Appointment AddAppointment(Appointment newAppointment)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Appointment ChangeAppointment(Appointment movedAppointment, int oldAppointmentId)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool DeleteAppointment(int appointmentId)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Service.AppointmentService appointmentService;
+
+        public List<Appointment> GetAll()
+        {
+            return _appointmentService.GetAll();
+        }
+
+        public Appointment AddAppointment(Appointment newAppointment)
+        {
+            return _appointmentService.AddAppointment(newAppointment);
+        }
+
+        public Appointment ChangeAppointment(Appointment appointment)
+        {
+            return _appointmentService.Update(appointment);
+        }
+
+        public bool DeleteAppointment(int appointmentId)
+        {
+            return _appointmentService.DeleteAppointment(appointmentId);
+        }
+
+        public Service.AppointmentService appointmentService;
    
    }
 }

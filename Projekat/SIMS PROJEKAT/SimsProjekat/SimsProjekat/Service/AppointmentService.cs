@@ -20,27 +20,30 @@ namespace Service
             _appointmentRepository = appointmentRepository;
         }
 
+        public List<Appointment> GetAll()
+        {
+            return _appointmentRepository.GetAll();
+        }
         public List<Appointment> ShowAppointments(int userId)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Appointment AddAppointment(Appointment newAppointment)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Appointment ChangeAppointment(Appointment movedAppointment, int oldAppointmentId)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public bool DeleteAppointment(int appointmentId)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Repository.AppointmentRepository appointmentRepository2;
-   
-   }
+        {
+            throw new NotImplementedException();
+        }
+
+        public Appointment AddAppointment(Appointment appointment)
+        {
+            return _appointmentRepository.Create(appointment);
+        }
+
+        public Appointment Update(Appointment appointment)
+        {
+            return _appointmentRepository.Update(appointment);
+        }
+
+        public bool DeleteAppointment(int appointmentId)
+        {
+            return _appointmentRepository.Delete(appointmentId);
+        }
+
+
+    }
 }

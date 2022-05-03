@@ -9,12 +9,32 @@ namespace Model
 {
    public class Appointment
    {
-      private int id;
-      private DateTime beggining;
-      private DateTime ending;
-      private Boolean urgent;
-      
-      
-   
-   }
+        public int Id { get; set; }
+        public DateTime Beggining { get; set; }
+        public DateTime Ending { get; set; }
+        public Boolean Urgent { get; set; }
+
+        //public Patient patient;
+        //public Guest guest;
+        //public Doctor doctor;
+        //public Room room;
+
+        public Appointment(int id, DateTime beggining, DateTime ending, Boolean urgent)
+        {
+            Id = id;
+            Beggining = beggining;
+            Ending = ending;
+            Urgent = urgent;
+        }
+
+        public Appointment(int id, DateTime beggining, DateTime ending)
+        {
+            Id = id;
+            Beggining = beggining;
+            Ending = ending;
+
+        }
+
+
+    }
 }

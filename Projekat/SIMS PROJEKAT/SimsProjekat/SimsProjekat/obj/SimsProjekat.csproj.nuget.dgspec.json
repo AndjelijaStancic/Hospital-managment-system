@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Andjelija\\Desktop\\SIMS\\Projekat\\SIMS PROJEKAT\\SimsProjekat\\SimsProjekat\\SimsProjekat.csproj": {}
+    "C:\\Users\\Djole\\Desktop\\Sims_Projekat\\Sims\\Projekat\\SIMS PROJEKAT\\SimsProjekat\\SimsProjekat\\SimsProjekat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Andjelija\\Desktop\\SIMS\\Projekat\\SIMS PROJEKAT\\SimsProjekat\\SimsProjekat\\SimsProjekat.csproj": {
+    "C:\\Users\\Djole\\Desktop\\Sims_Projekat\\Sims\\Projekat\\SIMS PROJEKAT\\SimsProjekat\\SimsProjekat\\SimsProjekat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Andjelija\\Desktop\\SIMS\\Projekat\\SIMS PROJEKAT\\SimsProjekat\\SimsProjekat\\SimsProjekat.csproj",
+        "projectUniqueName": "C:\\Users\\Djole\\Desktop\\Sims_Projekat\\Sims\\Projekat\\SIMS PROJEKAT\\SimsProjekat\\SimsProjekat\\SimsProjekat.csproj",
         "projectName": "SimsProjekat",
-        "projectPath": "C:\\Users\\Andjelija\\Desktop\\SIMS\\Projekat\\SIMS PROJEKAT\\SimsProjekat\\SimsProjekat\\SimsProjekat.csproj",
-        "packagesPath": "C:\\Users\\Andjelija\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Andjelija\\Desktop\\SIMS\\Projekat\\SIMS PROJEKAT\\SimsProjekat\\SimsProjekat\\obj\\",
+        "projectPath": "C:\\Users\\Djole\\Desktop\\Sims_Projekat\\Sims\\Projekat\\SIMS PROJEKAT\\SimsProjekat\\SimsProjekat\\SimsProjekat.csproj",
+        "packagesPath": "C:\\Users\\Djole\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Djole\\Desktop\\Sims_Projekat\\Sims\\Projekat\\SIMS PROJEKAT\\SimsProjekat\\SimsProjekat\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Andjelija\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Djole\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
