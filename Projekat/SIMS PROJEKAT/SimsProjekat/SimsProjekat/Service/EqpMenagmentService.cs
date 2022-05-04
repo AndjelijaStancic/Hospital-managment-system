@@ -11,24 +11,24 @@ namespace Service
 {
     public class EqpMenagmentService
     {
-        public readonly EqpMenagmentRepository eqpMenagmentService_Repository;
+        public readonly EqpMenagmentRepository eqpMenagment_Repository;
         public readonly RoomRepository room_Repository;
 
         public EqpMenagmentService(EqpMenagmentRepository EqpMenagmentServiceRepository, RoomRepository roomRepository)
         {
-            eqpMenagmentService_Repository = EqpMenagmentServiceRepository;
+            eqpMenagment_Repository = EqpMenagmentServiceRepository;
             room_Repository = roomRepository;
         }
 
         public List<EquipmentMenagment> GetAll()
         {
-            return eqpMenagmentService_Repository.GetAll();
+            return eqpMenagment_Repository.GetAll();
         }
 
 
         public EquipmentMenagment Create(EquipmentMenagment equipment)
         {
-            return eqpMenagmentService_Repository.Create(equipment);
+            return eqpMenagment_Repository.Create(equipment);
         }
     }
 }

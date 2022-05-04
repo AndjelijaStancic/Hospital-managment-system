@@ -23,9 +23,11 @@ namespace SimsProjekat
     public partial class RoomOperations : Window
     {
         private RoomController room_Controller;
+        private RenovationController reno_Controller;
 
         public event PropertyChangedEventHandler PropertyChangedEvent;
         public List<Room> Rooms { get; set; }
+        public List<Renovation> Renovations { get; set; }
         public List<String> Names { get; set; }
         public List<int> Floors { get; set; }
         public List<RoomType> TypesList { get; set; }
@@ -36,7 +38,9 @@ namespace SimsProjekat
             InitializeComponent();
             var app = Application.Current as App;
             room_Controller = app.RoomController;
+            reno_Controller = app.RenovationController;
 
+            this.Renovations = reno_Controller.GetAll();
             this.Rooms = room_Controller.GetAll();
             this.Names = new List<String>();
             this.Floors = new List<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -69,7 +73,7 @@ namespace SimsProjekat
         {
             AllRoomsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
             AddRoomButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF142223");
-            RenovationButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF142223");
+            
             AllRooms.Visibility = Visibility.Visible;
             AddRoom.Visibility = Visibility.Collapsed;
             UpdateRoom.Visibility = Visibility.Collapsed;
@@ -79,7 +83,7 @@ namespace SimsProjekat
         {
             AllRoomsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF142223");
             AddRoomButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
-            RenovationButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF142223");
+            
             AllRooms.Visibility = Visibility.Collapsed;
             AddRoom.Visibility = Visibility.Visible;
             UpdateRoom.Visibility = Visibility.Collapsed;
@@ -94,7 +98,7 @@ namespace SimsProjekat
          RefreshSource();
          AllRoomsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
          AddRoomButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF142223");
-         RenovationButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF142223");
+         
 
         }
 
@@ -155,7 +159,7 @@ namespace SimsProjekat
 
         private void AllDrugsNav(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new RoomsPage();
+            //MainFrame.Content = new RoomsPage();
         }
 
         private void AllEqpNav(object sender, RoutedEventArgs e)
@@ -185,7 +189,30 @@ namespace SimsProjekat
 
         private void ProfileNav(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new EqPages();
+            //MainFrame.Content = new EqPages();
+        }
+
+        private void renovationButton(object sender, RoutedEventArgs e)
+        {
+            RenoMenagment.Visibility = Visibility.Visible;
+            AddRoom.Visibility = Visibility.Collapsed;
+            UpdateRoom.Visibility = Visibility.Collapsed;
+        }
+
+        private void renoConfirmClick(object sender, RoutedEventArgs e)
+        {
+            int roomId = -1;
+            roomId = ((Room)GridRoom.SelectedItem).Id;
+            DateTime startReno = DateTime.Parse(start.Text);
+            DateTime endReno = DateTime.Parse(finish.Text);
+            Renovation renovation = new Renovation(-1, roomId, startReno, endReno, descriptionReno.Text);
+            reno_Controller.Create(renovation);
+            RenoMenagment.Visibility = Visibility.Collapsed;
+            AddRoom.Visibility = Visibility.Collapsed;
+            UpdateRoom.Visibility = Visibility.Collapsed;
+            AllRooms.Visibility = Visibility.Visible;
+
+
         }
     }
 }

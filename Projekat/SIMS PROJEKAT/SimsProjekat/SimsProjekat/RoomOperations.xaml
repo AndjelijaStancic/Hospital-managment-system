@@ -114,7 +114,7 @@
             Style="{StaticResource roomButton}" 
             Height="50" 
             Grid.Row="1" 
-            Grid.Column="3"  
+            Grid.Column="4"  
             Click="AllRoomButton" 
             FontSize="16" 
             Margin="0,6,5,18">
@@ -124,21 +124,12 @@
             Style="{StaticResource roomButton}" 
             Height="50" 
             Grid.Row="1" 
-            Grid.Column="4" 
+            Grid.Column="5" 
             Click="AddButton" 
             FontSize="16" 
             Margin="0,6,5,18">
             KREIRANJE</Button>
-        <Button 
-            Name="RenovationButton" 
-            Style="{StaticResource roomButton}" 
-            Height="50" 
-            Grid.Row="1" 
-            Grid.Column="5" 
-            Click="RenovateButton" 
-            FontSize="16" 
-            Margin="0,6,4,18">
-            RENOVACIJA</Button>
+
 
         <Border 
             Name="AllRooms" 
@@ -195,13 +186,13 @@
                             CellStyle="{StaticResource Column}"/>
                         <DataGridTextColumn 
                             Header="Sprat" 
-                            Width="2.3*"   
+                            Width="4*"   
                             Binding="{Binding Floor}" 
                             HeaderStyle="{StaticResource Header}" 
                             CellStyle="{StaticResource Column}"/>
                         <DataGridTemplateColumn 
                             Header="Ažuriranje" 
-                            Width="4*" 
+                            Width="5*" 
                             HeaderStyle="{StaticResource Header}" 
                             CellStyle="{StaticResource Column}">
                             <DataGridTemplateColumn.CellTemplate>
@@ -236,6 +227,31 @@
                                         Name="deleteButton" 
                                         Content="obriši" 
                                         Click="delButton" 
+                                        Style="{StaticResource DeleteButton}">
+                                        <Button.BitmapEffect>
+                                            <DropShadowBitmapEffect 
+                                                Color="#FF007DA7" 
+                                                Direction="320" 
+                                                Softness="1" 
+                                                ShadowDepth="10" 
+                                                Opacity="0.5" />
+                                        </Button.BitmapEffect>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn 
+                            Header="Renovacija" 
+                            Width="5*" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}">
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button 
+                                        Name="renoButton" 
+                                        Content="renovacija" 
+                                        Click="renovationButton" 
                                         Style="{StaticResource DeleteButton}">
                                         <Button.BitmapEffect>
                                             <DropShadowBitmapEffect 
@@ -445,6 +461,108 @@
             </Grid>
         </Border>
 
+        <Border 
+            Name="RenoMenagment" 
+            Grid.Row="2" 
+            Grid.ColumnSpan="3"
+            Grid.RowSpan="4"  
+            Visibility="Collapsed" 
+            Style="{StaticResource BorderAdd}"
+            Grid.Column="2" Margin="10,52,10,39">
+            <Border.Effect>
+                <DropShadowEffect 
+             Direction="270"
+             Opacity="0.8"
+             ShadowDepth="10"
+             BlurRadius="15" />
+
+            </Border.Effect>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock  
+                    Grid.ColumnSpan="6" 
+                    Margin="67,10,63,37" 
+                    Grid.Row="0" 
+                    FontFamily="Georgia" 
+                    TextAlignment="Center" 
+                    FontWeight="Bold" 
+                    FontSize="14" 
+                    Grid.RowSpan="2" >
+                    ZAKAZIVANJE RENOVACIJE
+                </TextBlock>
+                <Label 
+                    Grid.ColumnSpan="3"   
+                    Content="Početak:" 
+                    FontWeight="Medium"
+                    Style="{StaticResource FormLabel}" 
+                    FontSize="16" 
+                    Grid.Row="1" 
+                    Margin="52,10,33,7" RenderTransformOrigin="0.542,0.135"/>
+                <DatePicker  
+                    Margin="10,10,52,7" 
+                    Name="start" 
+                    Grid.Column="3"
+                    Grid.Row="1" 
+                    Grid.ColumnSpan="3"/>
+
+                <Label 
+                    Grid.Row="2"   
+                    Content="Kraj:" 
+                    FontSize="16" 
+                    Style="{StaticResource FormLabel}"
+                    FontWeight="Medium" 
+                    Grid.RowSpan="2" 
+                    Margin="52,13,33,38" 
+                    Grid.ColumnSpan="3"/>
+                <DatePicker  
+                    Margin="10,10,52,7" 
+                    Name="finish" 
+                    Grid.Column="3"
+                    Grid.Row="2" 
+                    Grid.ColumnSpan="3"/>
+                <Label  
+                    Grid.Row="3"   
+                    Content="Opis renovacije:" 
+                    FontSize="16" 
+                    Style="{StaticResource FormLabel}" 
+                    FontWeight="Medium"  
+                    Grid.RowSpan="2" 
+                    Margin="52,12,10,35" 
+                    Grid.ColumnSpan="3"/>
+                <TextBox 
+                    Name="descriptionReno"
+                    Grid.Column="3" 
+                    Grid.Row="3" 
+                    Margin="10,10,0,0" HorizontalAlignment="Left" Width="140" Grid.ColumnSpan="3"/>
+                <Button
+                    Name="renoConfirm" 
+                    Grid.Column="2" 
+                    Margin="0,10,0,10"
+                    Grid.ColumnSpan="2" 
+                    Grid.Row="4" 
+                    FontWeight="Medium" 
+                    FontSize="14" 
+                    Click="renoConfirmClick">
+                    potvrdi
+                </Button>
+            </Grid>
+        </Border>
+
+
         <Border Name="WarningDelete" 
                 Grid.Column="1" 
                 Grid.Row="2" 
@@ -554,6 +672,8 @@
                 Margin="0,7,0,10">
                 LEKOVI
             </Button>
+
+
             <Button 
                 Name="EqpButton" 
                 Style="{StaticResource navButton}" 
@@ -616,14 +736,14 @@
                    Source="/Resources/Icons/Hospital.png" Margin="0,2,0,5"/>
         </Grid>
 
-        <Frame Name="MainFrame" 
+        <!--<Frame Name="MainFrame" 
                Grid.Row="1" 
                Grid.RowSpan="5" 
                Grid.Column="1"
                Grid.ColumnSpan="5"
                NavigationUIVisibility="Hidden">
-            
-        </Frame>
+
+        </Frame>-->
 
     </Grid>
 </Window>
