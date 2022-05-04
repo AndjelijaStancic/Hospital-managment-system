@@ -10,6 +10,9 @@
     <Compile Update="AppointmentCrud.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CreateAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Doctor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,12 +31,18 @@
     <Compile Update="RoomsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ScheduleAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Secretary.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AppointmentCrud.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CreateAppointment.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Doctor.xaml">
@@ -52,6 +61,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RoomsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ScheduleAppointment.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Secretary.xaml">

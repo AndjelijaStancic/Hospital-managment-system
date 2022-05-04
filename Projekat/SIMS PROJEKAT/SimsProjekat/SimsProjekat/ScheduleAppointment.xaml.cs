@@ -15,25 +15,13 @@ using System.Windows.Shapes;
 namespace SimsProjekat
 {
     /// <summary>
-    /// Interaction logic for Patient.xaml
+    /// Interaction logic for ScheduleAppointment.xaml
     /// </summary>
-    public partial class Patient : Window
+    public partial class ScheduleAppointment : Window
     {
-        public Patient()
+        public ScheduleAppointment()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var crud = new AppointmentCrud();
-            crud.Show();
-        }
-
-        private void ScheduleAppointment(object sender, RoutedEventArgs e)
-        {
-            var btn = new ScheduleAppointment();
-            btn.Show();
         }
     }
 }

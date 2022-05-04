@@ -25,5 +25,7 @@
         </Label>
 
         <Button Grid.Row="1" Margin="40" FontSize="18" Click="Button_Click"> Upravljanje terminima </Button>
+        <Button Grid.Row="1" Grid.Column="1" Margin="40" FontSize="18" Click="ScheduleAppointment">Prijava termina</Button>
+         
     </Grid>
 </Window>

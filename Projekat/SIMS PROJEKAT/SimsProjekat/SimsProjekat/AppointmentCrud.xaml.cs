@@ -23,5 +23,17 @@ namespace SimsProjekat
         {
             InitializeComponent();
         }
+
+        private void AddButton(object sender, RoutedEventArgs e)
+        {
+            var btn = new CreateAppointment();
+            btn.Show();
+        }
+
+        private void ShowAppointmentsButton_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = new AppointmentCrud();
+            btn.Show();
+        }
     }
 }
