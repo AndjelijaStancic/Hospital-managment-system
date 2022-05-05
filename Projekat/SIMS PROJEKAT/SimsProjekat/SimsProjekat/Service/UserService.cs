@@ -18,7 +18,7 @@ namespace Service
 
         public User GetById(int id)
         {
-            return user_Repository.GetOne(id);
+            return user_Repository.GetById(id);
         }
 
         public List<User> GetAll()

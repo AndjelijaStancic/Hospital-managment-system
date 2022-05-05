@@ -85,7 +85,7 @@
                              StartPoint="0.4,0">
 
             <GradientStop Color="#FF226A79"
-                          Offset="0.400" />
+                          Offset="0.600" />
 
             <GradientStop Color="#FF0F1114"
                           Offset="0" />

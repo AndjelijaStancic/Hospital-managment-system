@@ -8,19 +8,19 @@ using System.IO;
 
 namespace Repository
 {
-    public class UserRepository
+    public class AccRepository
     {
         private string Path;
         private string Delimiter;
 
 
-        public UserRepository(string path, string delimiter)
+        public AccRepository(string path, string delimiter)
         {
             Path = path;
             Delimiter = delimiter;
         }
 
-        public string ConvertToCsvDirector(User u)
+        public string ConvertToCsvUser(User u)
         {
             return string.Join(Delimiter,
                 u.Id,
@@ -61,18 +61,16 @@ namespace Repository
         {
             return File.ReadAllLines(Path).Select(ConvertUser).ToList();
         }
-        public User GetById(int id)
+        public User GetOne()
         {
             List<User> users = GetAll().ToList();
             User user1 = new User(-1, "", "", "", DateTime.Parse("1 / 1 / 1000 12:00:00 AM"), "", "", "", "", "", "");
             foreach (User user in users)
             {
-                if (user.Id == id)
+                if (user.Role == "Director")
                     user1 = user;
             }
             return user1;
         }
-
-
     }
 }

@@ -190,6 +190,8 @@ namespace SimsProjekat
         private void ProfileNav(object sender, RoutedEventArgs e)
         {
             //MainFrame.Content = new EqPages();
+            var acc = new Nalog();
+            acc.Show();
         }
 
         private void renovationButton(object sender, RoutedEventArgs e)
