@@ -26,6 +26,10 @@ namespace Controller
         {
             return equipment_Service.GetAllDis();
         }
+        public List<EquipmentDisplay> DinEqpDisplay()
+        {
+            return equipment_Service.DinEqpDisplay();
+        }
         public List<EquipmentDisplay> GetEqpDisplay()
         {
             return equipment_Service.GetEqpDisplay();

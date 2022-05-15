@@ -22,6 +22,11 @@ namespace Service
             return acc_Repository.GetOne();
         }
 
+        public User GetById(int id)
+        {
+            return acc_Repository.GetById(id);
+        }
+
         public List<User> GetAll()
         {
             return acc_Repository.GetAll();

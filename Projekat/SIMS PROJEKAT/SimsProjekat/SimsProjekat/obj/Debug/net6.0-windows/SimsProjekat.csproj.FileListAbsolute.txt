@@ -95,3 +95,5 @@ C:\Users\Andjelija\Desktop\SIMS\Projekat\SIMS PROJEKAT\SimsProjekat\SimsProjekat
 C:\Users\Andjelija\Desktop\SIMS\Projekat\SIMS PROJEKAT\SimsProjekat\SimsProjekat\obj\Debug\net6.0-windows\Secretary.baml
 C:\Users\Andjelija\Desktop\SIMS\Projekat\SIMS PROJEKAT\SimsProjekat\SimsProjekat\obj\Debug\net6.0-windows\Nalog.g.cs
 C:\Users\Andjelija\Desktop\SIMS\Projekat\SIMS PROJEKAT\SimsProjekat\SimsProjekat\obj\Debug\net6.0-windows\Nalog.baml
+C:\Users\Andjelija\Desktop\SIMS\Projekat\SIMS PROJEKAT\SimsProjekat\SimsProjekat\obj\Debug\net6.0-windows\DrugPage.g.cs
+C:\Users\Andjelija\Desktop\SIMS\Projekat\SIMS PROJEKAT\SimsProjekat\SimsProjekat\obj\Debug\net6.0-windows\DrugPage.baml

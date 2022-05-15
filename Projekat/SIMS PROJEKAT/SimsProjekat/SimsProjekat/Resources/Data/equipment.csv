@@ -1,7 +1,37 @@
-1,aaa,1,S,21
-3,dyn,600,D,22
-5,hhh,1,S,20
-6,oii,1,S,10
-7,hh,600,D,22
-8,uu,1,S,20
-9,ss,1,S,20
+1;rengen;1;S;21
+3;zavoj;50;D;22
+5;stalak za infuziju;1;S;20
+6;toplomer;1;S;10
+7;gaze;70;D;22
+8;respirator;60;S;20
+9;stetoskop;7;S;20
+10;defiblirator;6;S;20
+11;gaza;100;D;22
+12;zavoj;100;D;21
+13;rukavice;30;D;10
+14;skalpel;15;D;10
+15;mantil;10;D;21
+16;defiblirator;6;S;10
+17;gaza;100;D;10
+18;zavoj;100;D;10
+19;rukavice;30;D;22
+20;skalpel;15;D;22
+21;mantil;10;D;10
+22;defiblirator;6;S;24
+23;gaza;100;D;24
+24;zavoj;100;D;24
+25;rukavice;30;D;24
+26;skalpel;15;D;24
+27;mantil;10;D;24
+28;rengen;1;S;24
+29;stalak za infuziju;1;S;24
+30;toplomer;1;S;24
+31;respirator;60;S;24
+32;stetoskop;7;S;24
+33;defiblirator;6;S;24
+34;rengen;1;S;23
+35;stalak za infuziju;1;S;23
+36;toplomer;1;S;23
+38;respirator;60;S;23
+39;stetoskop;7;S;23
+40;defiblirator;6;S;23

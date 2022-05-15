@@ -8,7 +8,8 @@
         Title="Nalog"
         Height="485"
         Width="857"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        >
     <Window.Resources>
         <Style x:Key="navButton" TargetType="Button">
             <Setter Property="FontFamily" Value="Georgia"></Setter>
@@ -37,7 +38,7 @@
                    Width="580" />
 
         <Grid Background="#FF13546A"
-              Margin="156,115,156,84">
+              Margin="156,115,156,68">
             <Grid.Effect>
                 <DropShadowEffect 
                 Direction="270"
@@ -60,7 +61,8 @@
                      Height="24"
                      FontSize="16"
                      FontFamily="Georgia"
-                     Margin="367,50,0,0"
+                     FontWeight="Bold"
+                     Margin="367,52,0,0"
                      Name="Name"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
@@ -76,13 +78,14 @@
                    VerticalAlignment="Top" 
                    Margin="213,98,0,0" />
             <TextBox HorizontalAlignment="Left"
-                     Height="21"
-                     Margin="367,204,0,0"
+                     Height="20"
+                     Margin="367,193,0,0"
                      Background="#FF13546A"
                      BorderBrush="#FF13546A"
                      Foreground="White"
                      FontSize="16"
                      FontFamily="Georgia"
+                     FontWeight="Bold"
                      Name="Email"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
@@ -102,9 +105,10 @@
                      Background="#FF13546A"
                      BorderBrush="#FF13546A"
                      Foreground="White"
-                     Margin="367,148,0,0"
+                     Margin="367,151,0,0"
                      Name="UserName"
                      TextWrapping="Wrap"
+                     FontWeight="Bold"
                      VerticalAlignment="Top"
                      FontSize="16"
                      FontFamily="Georgia"
@@ -117,17 +121,18 @@
                    
                    Foreground="White"
                    FontSize="18"
-                   Margin="213,205,0,0"
+                   Margin="213,190,0,0"
                    FontFamily="Georgia"
-                   VerticalAlignment="Top" Width="104" Height="41" />
+                   VerticalAlignment="Top" Width="104" Height="46" />
             <TextBox HorizontalAlignment="Left"
                      Height="28"
                      FontSize="16"
                      FontFamily="Georgia"
+                     FontWeight="Bold"
                      Background="#FF13546A"
                      BorderBrush="#FF13546A"
                      Foreground="White"
-                     Margin="367,98,0,0"
+                     Margin="367,102,0,0"
                      Name="Surname"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
@@ -135,11 +140,12 @@
                      RenderTransformOrigin="0.464,0.565">
             </TextBox>
             <Image HorizontalAlignment="Left"
-                   Height="175"
+                   Height="158"
                    VerticalAlignment="Top"
                    Width="158"
+                   Stretch="Uniform"
                    Source="/Resources/Icons/profile5.png" 
-                   Margin="18,63,0,0" 
+                   Margin="17,61,0,0" 
                    RenderTransformOrigin="0.5,0.5" >
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -174,13 +180,15 @@
             </Grid.RowDefinitions>
             <Grid Grid.ColumnSpan="7"  Grid.RowSpan="1">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="0*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.7*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -190,14 +198,20 @@
                 <Rectangle Fill="Black"
                        Opacity="0.4"
                        Grid.RowSpan="2"
-                       Grid.ColumnSpan="7" Margin="0,0,-11,0"
+                       Grid.ColumnSpan="9" Margin="0,0,-11,0" HorizontalAlignment="Right" Width="858"
                        />
+                <Image HorizontalAlignment="Center"
+                   Grid.Row="0" 
+                   Grid.RowSpan="2"
+                   Width="46"
+                   Source="/Resources/Icons/hospital.png" Margin="0,2,0,5"/>
+
                 <Button 
                 Name="DrugsButton" 
                 Style="{StaticResource navButton}" 
                 Grid.Row="0" 
                 Grid.RowSpan="2" 
-                Grid.Column="0"  
+                Grid.Column="1"  
                 Click="AllDrugsNav" 
                 FontSize="12" 
                 Margin="0,7,0,10">
@@ -210,7 +224,7 @@
                 Style="{StaticResource navButton}" 
                 Grid.Row="0" 
                 Grid.RowSpan="2" 
-                Grid.Column="1"  
+                Grid.Column="2"  
                 Click="AllEqpNav" 
                 FontSize="12" 
                 Margin="0,7,0,10">
@@ -221,7 +235,7 @@
                 Style="{StaticResource navButton}" 
                 Grid.Row="0" 
                 Grid.RowSpan="2" 
-                Grid.Column="2"  
+                Grid.Column="3"  
                 Click="AllRoomsNav" 
                 FontSize="12" 
                 Margin="0,7,0,10">
@@ -232,7 +246,7 @@
                 Style="{StaticResource navButton}" 
                 Grid.Row="0" 
                 Grid.RowSpan="2" 
-                Grid.Column="3"  
+                Grid.Column="4"  
                 Click="StatNav" 
                 FontSize="12" 
                 Margin="0,7,0,10">
@@ -243,7 +257,7 @@
                 Style="{StaticResource navButton}" 
                 Grid.Row="0" 
                 Grid.RowSpan="2" 
-                Grid.Column="4"  
+                Grid.Column="5"  
                 Click="SettNav" 
                 FontSize="12" 
                 Margin="0,7,0,10">
@@ -254,7 +268,7 @@
                 Style="{StaticResource navButton}" 
                 Grid.Row="0" 
                 Grid.RowSpan="2" 
-                Grid.Column="5"  
+                Grid.Column="6"  
                 Click="ProfileNav"
                 FontSize="12" 
                 Margin="0,7,0,10">
@@ -263,11 +277,11 @@
                 <Button 
                 Name="LogOutButton" 
                 Style="{StaticResource navButton}" 
-                Grid.Row="0" 
+                Grid.Row="0"
                 Grid.RowSpan="2" 
-                Grid.Column="6"  
+                Grid.Column="8"  
                 Click="LogOutClick"
-                FontSize="10" 
+                FontSize="12"
                 Margin="0,7,-11,10">
                     ODJAVI SE
                 </Button>

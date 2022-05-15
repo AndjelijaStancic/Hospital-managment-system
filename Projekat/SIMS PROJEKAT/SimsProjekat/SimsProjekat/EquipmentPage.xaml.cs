@@ -30,14 +30,12 @@ namespace SimsProjekat
         private EqpMenagmentController eqpMenagment_Controller;
 
         private RoomController room_Controller;
-
-
         public List<EquipmentDisplay> equipment { get; set; }
+        public List<EquipmentDisplay> equipmentDin { get; set; }
         public List<String> NameEqp { get; set; }
         public List<int> Quantity { get; set; }
         public List<String> RoomName { get; set; }
         public List<String> TypeEqp { get; set; }
-
         public List<Room> Rooms { get; set; }
         public List<String> Names { get; set; }
 
@@ -49,9 +47,6 @@ namespace SimsProjekat
             eqp_Controller = app.EquipmentController;
             eqpMenagment_Controller = app.EqpMenagmentController;
             room_Controller = app.RoomController;
-
-            
-
             this.Rooms = room_Controller.GetAll();
             this.Names = new List<String>();
 
@@ -60,8 +55,7 @@ namespace SimsProjekat
                 Names.Add(room.Name);
             }
             this.equipment = eqp_Controller.GetEqpDisplay();
-            //Console.WriteLine(equipment.Count);
-
+            this.equipmentDin = eqp_Controller.DinEqpDisplay();
             this.NameEqp = new List<String>();
             this.Quantity = new List<int>();
             this.RoomName = new List<String>();
@@ -143,6 +137,23 @@ namespace SimsProjekat
             eqpMenagment_Controller.Create(equipmentMenagment);
             EqpMenagment.Visibility = Visibility.Collapsed;
             RefreshSource1();
+        }
+
+        private void StatEqpButtonDis(object sender, RoutedEventArgs e)
+        {
+            AllEqp.Visibility = Visibility.Visible;
+            AllDinEqp.Visibility = Visibility.Collapsed;
+            DinEqp.Visibility = Visibility.Visible;
+            StatEqp.Visibility = Visibility.Collapsed;
+        }
+
+        private void DinEqpButton(object sender, RoutedEventArgs e)
+        {
+            AllEqp.Visibility = Visibility.Collapsed;
+            AllDinEqp.Visibility = Visibility.Visible;
+            DinEqp.Visibility = Visibility.Collapsed;
+            StatEqp.Visibility = Visibility.Visible;
+            
         }
     }
 }

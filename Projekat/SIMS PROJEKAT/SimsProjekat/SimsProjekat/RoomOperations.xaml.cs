@@ -160,6 +160,8 @@ namespace SimsProjekat
         private void AllDrugsNav(object sender, RoutedEventArgs e)
         {
             //MainFrame.Content = new RoomsPage();
+            var drugsShow = new DrugPage();
+            drugsShow.Show();
         }
 
         private void AllEqpNav(object sender, RoutedEventArgs e)

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 using Repository;
-using Model;
+
 
 namespace Service
 {
@@ -38,6 +38,19 @@ namespace Service
             foreach(Equipment e in eqs)
             {
                 eqsDisplay.Add(new EquipmentDisplay( this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
+            }
+            return eqsDisplay;
+        }
+        public List<EquipmentDisplay> DinEqpDisplay()
+        {
+            List<Equipment> eqp = this.equipment_Repository.GetAll();
+            List<EquipmentDisplay> eqsDisplay = new List<EquipmentDisplay>();
+            foreach (Equipment e in eqp)
+            {
+                if (e.type == "D")
+                {
+                    eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
+                }
             }
             return eqsDisplay;
         }

@@ -59,7 +59,13 @@
             <Setter Property="Background" Value="#FF1F3233"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
         </Style>
-
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="FontFamily" Value="Georgia"></Setter>
+            <Setter Property="FontWeight" Value="Medium"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Margin" Value="0,0,6,0"></Setter>
+            <Setter Property="Background" Value="#FF142223"></Setter>
+        </Style>
         <Style x:Key="Column" TargetType="DataGridCell">
             <Setter Property="BorderBrush" Value="#FF284344"></Setter>
             <Setter Property="Background" Value="#FF375F5F"></Setter>
@@ -109,6 +115,40 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
+        <Border
+            Name="DinEqp" 
+            Visibility="Visible"
+            Grid.Row="1" 
+            Grid.Column="3"
+            Grid.ColumnSpan="2">
+            <Button 
+                Name="DinButton" 
+                Style="{StaticResource Button}" 
+                Grid.Row="1" 
+                Grid.Column="3"
+                Grid.ColumnSpan="2"
+                Click="DinEqpButton" 
+                FontSize="12" 
+                Margin="131,39,68,0">
+                DINAMIČKA OPREMA</Button>
+        </Border>
+        <Border
+            Name="StatEqp" 
+            Visibility="Collapsed"
+            Grid.Row="1" 
+            Grid.Column="3"
+            Grid.ColumnSpan="2">
+            <Button 
+                Name="StatEqpButton" 
+                Style="{StaticResource Button}" 
+                Grid.Row="1" 
+                Grid.Column="3"
+                Grid.ColumnSpan="2"
+                Click="StatEqpButtonDis" 
+                FontSize="12" 
+                Margin="131,39,68,0">
+                STATIČKA OPREMA</Button>
+        </Border>
         <Grid Grid.ColumnSpan="7"  Grid.RowSpan="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -202,7 +242,7 @@
                    Margin="0,2,0,5"/>
         </Grid>
 
-        
+
         <Border 
             Name="AllEqp" 
             Visibility="Visible" 
@@ -240,12 +280,6 @@
                     Style="{StaticResource Table}">
                     <DataGrid.Columns>
                         <DataGridTextColumn 
-                            Header="Prostorija"  
-                            Width="5*"  
-                            Binding="{Binding nameRoom}"  
-                            HeaderStyle="{StaticResource Header}" 
-                            CellStyle="{StaticResource Column}" />
-                        <DataGridTextColumn 
                             Header="Id opreme" 
                             Width="3*"   
                             Binding="{Binding idEquipment}" 
@@ -263,6 +297,12 @@
                             Binding="{Binding quantity}" 
                             HeaderStyle="{StaticResource Header}" 
                             CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Prostorija"  
+                            Width="5*"  
+                            Binding="{Binding nameRoom}"  
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}" />
                         <DataGridTemplateColumn 
                             Header="Premeštanje" 
                             Width="3*" 
@@ -291,6 +331,75 @@
                 </DataGrid>
             </Grid>
         </Border>
+
+
+        <Border 
+            Name="AllDinEqp" 
+            Visibility="Collapsed" 
+            Grid.Column="0"
+            Grid.Row="1" 
+            Grid.RowSpan="5" 
+            Grid.ColumnSpan="5" 
+            Margin="62,78,62,0" >
+            <Grid>
+                <Grid.Effect>
+                    <DropShadowEffect 
+             Direction="270"
+             Opacity="0.8"
+             ShadowDepth="10"
+             BlurRadius="15" />
+                </Grid.Effect>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="0"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="11"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="28"></RowDefinition>
+                </Grid.RowDefinitions>
+                <DataGrid 
+                    Name="GridDinEqw" 
+                    AutoGenerateColumns="False" 
+                    Grid.Row="2" 
+                    Grid.Column="1" 
+                    ItemsSource="{Binding equipmentDin}" 
+                    Style="{StaticResource Table}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn 
+                            Header="Id opreme" 
+                            Width="3*"   
+                            Binding="{Binding idEquipment}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Naziv opreme" 
+                            Width="5*"  
+                            Binding="{Binding name}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Količina opreme" 
+                            Width="4*"   
+                            Binding="{Binding quantity}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Prostorija"  
+                            Width="5*"  
+                            Binding="{Binding nameRoom}"  
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+
+
+
 
         <Border 
             Name="EqpMenagment" 
@@ -356,7 +465,7 @@
                     Grid.RowSpan="2" 
                     Height="24" 
                     VerticalAlignment="Top"/>
-                
+
                 <Label 
                     Grid.Row="2"   
                     Content="DATUM PREMEŠTANJA:" 

@@ -25,5 +25,9 @@ namespace Controller
         {
             return acc_Service.GetAll();
         }
+        public User GetById(int id)
+        {
+            return acc_Service.GetById(id);
+        }
     }
 }

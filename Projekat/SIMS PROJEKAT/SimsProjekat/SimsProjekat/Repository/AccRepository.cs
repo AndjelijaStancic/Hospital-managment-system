@@ -20,6 +20,18 @@ namespace Repository
             Delimiter = delimiter;
         }
 
+        public User GetById(int id)
+        {
+            List<User> users = GetAll().ToList();
+            User user1 = new User(-1, "", "", "", DateTime.Parse("1 / 1 / 1000 12:00:00 AM"), "", "", "", "", "", "");
+            foreach (User user in users)
+            {
+                if (user.Id == id)
+                    user1 = user;
+            }
+            return user1;
+        }
+
         public string ConvertToCsvUser(User u)
         {
             return string.Join(Delimiter,

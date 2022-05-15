@@ -20,12 +20,13 @@ namespace SimsProjekat
             .Split(new string[] { "bin" }, StringSplitOptions.None)[0];
         private string RoomFile = _projectPath + "\\Resources\\Data\\rooms.csv";
         private string EquipmentFile = _projectPath + "\\Resources\\Data\\equipment.csv";
+        private string DrugsFile = _projectPath + "\\Resources\\Data\\drugs.csv";
         private string EqpMenagmentFile = _projectPath + "\\Resources\\Data\\eqpMenagment.csv";
         private string userFile = _projectPath + "\\Resources\\Data\\user.csv";
         private string accFile = _projectPath + "\\Resources\\Data\\user.csv";
         private string renoFile = _projectPath + "\\Resources\\Data\\reno.csv";
         private string APPOINTMENT_FILE = _projectPath + "\\Resources\\Data\\appointments.csv";
-        private const string CSV_DELIMITER = ",";
+        private const string CSV_DELIMITER = ";";
 
         public RoomController RoomController { get; set; }
 
@@ -41,11 +42,19 @@ namespace SimsProjekat
 
         public AccController AccController { get; set; }
 
+        public DrugController DrugController { get; set; }
+
         public App()
         {
             var roomRepository = new RoomRepository(RoomFile, CSV_DELIMITER);
 
             var equipmentRepository = new EquipmentRepository(EquipmentFile, CSV_DELIMITER);
+
+            var drugRepository = new DrugRepository(DrugsFile, CSV_DELIMITER);
+
+            var drugService = new DrugService(drugRepository);
+
+            DrugController = new DrugController(drugService);
 
             var eqpMenagmentRepository = new EqpMenagmentRepository(EqpMenagmentFile, CSV_DELIMITER);
 

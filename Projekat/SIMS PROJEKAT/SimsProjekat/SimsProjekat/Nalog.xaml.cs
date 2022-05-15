@@ -34,7 +34,8 @@ namespace SimsProjekat
             InitializeComponent();
             var app = Application.Current as App;
             acc_Controller = app.AccController;
-            User user = acc_Controller.GetOne();
+            int Id = int.Parse(string.Format("{0}",app.Properties["IdUser"]));
+            User user = acc_Controller.GetById(Id);
             Name.Text = user.FirstName;
             Surname.Text = user.LastName;
             UserName.Text = user.UserName;  
@@ -44,7 +45,11 @@ namespace SimsProjekat
 
         private void LogOutClick(object sender, RoutedEventArgs e)
         {
-
+            var app = Application.Current as App;
+            app.Properties["IdUser"] = -1;
+            app.Properties["Role"] = "null";
+            var logOut = new LoginWindow();
+            logOut.Show();
         }
         private void AllRoomsNav(object sender, RoutedEventArgs e)
         {
