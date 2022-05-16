@@ -22,6 +22,8 @@ namespace Controller
             return equipment_Service.GetAll();
         }
 
+        
+
         public List<EquipmentDisplay> GetAllDisplay()
         {
             return equipment_Service.GetAllDis();

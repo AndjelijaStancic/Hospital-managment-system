@@ -16,11 +16,11 @@ namespace SimsProjekat
     public partial class App : Application
     {
         
-        private static string _projectPath = System.Reflection.Assembly.GetExecutingAssembly().Location
-            .Split(new string[] { "bin" }, StringSplitOptions.None)[0];
+        private static string _projectPath = System.Reflection.Assembly.GetExecutingAssembly().Location.Split(new string[] { "bin" }, StringSplitOptions.None)[0];
         private string RoomFile = _projectPath + "\\Resources\\Data\\rooms.csv";
         private string EquipmentFile = _projectPath + "\\Resources\\Data\\equipment.csv";
         private string DrugsFile = _projectPath + "\\Resources\\Data\\drugs.csv";
+        private string RenoMergeFile = _projectPath + "\\Resources\\Data\\renoMerge.csv";
         private string EqpMenagmentFile = _projectPath + "\\Resources\\Data\\eqpMenagment.csv";
         private string userFile = _projectPath + "\\Resources\\Data\\user.csv";
         private string accFile = _projectPath + "\\Resources\\Data\\user.csv";
@@ -43,6 +43,8 @@ namespace SimsProjekat
         public AccController AccController { get; set; }
 
         public DrugController DrugController { get; set; }
+
+        public RenovationMergeController RenovationMergeController { get; set; }
 
         public App()
         {
@@ -94,6 +96,11 @@ namespace SimsProjekat
 
             AccController = new AccController(accService);
 
+            var renovationMergeRepository = new RenovationMergeRepository(RenoMergeFile, CSV_DELIMITER);
+
+            var renovationMergeService = new RenovationMergeService(renoRepository, roomRepository, renovationMergeRepository);
+
+            RenovationMergeController = new RenovationMergeController(renovationMergeService);
 
         }
     }

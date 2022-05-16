@@ -116,7 +116,50 @@
         </Grid.RowDefinitions>
 
         <Border
+            Name="DinSearchEqp" 
+            Visibility="Visible" 
+            Grid.Column="0"
+            Grid.ColumnSpan="2" Margin="64,39,138,62" Grid.Row="1" Grid.RowSpan="2">
+            <TextBox 
+                Background="#FF34535E"
+                Foreground="White"
+                Name="DinSearchButton" 
+                Grid.Row="1" 
+                FontSize="15" 
+                FontFamily="Georgia" 
+                FontWeight="Medium"
+                Margin="0,20,0,11">
+            </TextBox>
+        </Border>
+
+        <Border
+            Name="confirmSearch" 
+            Visibility="Visible" 
+            Grid.Column="1" Margin="39,39,38,62" Grid.Row="1" Grid.RowSpan="2">
+            <Button
+                Name="confirmSearchButton" 
+                Grid.Row="1" 
+                FontSize="12" 
+                Click="SearchButtonConfirm"
+                Style="{StaticResource Button}"
+                FontFamily="Georgia" 
+                FontWeight="Medium"
+                Margin="0,20,0,10">
+                <DockPanel>
+                    <Image Source="/Resources/Icons/searchIcon.png" Height="13" Width="20"/>
+                    <TextBlock
+                        FontSize="12"
+                        FontFamily="Georgia" 
+                        FontWeight="Medium" Height="17" Width="51">
+                        pretraži
+                    </TextBlock>
+                </DockPanel>
+            </Button>
+        </Border>
+
+        <Border
             Name="DinEqp" 
+            
             Visibility="Visible"
             Grid.Row="1" 
             Grid.Column="3"
@@ -252,13 +295,6 @@
             Grid.ColumnSpan="5" 
             Margin="62,78,62,0" >
             <Grid>
-                <Grid.Effect>
-                    <DropShadowEffect 
-             Direction="270"
-             Opacity="0.8"
-             ShadowDepth="10"
-             BlurRadius="15" />
-                </Grid.Effect>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -342,13 +378,7 @@
             Grid.ColumnSpan="5" 
             Margin="62,78,62,0" >
             <Grid>
-                <Grid.Effect>
-                    <DropShadowEffect 
-             Direction="270"
-             Opacity="0.8"
-             ShadowDepth="10"
-             BlurRadius="15" />
-                </Grid.Effect>
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -397,8 +427,78 @@
                 </DataGrid>
             </Grid>
         </Border>
+        <Border 
+            Name="FilteredEqpS" 
+            Visibility="Collapsed" 
+            Grid.Column="0"
+            Grid.Row="1" 
+            Grid.RowSpan="5" 
+            Grid.ColumnSpan="5" 
+            Margin="62,78,62,0" >
+            <Grid>
+                <Grid.Effect>
+                    <DropShadowEffect 
+             Direction="270"
+             Opacity="0.8"
+             ShadowDepth="10"
+             BlurRadius="15" />
+                </Grid.Effect>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="0"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="11"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="28"></RowDefinition>
+                </Grid.RowDefinitions>
+                <DataGrid 
+                    Name="FilterSEqp" 
+                    AutoGenerateColumns="False" 
+                    Grid.Row="2" 
+                    Grid.Column="1" 
+                    ItemsSource="{Binding equipmentSFiltered}" 
+                    Style="{StaticResource Table}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn 
+                            Header="Id opreme" 
+                            Width="3*"   
+                            Binding="{Binding idEquipment}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Naziv opreme" 
+                            Width="5*"  
+                            Binding="{Binding name}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Količina opreme" 
+                            Width="4*"   
+                            Binding="{Binding quantity}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Prostorija"  
+                            Width="5*"  
+                            Binding="{Binding nameRoom}"  
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
 
-
+            
+            
+            
+            
+            
+            
+            
 
 
         <Border 

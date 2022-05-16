@@ -20,7 +20,7 @@ namespace Controller
 
         public Room GetById(int id)
       {
-            throw new NotImplementedException(); 
+            return room_Service.GetById(id); 
       }
       
       public List<Room> GetAll()

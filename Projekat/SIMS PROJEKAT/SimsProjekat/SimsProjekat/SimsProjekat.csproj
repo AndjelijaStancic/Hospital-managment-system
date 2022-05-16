@@ -10,11 +10,15 @@
   <ItemGroup>
     <None Remove="Resources\Icons\hospital.png" />
     <None Remove="Resources\Icons\profile5.png" />
+    <None Remove="Resources\Icons\search.png" />
+    <None Remove="Resources\Icons\searchIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\Icons\hospital.png" />
     <Resource Include="Resources\Icons\profile5.png" />
+    <Resource Include="Resources\Icons\search.png" />
+    <Resource Include="Resources\Icons\searchIcon.png" />
   </ItemGroup>
 
 </Project>

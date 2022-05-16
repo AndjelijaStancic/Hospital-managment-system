@@ -32,6 +32,8 @@ namespace SimsProjekat
         private RoomController room_Controller;
         public List<EquipmentDisplay> equipment { get; set; }
         public List<EquipmentDisplay> equipmentDin { get; set; }
+
+        public List<EquipmentDisplay> equipmentSFiltered { get; set; }
         public List<String> NameEqp { get; set; }
         public List<int> Quantity { get; set; }
         public List<String> RoomName { get; set; }
@@ -153,6 +155,12 @@ namespace SimsProjekat
             AllDinEqp.Visibility = Visibility.Visible;
             DinEqp.Visibility = Visibility.Collapsed;
             StatEqp.Visibility = Visibility.Visible;
+            
+        }
+
+        private void SearchButtonConfirm(object sender, RoutedEventArgs e)
+        {
+            
             
         }
     }

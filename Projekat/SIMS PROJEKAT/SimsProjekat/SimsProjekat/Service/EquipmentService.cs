@@ -57,7 +57,7 @@ namespace Service
 
         public List<EquipmentDisplay> GetEqpDisplay()
         {
-            List<Equipment> eqp = this.equipment_Repository.GetAll();
+           
             List<EquipmentMenagment> eqpMen = this.eqpMen_Repository.GetAll();
             List<EquipmentDisplay> eqsDisplay = new List<EquipmentDisplay>();
             List<EquipmentMenagment> done = new List<EquipmentMenagment>();
@@ -80,7 +80,7 @@ namespace Service
             {
                 eqpMen_Repository.DeleteEqpMen(doneEqp.idEqp);
             }
-
+            List<Equipment> eqp = this.equipment_Repository.GetAll();
             foreach (Equipment e in eqp)
             {
                 if (e.type == "S")
