@@ -58,6 +58,7 @@ namespace SimsProjekat
             }
             this.equipment = eqp_Controller.GetEqpDisplay();
             this.equipmentDin = eqp_Controller.DinEqpDisplay();
+            
             this.NameEqp = new List<String>();
             this.Quantity = new List<int>();
             this.RoomName = new List<String>();
@@ -158,10 +159,20 @@ namespace SimsProjekat
             
         }
 
+        
         private void SearchButtonConfirm(object sender, RoutedEventArgs e)
         {
-            
-            
+            AllEqp.Visibility = Visibility.Collapsed;
+            AllDinEqp.Visibility = Visibility.Collapsed;
+            DinEqp.Visibility = Visibility.Visible;
+            StatEqp.Visibility = Visibility.Collapsed;
+            FilteredEqpS.Visibility = Visibility.Visible;   
+            String Filter = DinSearchButton.Text;
+            this.equipmentSFiltered = this.eqp_Controller.GetAllFiltered(Filter);
+            GridFiltered.ItemsSource = this.equipmentSFiltered;
+            GridFiltered.Items.Refresh();
+
+
         }
     }
 }

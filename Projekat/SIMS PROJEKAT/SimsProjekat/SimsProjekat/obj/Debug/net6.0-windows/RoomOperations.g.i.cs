@@ -453,7 +453,7 @@ namespace SimsProjekat {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SimsProjekat;component/roomoperations.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SimsProjekat;V1.0.0.0;component/roomoperations.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\RoomOperations.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

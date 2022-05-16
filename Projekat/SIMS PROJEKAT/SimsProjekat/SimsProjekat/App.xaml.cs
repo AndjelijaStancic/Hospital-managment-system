@@ -21,6 +21,7 @@ namespace SimsProjekat
         private string EquipmentFile = _projectPath + "\\Resources\\Data\\equipment.csv";
         private string DrugsFile = _projectPath + "\\Resources\\Data\\drugs.csv";
         private string RenoMergeFile = _projectPath + "\\Resources\\Data\\renoMerge.csv";
+        private string RenoSplitFile = _projectPath + "\\Resources\\Data\\renoSplit.csv";
         private string EqpMenagmentFile = _projectPath + "\\Resources\\Data\\eqpMenagment.csv";
         private string userFile = _projectPath + "\\Resources\\Data\\user.csv";
         private string accFile = _projectPath + "\\Resources\\Data\\user.csv";
@@ -45,6 +46,8 @@ namespace SimsProjekat
         public DrugController DrugController { get; set; }
 
         public RenovationMergeController RenovationMergeController { get; set; }
+
+        public RenovationSplitController RenovationSplitController { get; set; }
 
         public App()
         {
@@ -101,6 +104,12 @@ namespace SimsProjekat
             var renovationMergeService = new RenovationMergeService(renoRepository, roomRepository, renovationMergeRepository);
 
             RenovationMergeController = new RenovationMergeController(renovationMergeService);
+
+            var renovationSplitRepository = new RenovationSplitRepository(RenoMergeFile, CSV_DELIMITER);
+
+            var renovationSplitService = new RenovationSplitService(renovationSplitRepository, renoRepository, roomRepository, renovationMergeRepository);
+
+            RenovationSplitController = new RenovationSplitController(renovationSplitService);
 
         }
     }

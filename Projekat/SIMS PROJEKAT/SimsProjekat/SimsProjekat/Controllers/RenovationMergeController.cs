@@ -25,5 +25,9 @@ namespace Controller
         {
             return renoMerge_Service.Create(renovationMerge);
         }
+        public Boolean MergeRenovationCheck(RenovationMerge renovationMerge)
+        {
+            return renoMerge_Service.MergeRenovationCheck(renovationMerge);
+        }
     }
 }

@@ -21,9 +21,10 @@ namespace Controller
         {
             return equipment_Service.GetAll();
         }
-
-        
-
+        public List<EquipmentDisplay> GetAllFiltered(String Filter)
+        {
+            return equipment_Service.GetAllFiltered(Filter);
+        }
         public List<EquipmentDisplay> GetAllDisplay()
         {
             return equipment_Service.GetAllDis();

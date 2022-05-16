@@ -276,7 +276,8 @@ namespace SimsProjekat
             RenovationMerge renovation = new RenovationMerge(-1, roomId1, roomId2, startReno, endReno,
                 newRoomNameMerge.Text, (RoomType)Enum.Parse(typeof(RoomType), AddNewRoomType.Text, true), descriptionMergeReno.Text);
 
-            renoMerge_Controller.Create(renovation);
+            renoMerge_Controller.MergeRenovationCheck(renovation);
+
             AddRoom.Visibility = Visibility.Collapsed;
             UpdateRoom.Visibility = Visibility.Collapsed;
             AllRooms.Visibility = Visibility.Visible;

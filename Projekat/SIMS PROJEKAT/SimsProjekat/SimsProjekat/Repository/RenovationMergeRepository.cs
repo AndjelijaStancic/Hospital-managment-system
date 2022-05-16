@@ -75,5 +75,26 @@ namespace Repository
             File.AppendAllText(Path, ConvertToCsv(renovationMerge) + Environment.NewLine);
             return renovationMerge;
         }
+
+        public bool Delete(int id)
+        {
+            List<string> updated = new List<string>();
+            List<RenovationMerge> RenMer = GetAll().ToList();
+            bool deleted = false;
+
+            foreach (RenovationMerge renMer in RenMer)
+            {
+                if (renMer.Id != id)
+                {
+                    string update = ConvertToCsv(renMer);
+                    updated.Add(update);
+                    deleted = true;
+                }
+            }
+
+            File.WriteAllLines(Path, updated);
+
+            return deleted;
+        }
     }
 }

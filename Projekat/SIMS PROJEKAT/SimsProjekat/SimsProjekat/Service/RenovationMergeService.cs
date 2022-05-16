@@ -28,5 +28,70 @@ namespace Service
         {
             return renoMerge_Repository.Create(renovationMerge);
         }
+
+        public Boolean MergeRenovationCheck(RenovationMerge renovationMerge)
+        {
+            bool check = false;
+            List<RenovationMerge> renovationMerges = renoMerge_Repository.GetAll();
+            List<Renovation> renovations = reno_Repository.GetAll();
+            List<RenovationMerge> PickedRenoMerges = new List<RenovationMerge>();
+            List<Renovation> PickedBasicReno = new List<Renovation>();
+
+            foreach (RenovationMerge renMer in renovationMerges)
+            {
+                if(renMer.RoomId1 == renovationMerge.RoomId1 || renMer.RoomId1 == renovationMerge.RoomId2)
+                {
+                    PickedRenoMerges.Add(renMer);
+                }else if(renMer.RoomId2 == renovationMerge.RoomId1 || renMer.RoomId2 == renovationMerge.RoomId2)
+                {
+                    PickedRenoMerges.Add(renMer); 
+                }
+            }
+
+            foreach (Renovation ren in renovations)
+            {
+                if (ren.IdRoom == renovationMerge.RoomId1 || ren.IdRoom == renovationMerge.RoomId2)
+                {
+                    PickedBasicReno.Add(ren);
+                }
+                
+            }
+
+            foreach (RenovationMerge renoMerge in PickedRenoMerges)
+            {
+                if((renovationMerge.Start < renoMerge.Start && renovationMerge.Finish < renoMerge.Finish) == true)
+                {
+                    check = true;
+                }else if((renovationMerge.Start < renoMerge.Finish && renovationMerge.Finish >= renoMerge.Finish) == true)
+                {
+                    check = true;
+                }
+                else if((renovationMerge.Start > renoMerge.Start && renoMerge.Finish > renovationMerge.Finish)){
+                    check = true;
+                } 
+            }
+
+            foreach (Renovation reno in PickedBasicReno)
+            {
+                if ((renovationMerge.Start < reno.Start && renovationMerge.Finish < reno.Finish) == true)
+                {
+                    check = true;
+                }
+                else if ((renovationMerge.Start < reno.Finish && renovationMerge.Finish >= reno.Finish) == true)
+                {
+                    check = true;
+                }
+                else if ((renovationMerge.Start > reno.Start && reno.Finish > renovationMerge.Finish))
+                {
+                    check = true;
+                }
+            }
+            if(check == false)
+            {
+                renoMerge_Repository.Create(renovationMerge);
+            }
+            return check;
+        }
+
     }
 }
