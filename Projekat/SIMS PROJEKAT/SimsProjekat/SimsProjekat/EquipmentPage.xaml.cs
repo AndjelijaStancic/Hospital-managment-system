@@ -34,6 +34,7 @@ namespace SimsProjekat
         public List<EquipmentDisplay> equipmentDin { get; set; }
 
         public List<EquipmentDisplay> equipmentSFiltered { get; set; }
+        public List<EquipmentDisplay> equipmentDFiltered { get; set; }
         public List<String> NameEqp { get; set; }
         public List<int> Quantity { get; set; }
         public List<String> RoomName { get; set; }
@@ -57,7 +58,7 @@ namespace SimsProjekat
                 Names.Add(room.Name);
             }
             this.equipment = eqp_Controller.GetEqpDisplay();
-            this.equipmentDin = eqp_Controller.DinEqpDisplay();
+            this.equipmentDin = eqp_Controller.GetAllDisplayDin();
             
             this.NameEqp = new List<String>();
             this.Quantity = new List<int>();
@@ -148,6 +149,10 @@ namespace SimsProjekat
             AllDinEqp.Visibility = Visibility.Collapsed;
             DinEqp.Visibility = Visibility.Visible;
             StatEqp.Visibility = Visibility.Collapsed;
+            confirmSearchButtonD.Visibility = Visibility.Collapsed;
+            confirmSearchButtonS.Visibility = Visibility.Visible;
+            AllDinEqpFiltered.Visibility = Visibility.Collapsed;
+            FilteredEqpS.Visibility = Visibility.Collapsed;
         }
 
         private void DinEqpButton(object sender, RoutedEventArgs e)
@@ -156,23 +161,44 @@ namespace SimsProjekat
             AllDinEqp.Visibility = Visibility.Visible;
             DinEqp.Visibility = Visibility.Collapsed;
             StatEqp.Visibility = Visibility.Visible;
-            
+            confirmSearchButtonD.Visibility= Visibility.Visible;
+            confirmSearchDynamic.Visibility = Visibility.Visible;
+            confirmSearchButtonS.Visibility = Visibility.Collapsed;
+            AllDinEqpFiltered.Visibility = Visibility.Collapsed;
+            FilteredEqpS.Visibility = Visibility.Collapsed;
+
         }
 
         
-        private void SearchButtonConfirm(object sender, RoutedEventArgs e)
+        private void SearchButtonConfirmS(object sender, RoutedEventArgs e)
         {
             AllEqp.Visibility = Visibility.Collapsed;
+            AllDinEqpFiltered.Visibility = Visibility.Collapsed;
             AllDinEqp.Visibility = Visibility.Collapsed;
             DinEqp.Visibility = Visibility.Visible;
             StatEqp.Visibility = Visibility.Collapsed;
             FilteredEqpS.Visibility = Visibility.Visible;   
             String Filter = DinSearchButton.Text;
-            this.equipmentSFiltered = this.eqp_Controller.GetAllFiltered(Filter);
+            this.equipmentSFiltered = this.eqp_Controller.GetAllFilteredStatic(Filter);
             GridFiltered.ItemsSource = this.equipmentSFiltered;
+            DinSearchButton.Clear();
             GridFiltered.Items.Refresh();
 
 
+        }
+
+        private void SearchButtonConfirmD(object sender, RoutedEventArgs e)
+        {
+            AllEqp.Visibility = Visibility.Collapsed;
+            AllDinEqp.Visibility = Visibility.Collapsed;
+            DinEqp.Visibility = Visibility.Collapsed;
+            StatEqp.Visibility = Visibility.Visible;
+            FilteredEqpS.Visibility = Visibility.Collapsed;
+            AllDinEqpFiltered.Visibility = Visibility.Visible;
+            String Filter = DinSearchButton.Text;
+            this.equipmentDFiltered = this.eqp_Controller.GetAllFilteredDynamic(Filter);
+            GridDinEqwFiltered.ItemsSource = this.equipmentDFiltered;
+            GridDinEqwFiltered.Items.Refresh();
         }
     }
 }

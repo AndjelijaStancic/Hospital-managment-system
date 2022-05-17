@@ -67,14 +67,6 @@ namespace SimsProjekat
 
             EqpMenagmentController = new EqpMenagmentController(eqpMenagmentService);
 
-            var equipmentService = new EquipmentService(equipmentRepository, roomRepository, eqpMenagmentRepository);
-
-            EquipmentController = new EquipmentController(equipmentService);
-
-            var roomService = new RoomService(roomRepository, equipmentRepository, eqpMenagmentRepository);
-
-            RoomController = new RoomController(roomService);
-
             var appointmentRepository = new AppointmentRepository(APPOINTMENT_FILE, CSV_DELIMITER);
 
             var appointmentService = new AppointmentService(appointmentRepository);
@@ -89,27 +81,35 @@ namespace SimsProjekat
 
             var renoRepository = new RenovationRepository(renoFile, CSV_DELIMITER);
 
-            var renoService = new RenovationService(renoRepository, roomRepository);
-
-            RenovationController = new RenovationController(renoService);
-
             var accRepository = new AccRepository(userFile, CSV_DELIMITER);
 
             var accService = new AccService(accRepository);
 
             AccController = new AccController(accService);
+            
+            var renovationSplitRepository = new RenovationSplitRepository(RenoSplitFile, CSV_DELIMITER);
 
             var renovationMergeRepository = new RenovationMergeRepository(RenoMergeFile, CSV_DELIMITER);
 
-            var renovationMergeService = new RenovationMergeService(renoRepository, roomRepository, renovationMergeRepository);
+            var renovationMergeService = new RenovationMergeService(renoRepository, roomRepository, renovationMergeRepository, renovationSplitRepository);
 
             RenovationMergeController = new RenovationMergeController(renovationMergeService);
-
-            var renovationSplitRepository = new RenovationSplitRepository(RenoMergeFile, CSV_DELIMITER);
 
             var renovationSplitService = new RenovationSplitService(renovationSplitRepository, renoRepository, roomRepository, renovationMergeRepository);
 
             RenovationSplitController = new RenovationSplitController(renovationSplitService);
+
+            var renoService = new RenovationService(renoRepository, roomRepository, renovationMergeRepository, renovationSplitRepository);
+
+            RenovationController = new RenovationController(renoService);
+
+            var equipmentService = new EquipmentService(equipmentRepository, roomRepository, eqpMenagmentRepository, renoRepository, renovationMergeRepository, renovationSplitRepository);
+
+            EquipmentController = new EquipmentController(equipmentService);
+
+            var roomService = new RoomService(roomRepository, equipmentRepository, eqpMenagmentRepository, renoRepository, renovationMergeRepository, renovationSplitRepository);
+
+            RoomController = new RoomController(roomService);
 
         }
     }

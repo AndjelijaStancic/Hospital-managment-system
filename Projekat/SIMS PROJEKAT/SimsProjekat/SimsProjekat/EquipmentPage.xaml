@@ -115,6 +115,7 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
+
         <Border
             Name="DinSearchEqp" 
             Visibility="Visible" 
@@ -128,23 +129,47 @@
                 FontSize="15" 
                 FontFamily="Georgia" 
                 FontWeight="Medium"
-                Margin="0,20,0,11">
+                Margin="0,10,0,15">
             </TextBox>
         </Border>
 
         <Border
-            Name="confirmSearch" 
+            Name="confirmSearchStatic" 
             Visibility="Visible" 
-            Grid.Column="1" Margin="39,39,38,62" Grid.Row="1" Grid.RowSpan="2">
+            Grid.Column="1" Margin="39,36,171,66" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <Button
-                Name="confirmSearchButton" 
+                Name="confirmSearchButtonS" 
                 Grid.Row="1" 
                 FontSize="12" 
-                Click="SearchButtonConfirm"
+                Click="SearchButtonConfirmS"
                 Style="{StaticResource Button}"
                 FontFamily="Georgia" 
                 FontWeight="Medium"
-                Margin="0,20,0,10">
+                Margin="0,13,0,10">
+                <DockPanel>
+                    <Image Source="/Resources/Icons/searchIcon.png" Height="13" Width="20"/>
+                    <TextBlock
+                        FontSize="12"
+                        FontFamily="Georgia" 
+                        FontWeight="Medium" Height="17" Width="51">
+                        pretraži
+                    </TextBlock>
+                </DockPanel>
+            </Button>
+        </Border>
+        <Border
+            Name="confirmSearchDynamic" 
+            Visibility="Collapsed" 
+            Grid.Column="1" Margin="39,36,171,66" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Button
+                Name="confirmSearchButtonD" 
+                Grid.Row="1" 
+                FontSize="12" 
+                Click="SearchButtonConfirmD"
+                Style="{StaticResource Button}"
+                FontFamily="Georgia" 
+                FontWeight="Medium"
+                Margin="0,13,0,10">
                 <DockPanel>
                     <Image Source="/Resources/Icons/searchIcon.png" Height="13" Width="20"/>
                     <TextBlock
@@ -157,13 +182,12 @@
             </Button>
         </Border>
 
+
         <Border
             Name="DinEqp" 
-            
-            Visibility="Visible"
-            Grid.Row="1" 
-            Grid.Column="3"
-            Grid.ColumnSpan="2">
+            Visibility="Visible" 
+            Grid.Column="2"
+            Grid.ColumnSpan="3" Margin="171,78,10,0" Grid.RowSpan="3" Height="83" VerticalAlignment="Top">
             <Button 
                 Name="DinButton" 
                 Style="{StaticResource Button}" 
@@ -172,15 +196,14 @@
                 Grid.ColumnSpan="2"
                 Click="DinEqpButton" 
                 FontSize="12" 
-                Margin="131,39,68,0">
+                Margin="95,44,70,0" Height="29" VerticalAlignment="Top">
                 DINAMIČKA OPREMA</Button>
         </Border>
         <Border
             Name="StatEqp" 
-            Visibility="Collapsed"
-            Grid.Row="1" 
-            Grid.Column="3"
-            Grid.ColumnSpan="2">
+            Visibility="Collapsed" 
+            Grid.Column="2"
+            Grid.ColumnSpan="3" Margin="171,78,10,0" Grid.RowSpan="3" Height="83" VerticalAlignment="Top">
             <Button 
                 Name="StatEqpButton" 
                 Style="{StaticResource Button}" 
@@ -189,7 +212,7 @@
                 Grid.ColumnSpan="2"
                 Click="StatEqpButtonDis" 
                 FontSize="12" 
-                Margin="131,39,68,0">
+                Margin="95,44,70,0" Height="29" VerticalAlignment="Top">
                 STATIČKA OPREMA</Button>
         </Border>
         <Grid Grid.ColumnSpan="7"  Grid.RowSpan="1">
@@ -378,7 +401,7 @@
             Grid.ColumnSpan="5" 
             Margin="62,78,62,0" >
             <Grid>
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -427,6 +450,68 @@
                 </DataGrid>
             </Grid>
         </Border>
+
+        <Border 
+            Name="AllDinEqpFiltered" 
+            Visibility="Collapsed" 
+            Grid.Column="0"
+            Grid.Row="1" 
+            Grid.RowSpan="5" 
+            Grid.ColumnSpan="5" 
+            Margin="62,78,62,0" >
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="0"></ColumnDefinition>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="11"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="28"></RowDefinition>
+                </Grid.RowDefinitions>
+                <DataGrid 
+                    Name="GridDinEqwFiltered" 
+                    AutoGenerateColumns="False" 
+                    Grid.Row="2" 
+                    Grid.Column="1" 
+                    ItemsSource="{Binding equipmentDFiltered}" 
+                    Style="{StaticResource Table}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn 
+                            Header="Id opreme" 
+                            Width="3*"   
+                            Binding="{Binding idEquipment}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Naziv opreme" 
+                            Width="5*"  
+                            Binding="{Binding name}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Količina opreme" 
+                            Width="4*"   
+                            Binding="{Binding quantity}" 
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}"/>
+                        <DataGridTextColumn 
+                            Header="Prostorija"  
+                            Width="5*"  
+                            Binding="{Binding nameRoom}"  
+                            HeaderStyle="{StaticResource Header}" 
+                            CellStyle="{StaticResource Column}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+
+
+
         <Border 
             Name="FilteredEqpS" 
             Visibility="Collapsed" 

@@ -21,22 +21,26 @@ namespace Controller
         {
             return equipment_Service.GetAll();
         }
-        public List<EquipmentDisplay> GetAllFiltered(String Filter)
+        public List<EquipmentDisplay> GetAllFilteredDynamic(String Filter)
         {
-            return equipment_Service.GetAllFiltered(Filter);
+            return equipment_Service.GetAllFilteredDynamic(Filter);
+        }
+        public List<EquipmentDisplay> GetAllFilteredStatic(String Filter)
+        {
+            return equipment_Service.GetAllFilteredStatic(Filter);
+        }
+
+        public List<EquipmentDisplay> GetAllDisplayDin()
+        {
+            return equipment_Service.GetDynEqpDysplay();
         }
         public List<EquipmentDisplay> GetAllDisplay()
         {
-            return equipment_Service.GetAllDis();
-        }
-        public List<EquipmentDisplay> DinEqpDisplay()
-        {
-            return equipment_Service.DinEqpDisplay();
+            return equipment_Service.GetAllDisplay();
         }
         public List<EquipmentDisplay> GetEqpDisplay()
         {
-            return equipment_Service.GetEqpDisplay();
+            return equipment_Service.GetStaticEqpDisplay();
         }
-        
     }
 }

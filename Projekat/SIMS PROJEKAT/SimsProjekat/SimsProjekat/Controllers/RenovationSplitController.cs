@@ -16,5 +16,18 @@ namespace Controller
         {
             renoSplit_Service = service;
         }
+        public List<RenovationSplit> GetAll()
+        {
+            return renoSplit_Service.GetAll();
+        }
+
+        public RenovationSplit Create(RenovationSplit renovationSplit)
+        {
+            return renoSplit_Service.Create(renovationSplit);
+        }
+        public Boolean SplitRenovationCheck(RenovationSplit renovationSplit)
+        {
+            return renoSplit_Service.SplitRenovationCheck(renovationSplit);
+        }
     }
 }

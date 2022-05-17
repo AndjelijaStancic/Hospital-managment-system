@@ -2,7 +2,6 @@
 11;Sala za preglede 1;3;2
 13;Sala za preglede 3;3;2
 18;Kancelarija 8;2;0
-20;Kancelarija 10;2;0
 21;Operaciona sala 5;0;2
 22;Operaciona sala 6;0;2
 23;Operaciona sala 7;0;2
@@ -10,3 +9,6 @@
 26;Magacin;4;8
 27;Operaciona sala 10;0;6
 28;Kancelarija 5;2;6
+32;Kancelarija 13;2;0
+34;Kancelarija 15;2;0
+35;Kancelarija 16;2;0

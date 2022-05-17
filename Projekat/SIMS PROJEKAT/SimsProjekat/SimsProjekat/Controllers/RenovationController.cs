@@ -25,5 +25,10 @@ namespace Controller
         {
             return reno_Service.Create(renovation);
         }
+        
+        public Boolean RenovationCheck(Renovation renovation)
+        {
+        return reno_Service.RenovationCheck(renovation);
+        }
     }
 }
