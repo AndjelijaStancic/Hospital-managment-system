@@ -34,6 +34,7 @@ namespace SimsProjekat
         }
         private void LoginClick(object sender, RoutedEventArgs e)
         {
+            Feedback.Clear();
             User logged = this.user_Controller.CheckExistence(new LogInUser(EmailOrUserName.Text, PasswordTextBox.Password.ToString()));
             var app = Application.Current as App;
             app.Properties["IdUser"] = logged.Id;
@@ -41,7 +42,7 @@ namespace SimsProjekat
 
             if (logged.Id == -1)
             {
-                Feedback.Text = "neuspesan login";
+                Feedback.Text = "Greška, loše uneti podaci!";
                 return;
             }
            

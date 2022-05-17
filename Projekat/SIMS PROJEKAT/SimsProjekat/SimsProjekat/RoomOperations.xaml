@@ -329,9 +329,11 @@
                     Grid.ColumnSpan="3"/>
                 <TextBox 
                     Name="UpdatedName"
-                    Background="#FF4F686A"
+                    Background="#FF2A5158"
                     Foreground="White"
                     FontFamily="Georgia"
+                    BorderBrush="White"
+                    BorderThickness="0,0,0,1"
                     FontSize="20" 
                     TextWrapping="Wrap"
                     Grid.Column="2" 
@@ -416,7 +418,7 @@
                 <TextBlock 
                     Foreground="White"  
                     Grid.ColumnSpan="6" 
-                    Margin="10,27,10,39" 
+                    Margin="10,27,10,27" 
                     Grid.Row="0" 
                     FontFamily="Georgia" 
                     TextAlignment="Center" 
@@ -1138,8 +1140,10 @@
                     Grid.ColumnSpan="2"/>
                 <TextBox 
                     Name="NewRoomName"
-                    Background="#FF4F686A"
+                    Background="#FF2A5158"
                     Foreground="White"
+                    BorderBrush="White"
+                    BorderThickness="0,0,0,1"
                     FontFamily="Georgia"
                     FontSize="15" 
                     TextWrapping="Wrap"
@@ -1173,12 +1177,15 @@
                     FontSize="16" 
                     Style="{StaticResource FormLabel}" 
                     FontWeight="Medium" 
+                    
                     Grid.Row="3" 
                     Margin="51,10,41,4" 
                     RenderTransformOrigin="0.67,-0.097"/>
                 <TextBox 
                     Name="NewRoomFloor" 
-                    Background="#FF4F686A"
+                    Background="#FF2A5158"
+                    BorderBrush="White"
+                    BorderThickness="0,0,0,1"
                     Foreground="White"
                     FontFamily="Georgia"
                     FontSize="15" 

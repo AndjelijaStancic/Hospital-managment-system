@@ -272,7 +272,7 @@
                     Grid.Column="8"  
                     Click="LogOutClick"
                     FontSize="12"
-                    Margin="0,7,-11,10">
+                    Margin="0,7,-5,10">
                 ODJAVI SE
             </Button>
         </Grid>
