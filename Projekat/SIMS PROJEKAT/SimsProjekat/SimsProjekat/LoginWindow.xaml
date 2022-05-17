@@ -54,6 +54,22 @@
                      RenderTransformOrigin="0.464,0.565">
 
             </TextBox>
+            <TextBox HorizontalAlignment="Center"
+                     Height="20"
+                     Margin="0,211,0,0"
+                     Name="Feedback"
+                     TextWrapping="Wrap"
+                     FontFamily="Georgia"
+                     TextAlignment="Center"
+                     BorderThickness="0"
+                     IsReadOnly="True"
+                     FontSize="12"
+                     Foreground="Red"
+                     VerticalAlignment="Top"
+                     Width="194"
+                     RenderTransformOrigin="0.464,0.565">
+
+            </TextBox>
             <Label Content="Password:"
                    HorizontalAlignment="Left"
                    Margin="42,161,0,0"

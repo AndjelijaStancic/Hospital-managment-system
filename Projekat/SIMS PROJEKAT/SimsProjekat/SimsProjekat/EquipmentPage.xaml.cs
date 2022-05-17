@@ -94,7 +94,7 @@ namespace SimsProjekat
             GridEqw.Items.Refresh();
             
         }
-
+        
         private void AllEqpNav(object sender, RoutedEventArgs e)
         {
             EqpButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
@@ -125,10 +125,18 @@ namespace SimsProjekat
         private void eqpChangeButton(object sender, RoutedEventArgs e)
         {
             EqpMenagment.Visibility = Visibility.Visible;
+            EqpMenagmentF.Visibility = Visibility.Collapsed;
+        }
+
+        private void eqpChangeButtonF(object sender, RoutedEventArgs e)
+        {
+            EqpMenagmentF.Visibility = Visibility.Visible;
+            EqpMenagment.Visibility = Visibility.Collapsed;
         }
 
         private void ChangeEqpRoomClick(object sender, RoutedEventArgs e)
         {
+            String Filter = DinSearchButton.Text;
             String roomName = RoomNameForm.Text;
             int idRoom = -1;
             foreach (Room room in Rooms)
@@ -137,11 +145,40 @@ namespace SimsProjekat
                    idRoom = room.Id;
             }
             int IdEqp = ((EquipmentDisplay)GridEqw.SelectedItem).idEquipment;
-            EquipmentMenagment equipmentMenagment = new EquipmentMenagment(-1, IdEqp, idRoom, DateTime.Parse(datePicker1.Text));
+            EquipmentMenagment equipmentMenagment = new EquipmentMenagment(-1, IdEqp, idRoom, DateTime.Parse(datePicker.Text));
             eqpMenagment_Controller.Create(equipmentMenagment);
             EqpMenagment.Visibility = Visibility.Collapsed;
             RefreshSource1();
+
+
         }
+
+        private void ChangeEqpRoomClickF(object sender, RoutedEventArgs e)
+        {
+            String roomName = RoomNameFormF.Text;
+            int idRoom = -1;
+            foreach (Room room in Rooms)
+            {
+                if (room.Name == roomName)
+                    idRoom = room.Id;
+            }
+            int IdEqp = ((EquipmentDisplay)GridFiltered.SelectedItem).idEquipment;
+            EquipmentMenagment equipmentMenagment = new EquipmentMenagment(-1, IdEqp, idRoom, DateTime.Parse(datePickerF.Text));
+            eqpMenagment_Controller.Create(equipmentMenagment);
+            EqpMenagmentF.Visibility = Visibility.Collapsed;
+            RefreshSource1();
+            AllEqp.Visibility = Visibility.Visible;
+            AllDinEqp.Visibility = Visibility.Collapsed;
+            DinEqp.Visibility = Visibility.Visible;
+            StatEqp.Visibility = Visibility.Collapsed;
+            confirmSearchButtonD.Visibility = Visibility.Collapsed;
+            confirmSearchButtonS.Visibility = Visibility.Visible;
+            AllDinEqpFiltered.Visibility = Visibility.Collapsed;
+            FilteredEqpS.Visibility = Visibility.Collapsed;
+
+        }
+
+
 
         private void StatEqpButtonDis(object sender, RoutedEventArgs e)
         {

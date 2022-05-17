@@ -575,7 +575,7 @@
                                     <Button 
                                         Name="ChangeRoomEqp" 
                                         Content="odaberi" 
-                                        Click="eqpChangeButton"   
+                                        Click="eqpChangeButtonF"   
                                         Style="{StaticResource changeButton}" >
                                         <Button.BitmapEffect>
                                             <DropShadowBitmapEffect 
@@ -594,6 +594,100 @@
             </Grid>
         </Border>
 
+
+        <Border 
+            Name="EqpMenagmentF" 
+            Grid.Row="1" 
+            Grid.ColumnSpan="4"
+            Grid.RowSpan="5"  
+            Visibility="Collapsed" 
+            Style="{StaticResource BorderAdd}"
+            Margin="171,74,5,78">
+            <Border.Effect>
+                <DropShadowEffect 
+             Direction="270"
+             Opacity="0.8"
+             ShadowDepth="10"
+             BlurRadius="15" />
+
+            </Border.Effect>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    Grid.Column="1"  
+                    Grid.ColumnSpan="4" 
+                    Margin="27,10,27,37" 
+                    Grid.Row="0" 
+                    FontFamily="Georgia" 
+                    TextAlignment="Center" 
+                    FontWeight="Bold" 
+                    FontSize="17" 
+                    Grid.RowSpan="2" >
+                    ZAKAZIVANJE PREMEŠTANJA<LineBreak></LineBreak>OPREME
+                </TextBlock>
+                <Label 
+                    Grid.ColumnSpan="2"   
+                    Content="PROSTORIJA:" 
+                    FontWeight="Medium"
+                    Style="{StaticResource FormLabel}" 
+                    FontSize="13" 
+                    Grid.Row="1" 
+                    Margin="51,18,10,37" 
+                    Grid.RowSpan="2"/>
+                <ComboBox
+                    Name="RoomNameFormF"
+                    ItemsSource="{Binding Path=Names}"
+                    Grid.Column="3" 
+                    Grid.ColumnSpan="3" 
+                    Grid.Row="1" 
+                    Margin="30,24,60,0"
+                    RenderTransformOrigin="0.569,0.046" 
+                    Grid.RowSpan="2" 
+                    Height="24" 
+                    VerticalAlignment="Top"/>
+
+                <Label 
+                    Grid.Row="2"   
+                    Content="DATUM PREMEŠTANJA:" 
+                    FontSize="13" 
+                    Style="{StaticResource FormLabel}"
+                    FontWeight="Medium" 
+                    Grid.RowSpan="2" 
+                    Margin="51,13,33,38" 
+                    Grid.ColumnSpan="3"/>
+                <DatePicker  
+                    Margin="30,10,60,7" 
+                    Name="datePickerF" 
+                    Grid.Column="3"
+                    Grid.Row="2" 
+                    Grid.ColumnSpan="3"/>
+                <Button
+                    Name="ChangeConfirmF" 
+                    Grid.Column="2" 
+                    Margin="20,4,20,10"
+                    Grid.ColumnSpan="2" 
+                    Grid.Row="4" 
+                    FontWeight="Medium" 
+                    FontSize="15" 
+                    Click="ChangeEqpRoomClickF">
+                    PREMESTI
+                </Button>
+            </Grid>
+        </Border>
 
         <Border 
             Name="EqpMenagment" 
@@ -671,7 +765,7 @@
                     Grid.ColumnSpan="3"/>
                 <DatePicker  
                     Margin="30,10,60,7" 
-                    Name="datePicker1" 
+                    Name="datePicker" 
                     Grid.Column="3"
                     Grid.Row="2" 
                     Grid.ColumnSpan="3"/>

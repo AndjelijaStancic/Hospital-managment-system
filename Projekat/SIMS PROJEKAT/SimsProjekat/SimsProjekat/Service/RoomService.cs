@@ -96,6 +96,22 @@ namespace Service
                     }
                 }
             }
+
+            foreach(RenovationSplit renovationSplit in renovationSplits)
+            {
+                if((DateTime.Compare(renovationSplit.Finish, DateTime.Today) <= 0))
+                {
+                    renoSplit_Repository.Delete(renovationSplit.Id);
+                }
+            }
+            foreach(RenovationMerge renovationMerge in renovationMerges)
+            {
+                if ((DateTime.Compare(renovationMerge.Finish, DateTime.Today) <= 0))
+                {
+                    renoMerge_Repository.Delete(renovationMerge.Id);
+                }
+            }
+
             roomChecked = room_Repository.GetAll();
             return roomChecked;
        }

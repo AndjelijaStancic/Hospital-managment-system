@@ -35,7 +35,8 @@ namespace Service
                     return user;
                 }
             }
-            return null;
+            User user1 = new User(-1, "", "", "", DateTime.Parse("1 / 1 / 1000 12:00:00 AM"), "", "", "", "", "", "");
+            return user1;
         }
         
     }

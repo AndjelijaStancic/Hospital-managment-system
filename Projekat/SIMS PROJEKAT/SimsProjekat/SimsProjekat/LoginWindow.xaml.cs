@@ -38,6 +38,13 @@ namespace SimsProjekat
             var app = Application.Current as App;
             app.Properties["IdUser"] = logged.Id;
             app.Properties["Role"] = logged.Role.ToString();
+
+            if (logged.Id == -1)
+            {
+                Feedback.Text = "neuspesan login";
+                return;
+            }
+           
             if (logged.Role.ToString().Equals("Director"))
             {
                 var room = new RoomOperations();
