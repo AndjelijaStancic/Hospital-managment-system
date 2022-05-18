@@ -11,7 +11,7 @@ namespace Model
         public string nameRoom { get; set; }
         public int idEquipment { get; set; }
         public int quantity { get; set; }
-        public string name { get; set; }
+        public string name { get; set; }   
         public string type { get; set; }
 
         public EquipmentDisplay(string roomName, int IdEquipment, string Name, int Quantity, string Type)

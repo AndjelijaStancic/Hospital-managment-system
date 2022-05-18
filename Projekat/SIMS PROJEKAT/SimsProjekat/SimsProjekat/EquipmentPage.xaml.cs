@@ -36,6 +36,7 @@ namespace SimsProjekat
         public List<EquipmentDisplay> equipmentSFiltered { get; set; }
         public List<EquipmentDisplay> equipmentDFiltered { get; set; }
         public List<String> NameEqp { get; set; }
+        public List<String> GroupEqp { get; set; }
         public List<int> Quantity { get; set; }
         public List<String> RoomName { get; set; }
         public List<String> TypeEqp { get; set; }
@@ -64,9 +65,11 @@ namespace SimsProjekat
             this.Quantity = new List<int>();
             this.RoomName = new List<String>();
             this.TypeEqp = new List<String>();
-            
-            
-            foreach(EquipmentDisplay equipment in equipment)
+            this.GroupEqp = new List<String>();
+
+
+
+            foreach (EquipmentDisplay equipment in equipment)
             {
                 RoomName.Add(equipment.nameRoom);
                 NameEqp.Add(equipment.name);
@@ -145,7 +148,7 @@ namespace SimsProjekat
                    idRoom = room.Id;
             }
             int IdEqp = ((EquipmentDisplay)GridEqw.SelectedItem).idEquipment;
-            EquipmentMenagment equipmentMenagment = new EquipmentMenagment(-1, IdEqp, idRoom, DateTime.Parse(datePicker.Text));
+            EquipmentMenagment equipmentMenagment = new EquipmentMenagment(-1, IdEqp, idRoom,  DateTime.Parse(datePicker.Text));
             eqpMenagment_Controller.Create(equipmentMenagment);
             EqpMenagment.Visibility = Visibility.Collapsed;
             RefreshSource1();

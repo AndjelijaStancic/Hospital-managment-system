@@ -38,7 +38,7 @@ namespace Service
         }
 
         public List<EquipmentDisplay> GetDynEqpDysplay()
-        {   
+        {
             List<RenovationSplit> renovationSplits = this.renoSplit_Repository.GetAll();
             List<RenovationMerge> renovationMerges = this.renoMerge_Repository.GetAll();
             List<Room> rooms = this.room_Repository.GetAll();
@@ -48,17 +48,17 @@ namespace Service
             List<EquipmentDisplay> eqsDisplay = new List<EquipmentDisplay>();
             List<Room> magacines = new List<Room>();
 
-            foreach(Room room in rooms)
+            foreach (Room room in rooms)
             {
-                if(room.Type == RoomType.storage)
+                if (room.Type == RoomType.storage)
                 {
                     magacines.Add(room);
                 }
             }
 
-            foreach(Equipment e in eqs)
+            foreach (Equipment e in eqs)
             {
-                foreach(RenovationSplit renoS in renovationSplits)
+                foreach (RenovationSplit renoS in renovationSplits)
                 {
                     if (e.idRoom == renoS.RoomId && (DateTime.Compare(renoS.Start, DateTime.Today) <= 0))
                     {
@@ -142,7 +142,7 @@ namespace Service
             {
                 foreach (Equipment EqpUpdated in eqpUpdated)
                 {
-                    if(equipment.idEquipment == EqpUpdated.idEquipment)
+                    if (equipment.idEquipment == EqpUpdated.idEquipment)
                     {
                         equipment.idRoom = EqpUpdated.idRoom;
                     }
@@ -180,7 +180,7 @@ namespace Service
             {
                 eqpMen_Repository.DeleteEqpMen(doneEqp.idEqp);
             }
-            
+
             foreach (Equipment e in eqpCheckMerge)
             {
                 if (e.type == "S")
@@ -228,11 +228,12 @@ namespace Service
                 else if (e.type == "S" && e.idEquipment.ToString() == Filter)
                 {
                     eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
-                }else if(string.IsNullOrEmpty(Filter) && e.type == "S")
+                }
+                else if (string.IsNullOrEmpty(Filter) && e.type == "S")
                 {
                     eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
                 }
-                
+
             }
 
             return eqsDisplay;

@@ -40,7 +40,7 @@ namespace Repository
             int quantity = int.Parse(tokens[2]);
             String type = tokens[3];
             int idRoom = int.Parse(tokens[4]);
-            return new Equipment( idEquipment, name, quantity, type, idRoom);
+            return new Equipment(idEquipment, name, quantity, type, idRoom);
         }
 
         public List<Equipment> GetAll()
@@ -75,16 +75,19 @@ namespace Repository
                 if (equipment.idEquipment > id)
                 {
                     id = equipment.idEquipment;
-                }else if(equipment.idEquipment == null)
-                {
-                    id = 0;
                 }
+                
             }
+            if (equipments.Count == 0) { id = 0; }
             return id;
         }
 
         public Equipment Create(Equipment eqp)
         {
+            if (eqp.type.Equals("S"))
+            {
+                eqp.quantity = 1;
+            }
             List<Equipment> equipment = GetAll().ToList();
             int id = (NewId());
             eqp.idEquipment = ++id;
@@ -134,7 +137,6 @@ namespace Repository
 
             return deleted;
         }
-
 
     }
 }

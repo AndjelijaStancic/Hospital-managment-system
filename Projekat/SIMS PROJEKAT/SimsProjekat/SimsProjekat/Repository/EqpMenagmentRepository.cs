@@ -27,7 +27,7 @@ namespace Repository
                 equipmentMenagment.idEqp,
                 equipmentMenagment.idRoom,
                 equipmentMenagment.movingDay
-                
+
                 );
         }
 
@@ -36,12 +36,12 @@ namespace Repository
             var tokens = CsvFormat.Split(Delimiter.ToCharArray());
             string format = "M/d/yyyy h:mm:ss tt";
             int idEqpMenag = int.Parse(tokens[0]);
-            int idEqp= int.Parse(tokens[1]);
+            int idEqp = int.Parse(tokens[1]);
             int idRoomChange = int.Parse(tokens[2]);
             DateTime date = DateTime.ParseExact(tokens[3], format, System.Globalization.CultureInfo.InvariantCulture);
-            
-            
-            return new EquipmentMenagment(idEqpMenag, idEqp,idRoomChange, date );
+
+
+            return new EquipmentMenagment(idEqpMenag, idEqp, idRoomChange, date);
         }
 
         public List<EquipmentMenagment> GetAll()
@@ -88,7 +88,7 @@ namespace Repository
                     eqpMen.idEqp = EqpMen.idEqp;
                     eqpMen.idRoom = EqpMen.idRoom;
                     eqpMen.movingDay = EqpMen.movingDay;
-                    
+
                 }
             }
             return eqpMen;

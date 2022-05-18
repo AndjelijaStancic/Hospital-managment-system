@@ -9,15 +9,11 @@ namespace Model
     public class EquipmentMenagment
     {
         public int idEqpMenag { get; set; }
-
         public int idEqp { get; set; }  
-        public int idRoom { get; set; }
-
+        public int idRoom { get; set; }  
         public  DateTime movingDay { get; set; }
 
-        
-
-        public EquipmentMenagment(int IdEqpMenag,int IdEqp, int IdRoom, DateTime MovingDay)
+        public EquipmentMenagment(int IdEqpMenag, int IdEqp, int IdRoom, DateTime MovingDay)
         {
             idEqpMenag = IdEqpMenag;
             idEqp = IdEqp;
