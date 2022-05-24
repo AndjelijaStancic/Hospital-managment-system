@@ -3,9 +3,9 @@
 5;stalak za infuziju 3;1;S;10
 6;toplomer 1;1;S;10
 7;gaze;70;D;21
-8;respirator 3;1;S;26
+8;respirator 3;1;S;39
 9;stetoskop 2;1;S;27
-10;defiblirator 1;1;S;26
+10;defiblirator 1;1;S;39
 11;gaza;100;D;22
 12;zavoj;100;D;22
 13;rukavice;30;D;10
@@ -23,7 +23,7 @@
 25;rukavice;30;D;24
 26;skalpel;15;D;24
 27;mantil;10;D;24
-28;rendgen 2;1;S;26
+28;rendgen 2;1;S;39
 29;stalak za infuziju 2;1;S;24
 30;toplomer 2;1;S;24
 31;respirator 2;1;S;24

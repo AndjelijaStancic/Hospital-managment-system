@@ -48,8 +48,8 @@ namespace SimsProjekat
            
             if (logged.Role.ToString().Equals("Director"))
             {
-                var room = new RoomOperations();
-                room.Show();
+                var main = new MainWindow();
+                main.Show();
                 Close();
             }
             else if (logged.Role.ToString().Equals("Secretary"))

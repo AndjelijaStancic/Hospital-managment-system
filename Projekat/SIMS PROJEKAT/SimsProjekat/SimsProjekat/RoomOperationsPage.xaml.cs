@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Controller;
 using Model;
@@ -18,9 +19,9 @@ using System.ComponentModel;
 namespace SimsProjekat
 {
     /// <summary>
-    /// Interaction logic for RoomOperations.xaml
+    /// Interaction logic for RoomOperationsPage.xaml
     /// </summary>
-    public partial class RoomOperations : Window
+    public partial class RoomOperationsPage : Page
     {
         private RoomController room_Controller;
         private RenovationController reno_Controller;
@@ -33,9 +34,7 @@ namespace SimsProjekat
         public List<String> Names { get; set; }
         public List<int> Floors { get; set; }
         public List<RoomType> TypesList { get; set; }
-
-        
-        public RoomOperations()
+        public RoomOperationsPage()
         {
             InitializeComponent();
             var app = Application.Current as App;
@@ -47,7 +46,7 @@ namespace SimsProjekat
             this.Renovations = reno_Controller.GetAll();
             this.Rooms = room_Controller.GetAll();
             this.Names = new List<String>();
-            this.Floors = new List<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            this.Floors = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             var roomTypes = Enum.GetValues(typeof(RoomType));
             TypesList = roomTypes.OfType<RoomType>().ToList();
 
@@ -55,11 +54,7 @@ namespace SimsProjekat
             {
                 Names.Add(room.Name);
             }
-
             this.DataContext = this;
-            //AllRoomsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
-            RoomAllButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
-
         }
         public void RefreshSource()
         {
@@ -77,7 +72,7 @@ namespace SimsProjekat
         {
             //AllRoomsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
             AddRoomButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF142223");
-            
+
             AllRooms.Visibility = Visibility.Visible;
             AddRoom.Visibility = Visibility.Collapsed;
             UpdateRoom.Visibility = Visibility.Collapsed;
@@ -92,18 +87,15 @@ namespace SimsProjekat
         }
         private void AddRoomClick(object sender, RoutedEventArgs e)
         {
-         Room newRoom = new Room(-1, NewRoomName.Text, (RoomType)Enum.Parse(typeof(RoomType), AddRoomType.Text, true), int.Parse(NewRoomFloor.Text));
-         room_Controller.Create(newRoom);
-         AllRooms.Visibility = Visibility.Visible;
-         AddRoom.Visibility = Visibility.Collapsed;
-         UpdateRoom.Visibility = Visibility.Collapsed;
-         RefreshSource();
-         //AllRoomsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
-         AddRoomButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF142223");
-         NewRoomName.Clear();
-         NewRoomFloor.Clear();
-
-
+            Room newRoom = new Room(-1, NewRoomName.Text, (RoomType)Enum.Parse(typeof(RoomType), AddRoomType.Text, true), int.Parse(NewRoomFloor.Text));
+            room_Controller.Create(newRoom);
+            AllRooms.Visibility = Visibility.Visible;
+            AddRoom.Visibility = Visibility.Collapsed;
+            UpdateRoom.Visibility = Visibility.Collapsed;
+            RefreshSource();
+            AddRoomButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF142223");
+            NewRoomName.Clear();
+            NewRoomFloor.Clear();
         }
 
         private void delButton(object sender, RoutedEventArgs e)
@@ -122,7 +114,7 @@ namespace SimsProjekat
             UpdateRoom.Visibility = Visibility.Collapsed;
             RefreshSource();
         }
-        
+
         private void DenyDelete(object sender, RoutedEventArgs e)
         {
             WarningDelete.Visibility = Visibility.Collapsed;
@@ -167,48 +159,8 @@ namespace SimsProjekat
             AllRooms.Visibility = Visibility.Collapsed;
         }
 
-        private void AllDrugsNav(object sender, RoutedEventArgs e)
-        {
-            //MainFrame.Content = new RoomsPage();
-            var drugsShow = new DrugPage();
-            drugsShow.Show();
-        }
-
-        private void AllEqpNav(object sender, RoutedEventArgs e)
-        {
-            var eqpShow = new EquipmentPage();
-            eqpShow.Show();
-        }
-
-        private void AllRoomsNav(object sender, RoutedEventArgs e)
-        {
-            AllRooms.Visibility = Visibility.Visible;
-            AddRoom.Visibility = Visibility.Collapsed;
-            UpdateRoom.Visibility = Visibility.Collapsed;
-            //AllRoomsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
-            RoomAllButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
-        }
-
-        private void StatNav(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void SettNav(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ProfileNav(object sender, RoutedEventArgs e)
-        {
-            //MainFrame.Content = new EqPages();
-            var acc = new Nalog();
-            acc.Show();
-        }
-
         private void renovationButton(object sender, RoutedEventArgs e)
         {
-            //RenoMenagment.Visibility = Visibility.Visible;
             AddRoom.Visibility = Visibility.Collapsed;
             UpdateRoom.Visibility = Visibility.Collapsed;
             RenoRoom.Visibility = Visibility.Visible;
@@ -226,7 +178,6 @@ namespace SimsProjekat
             DateTime endReno = DateTime.Parse(finish.Text);
             Renovation renovation = new Renovation(-1, roomId, startReno, endReno, descriptionReno.Text);
             reno_Controller.RenovationCheck(renovation);
-            //RenoMenagment.Visibility = Visibility.Collapsed;
             AddRoom.Visibility = Visibility.Collapsed;
             UpdateRoom.Visibility = Visibility.Collapsed;
             AllRooms.Visibility = Visibility.Visible;
@@ -237,12 +188,7 @@ namespace SimsProjekat
 
 
         }
-
-        private void advancedRenoClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+       
         private void mergeRenovation(object sender, RoutedEventArgs e)
         {
             int roomId = ((Room)GridRoom.SelectedItem).Id;
@@ -252,7 +198,7 @@ namespace SimsProjekat
             BasicRenoRoom.Visibility = Visibility.Collapsed;
             MergeRenoRoom.Visibility = Visibility.Visible;
             SplitRenoRoom.Visibility = Visibility.Collapsed;
-            
+
         }
 
         private void splitRenovation(object sender, RoutedEventArgs e)
@@ -264,7 +210,7 @@ namespace SimsProjekat
             BasicRenoRoom.Visibility = Visibility.Collapsed;
             MergeRenoRoom.Visibility = Visibility.Collapsed;
             SplitRenoRoom.Visibility = Visibility.Visible;
-            
+
         }
 
         private void mergeClick(object sender, RoutedEventArgs e)
@@ -293,8 +239,8 @@ namespace SimsProjekat
             BasicRenoRoom.Visibility = Visibility.Collapsed;
             MergeRenoRoom.Visibility = Visibility.Collapsed;
             SplitRenoRoom.Visibility = Visibility.Collapsed;
-            
-            
+
+
             descriptionMergeReno.Clear();
             newRoomNameMerge.Clear();
             startMerge.SelectedDate = null;
@@ -304,15 +250,10 @@ namespace SimsProjekat
 
         }
 
-        private void Room1Type_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void ExitRenovation(object sender, RoutedEventArgs e)
         {
             RenoRoom.Visibility = Visibility.Collapsed;
-            BasicRenoRoom.Visibility= Visibility.Collapsed;
+            BasicRenoRoom.Visibility = Visibility.Collapsed;
             MergeRenoRoom.Visibility = Visibility.Collapsed;
             SplitRenoRoom.Visibility = Visibility.Collapsed;
 
@@ -327,7 +268,7 @@ namespace SimsProjekat
             MergeRenoRoom.Visibility = Visibility.Collapsed;
             SplitRenoRoom.Visibility = Visibility.Collapsed;
             RenoRoom.Visibility = Visibility.Collapsed;
-            
+
         }
 
         private void splitClick(object sender, RoutedEventArgs e)
@@ -365,8 +306,6 @@ namespace SimsProjekat
             AddRoomButton.Visibility = Visibility.Visible;
             NewRoomName.Clear();
             NewRoomFloor.Clear();
-
-
         }
     }
 }

@@ -217,11 +217,11 @@ namespace Service
 
             foreach (Equipment e in eqp)
             {
-                if (e.type == "S" && e.name.Equals(Filter))
+                if (e.type == "S" && e.name.Contains(Filter))
                 {
                     eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
                 }
-                else if (e.type == "S" && (room_Repository.GetById(e.idRoom).Name.Equals(Filter)))
+                else if (e.type == "S" && (room_Repository.GetById(e.idRoom).Name.Contains(Filter)))
                 {
                     eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
                 }

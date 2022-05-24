@@ -7,31 +7,28 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AccPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AppointmentCrud.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Doctor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="DrugPage.xaml.cs">
+    <Compile Update="DrugOperationsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="EqPages.xaml.cs">
+    <Compile Update="EqpOperationsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="EquipmentPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Nalog.xaml.cs">
+    <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Patient.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="RoomOperations.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="RoomsPage.xaml.cs">
+    <Compile Update="RoomOperationsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Secretary.xaml.cs">
@@ -39,31 +36,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AccPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="AppointmentCrud.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Doctor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="DrugPage.xaml">
+    <Page Update="DrugOperationsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="EqPages.xaml">
+    <Page Update="EqpOperationsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="EquipmentPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Nalog.xaml">
+    <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Patient.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="RoomOperations.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="RoomsPage.xaml">
+    <Page Update="RoomOperationsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Secretary.xaml">

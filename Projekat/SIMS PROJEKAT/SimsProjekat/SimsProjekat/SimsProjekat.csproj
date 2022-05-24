@@ -8,17 +8,38 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Icons\acc.png" />
+    <None Remove="Resources\Icons\box2.png" />
+    <None Remove="Resources\Icons\drug1.png" />
     <None Remove="Resources\Icons\hospital.png" />
+    <None Remove="Resources\Icons\inventory.png" />
+    <None Remove="Resources\Icons\logout.png" />
     <None Remove="Resources\Icons\profile5.png" />
+    <None Remove="Resources\Icons\room1.png" />
     <None Remove="Resources\Icons\search.png" />
     <None Remove="Resources\Icons\searchIcon.png" />
+    <None Remove="Resources\Icons\set.png" />
+    <None Remove="Resources\Icons\set5.png" />
+    <None Remove="Resources\Icons\settings.png" />
+    <None Remove="Resources\Icons\settings1.ico" />
+    <None Remove="Resources\Icons\stat.png" />
+    <None Remove="Resources\Icons\user.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Icons\acc.png" />
+    <Resource Include="Resources\Icons\box2.png" />
+    <Resource Include="Resources\Icons\drug1.png" />
     <Resource Include="Resources\Icons\hospital.png" />
+    <Resource Include="Resources\Icons\logout.png" />
     <Resource Include="Resources\Icons\profile5.png" />
-    <Resource Include="Resources\Icons\search.png" />
+    <Resource Include="Resources\Icons\room1.png" />
     <Resource Include="Resources\Icons\searchIcon.png" />
+    <Resource Include="Resources\Icons\set.png" />
+    <Resource Include="Resources\Icons\set5.png" />
+    <Resource Include="Resources\Icons\settings.png" />
+    <Resource Include="Resources\Icons\stat.png" />
+    <Resource Include="Resources\Icons\user.png" />
   </ItemGroup>
 
 </Project>
