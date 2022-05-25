@@ -45,10 +45,10 @@ namespace SimsProjekat
         }
         private void IngredientADrugButton(object sender, RoutedEventArgs e)
         {
-
+            List<Drug> approved = drug_Controller.GetAllApprovedDrugs();
             AIngredientsBorder.Visibility = Visibility.Visible;
             int drugId = ((Drug)ApprovedGrid.SelectedItem).Id;
-            foreach (Drug drug in ApprovedDrugs)
+            foreach (Drug drug in approved)
             {
                 if (drug.Id == drugId)
                 {
@@ -77,9 +77,9 @@ namespace SimsProjekat
         private void AAllergensButton(object sender, RoutedEventArgs e)
         {
 
-
+            List<Drug> approved = drug_Controller.GetAllApprovedDrugs();
             int drugId = ((Drug)ApprovedGrid.SelectedItem).Id;
-            foreach (Drug drug in ApprovedDrugs)
+            foreach (Drug drug in approved)
             {
                 if (drug.Id == drugId)
                 {
@@ -102,7 +102,15 @@ namespace SimsProjekat
 
         private void changeDrugButton(object sender, RoutedEventArgs e)
         {
-
+            UpdateDrug.Visibility = Visibility.Visible;
+            AddDrug.Visibility = Visibility.Visible;
+            Approved.Visibility = Visibility.Collapsed;
+            Rejected.Visibility = Visibility.Collapsed;
+            AllApprovedDrugs.Visibility = Visibility.Collapsed;
+            AllRejectedDrugs.Visibility = Visibility.Collapsed;
+            int drugId = ((Drug)RejectedGrid.SelectedItem).Id;
+            String drugName = drug_Controller.GetById(drugId).Name;
+            selected.Text = drugName;
         }
 
         public void RejectedRefreshSource()
@@ -135,6 +143,7 @@ namespace SimsProjekat
         {
             AddDrug.Visibility = Visibility.Collapsed;
             Approved.Visibility = Visibility.Collapsed;
+            UpdateDrug.Visibility = Visibility.Collapsed;
             Rejected.Visibility = Visibility.Visible;
             AllApprovedDrugs.Visibility = Visibility.Visible;
             AllRejectedDrugs.Visibility = Visibility.Collapsed;
@@ -171,7 +180,7 @@ namespace SimsProjekat
 
         private void RIngredientDrugButton(object sender, RoutedEventArgs e)
         {
-
+            
             RIngredientsBorder.Visibility = Visibility.Visible;
             RAllergensBorder.Visibility = Visibility.Collapsed;
             int drugId = ((Drug)RejectedGrid.SelectedItem).Id;
@@ -189,6 +198,7 @@ namespace SimsProjekat
         private void RAllergensButton(object sender, RoutedEventArgs e)
         {
 
+            
             RAllergensBorder.Visibility = Visibility.Visible;
             RIngredientsBorder.Visibility = Visibility.Collapsed;
             int drugId = ((Drug)RejectedGrid.SelectedItem).Id;
@@ -219,6 +229,27 @@ namespace SimsProjekat
             RAllergensBorder.Visibility = Visibility.Collapsed;
 
 
+        }
+
+        private void UpdateDrugClick(object sender, RoutedEventArgs e)
+        {
+            
+            int drugId = -1;
+            drugId = ((Drug)RejectedGrid.SelectedItem).Id;
+            Drug drug = new Drug(drugId, UpdatedDrugName.Text, UpdatedDose.Text, UpdatedIngredients.Text, UpdatedAllergens.Text, true);
+            drug_Controller.UpdateDrug(drug);
+            ApprovedRefreshSource();
+            RejectedRefreshSource();
+            AddDrug.Visibility = Visibility.Collapsed;
+            Approved.Visibility = Visibility.Collapsed;
+            Rejected.Visibility = Visibility.Visible;
+            AllApprovedDrugs.Visibility = Visibility.Visible;
+            AllRejectedDrugs.Visibility = Visibility.Collapsed;
+            UpdateDrug.Visibility = Visibility.Collapsed;
+            UpdatedDrugName.Clear();
+            UpdatedDose.Clear();
+            UpdatedIngredients.Clear();
+            UpdatedAllergens.Clear();
         }
     }
 }

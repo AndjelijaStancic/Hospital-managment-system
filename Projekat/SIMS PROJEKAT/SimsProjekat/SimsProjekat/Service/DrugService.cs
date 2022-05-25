@@ -48,6 +48,10 @@ namespace Service
         {
             return this.drug_Repository.GetAllDrugs();
         }
+        public Drug GetById(int id)
+        {
+            return this.drug_Repository.GetById(id);
+        }
 
         public Boolean DeleteDrug(int Id)
         {
@@ -55,6 +59,10 @@ namespace Service
         }
         public Drug UpdateDrug(Drug drug)
         {
+            if (drug.Ingredients.Equals("")) { drug.Ingredients = drug_Repository.GetById(drug.Id).Ingredients; }
+            if (drug.Allergens.Equals("")) { drug.Allergens = drug_Repository.GetById(drug.Id).Allergens; }
+            if (drug.Name.Equals("")) { drug.Name = drug_Repository.GetById(drug.Id).Name; }
+            if (drug.Dose.Equals("")) { drug.Dose = drug_Repository.GetById(drug.Id).Dose; }
             return drug_Repository.UpdateDrug(drug);
         }
         public Drug CreateDrug(Drug drug)

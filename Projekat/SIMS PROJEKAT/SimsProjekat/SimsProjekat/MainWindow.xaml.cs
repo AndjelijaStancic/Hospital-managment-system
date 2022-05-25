@@ -63,6 +63,7 @@ namespace SimsProjekat
 
         private void StatNav(object sender, RoutedEventArgs e)
         {
+            MainFrame.Content = new StatisticsPage(); 
             StatButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
             RoomAllButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF2A393A");
             EqpButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF2A393A");

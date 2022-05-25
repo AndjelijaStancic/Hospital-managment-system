@@ -44,6 +44,25 @@ namespace Repository
             return new Drug(Id, Name, Dose, Ingredients, Allergens, Approved);
         }
 
+        public Drug GetById(int id)
+        {
+            List<Drug> drugs = GetAllDrugs().ToList();
+            Drug drug = new Drug(-1, "", "", "", "", false);
+            foreach (Drug d in drugs)
+            {
+                if (d.Id == id)
+                {
+                    drug.Id = d.Id;
+                    drug.Name = d.Name;
+                    drug.Dose = d.Dose;
+                    drug.Approved = d.Approved;
+                    drug.Ingredients = d.Ingredients;
+                    drug.Allergens = d.Allergens;
+                }
+            }
+            return drug;
+        }
+
         public List<Drug> GetAllDrugs()
         {
             return File.ReadAllLines(Path).Select(ConvertDrug).ToList();
@@ -80,6 +99,7 @@ namespace Repository
                     drug.Dose = drugUpdate.Dose;
                     drug.Ingredients = drugUpdate.Ingredients;
                     drug.Allergens = drugUpdate.Allergens;
+                    drug.Approved = drugUpdate.Approved;
                 }
                 updated.Add(ConvertCsv(drug));
             }

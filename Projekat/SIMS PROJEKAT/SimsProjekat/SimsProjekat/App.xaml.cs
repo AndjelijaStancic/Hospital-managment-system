@@ -26,6 +26,7 @@ namespace SimsProjekat
         private string userFile = _projectPath + "\\Resources\\Data\\user.csv";
         private string accFile = _projectPath + "\\Resources\\Data\\user.csv";
         private string renoFile = _projectPath + "\\Resources\\Data\\reno.csv";
+        private string statFile = _projectPath + "\\Resources\\Data\\stat.csv";
         private string APPOINTMENT_FILE = _projectPath + "\\Resources\\Data\\appointments.csv";
         private const string CSV_DELIMITER = ";";
 
@@ -44,6 +45,8 @@ namespace SimsProjekat
         public AccController AccController { get; set; }
 
         public DrugController DrugController { get; set; }
+
+        public StatController StatController { get; set; }
 
         public RenovationMergeController RenovationMergeController { get; set; }
 
@@ -110,6 +113,14 @@ namespace SimsProjekat
             var roomService = new RoomService(roomRepository, equipmentRepository, eqpMenagmentRepository, renoRepository, renovationMergeRepository, renovationSplitRepository);
 
             RoomController = new RoomController(roomService);
+
+            var statRepository = new StatRepository(statFile, CSV_DELIMITER);
+
+            var statService = new StatService(statRepository);
+
+            StatController = new StatController(statService, userService);
+
+
 
         }
     }

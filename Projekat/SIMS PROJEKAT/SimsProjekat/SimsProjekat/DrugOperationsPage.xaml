@@ -382,8 +382,8 @@
                     Grid.Column="3" 
                     Grid.Row="1" 
                     Grid.ColumnSpan="2" 
-                    Margin="10,59,0,49.2" Grid.RowSpan="2"/>
-
+                    Margin="10,59,0,52" Grid.RowSpan="2"/>
+                
 
                 <Label 
                     Grid.ColumnSpan="3" 
@@ -438,6 +438,173 @@
                         Click="AddNewDrugClick">DODAJ</Button>
             </Grid>
         </Border>
+
+        <Border 
+            Name="UpdateDrug" 
+            Grid.Column="1" 
+            Grid.Row="1" 
+            Grid.ColumnSpan="5" 
+            Grid.RowSpan="5"  
+            Visibility="Collapsed" 
+            Style="{StaticResource BorderAdd}" 
+            Margin="51,10,51,30">
+            <Border.Effect>
+                <DropShadowEffect 
+             Direction="270"
+             Opacity="0.8"
+             ShadowDepth="10"
+             BlurRadius="15" />
+
+            </Border.Effect>
+            <Grid Background="#FF2A5158">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button
+                    Grid.Column="5" 
+                    Style="{StaticResource roomButton}"
+                    Margin="56,10,10,27"
+                    FontSize="17"
+                    Click="ExitClick">
+                    X
+                </Button>
+                <TextBlock 
+                    Grid.Column="1"  
+                    Foreground="White"
+                    Grid.ColumnSpan="4" 
+                    Margin="27,10,27,16" 
+                    Grid.Row="0" 
+                    FontFamily="Georgia" 
+                    TextAlignment="Center" 
+                    FontWeight="Bold"  
+                    FontSize="18" >
+                    AŽURIRANJE IZABRANOG LEKA
+                </TextBlock>
+                <TextBox
+                    Grid.Column="1"
+                    Name="selected"
+                    Grid.ColumnSpan="4"
+                    Grid.Row="0" Margin="70,36,70,10"
+                    FontSize="18"
+                    FontFamily="Georgia"
+                    TextAlignment="Center"
+                    FontWeight="Bold"
+                    TextWrapping="Wrap"
+                    BorderThickness="0"
+                    Background="#FF2A5158"
+                    Foreground="White"
+                    IsReadOnly="True"/>
+                <Label  
+                    Grid.Row="1"   
+                    Foreground="White"
+                    Content="NAZIV:" 
+                    FontSize="14" 
+                    Style="{StaticResource FormLabel}" 
+                    FontWeight="Medium" 
+                    Margin="0,14,50,17" 
+                    Grid.ColumnSpan="2" Grid.Column="1"/>
+                <TextBox 
+                    Name="UpdatedDrugName" 
+                    Background="#FF4F686A"
+                    Foreground="White"
+                    FontFamily="Georgia"
+                    FontSize="15" 
+                    TextWrapping="Wrap"
+                    Grid.Column="3"
+                    Grid.Row="1" 
+                    Grid.ColumnSpan="2" 
+                    Margin="10,17,0,28"/>
+
+                <Label  
+                    Grid.Row="1"   
+                    Foreground="White"
+                    Content="DOZA:" 
+                    FontSize="14" 
+                    Style="{StaticResource FormLabel}" 
+                    FontWeight="Medium" 
+                    Margin="0,59,50,41" 
+                    Grid.ColumnSpan="2" RenderTransformOrigin="0.516,-0.046" Grid.RowSpan="2" Grid.Column="1"/>
+                <TextBox 
+                    Name="UpdatedDose" 
+                    Background="#FF4F686A"
+                    Foreground="White"
+                    FontFamily="Georgia"
+                    FontSize="15" 
+                    TextWrapping="Wrap"
+                    Grid.Column="3" 
+                    Grid.Row="1" 
+                    Grid.ColumnSpan="2" 
+                    Margin="10,59,0,52" Grid.RowSpan="2"/>
+
+
+                <Label 
+                    Grid.ColumnSpan="3" 
+                    Foreground="White"
+                    Content="SASTOJCI:"  
+                    FontSize="14" 
+                    Style="{StaticResource FormLabel}" 
+                    FontWeight="Medium" 
+                    Grid.Row="2" 
+                    Margin="0,50,92,31" 
+                    RenderTransformOrigin="0.67,-0.097" Grid.RowSpan="2" Grid.Column="1"/>
+                <TextBox 
+                    Name="UpdatedIngredients"
+                    Background="#FF4F686A"
+                    Foreground="White"
+                    FontFamily="Georgia"
+                    FontSize="15" 
+                    TextWrapping="Wrap"
+                    Grid.Column="3" 
+                    Grid.Row="2" 
+                    Grid.ColumnSpan="2" 
+                    Margin="10,44,0,50" Grid.RowSpan="2"  />
+                <Label 
+                    Grid.ColumnSpan="3"  
+                    Foreground="White"
+                    Content="ALERGENI:"  
+                    FontSize="14" 
+                    Style="{StaticResource FormLabel}" 
+                    FontWeight="Medium" 
+                    Grid.Row="3" 
+                    Margin="0,36,92,44" 
+                    RenderTransformOrigin="0.67,-0.097" Grid.RowSpan="2" Grid.Column="1"/>
+                <TextBox 
+                    Name="UpdatedAllergens" 
+                    Grid.Column="3" 
+                    Background="#FF4F686A"
+                    Foreground="White"
+                    FontFamily="Georgia"
+                    FontSize="15" 
+                    TextWrapping="Wrap"
+                    Grid.Row="3" 
+                    Grid.ColumnSpan="2" 
+                    Margin="10,34,0,60" Grid.RowSpan="2"  />
+                <Button Name="UpdateConfirm" 
+                        Grid.Column="2" 
+                        Style="{StaticResource roomButton}"
+                        Margin="36,29,36,10" 
+                        Grid.ColumnSpan="2" 
+                        Grid.Row="4" 
+                        FontWeight="Medium"  
+                        FontSize="15" 
+                        Click="UpdateDrugClick">IZMENI</Button>
+            </Grid>
+        </Border>
+
+
+
 
         <Border Name="AIngredientsBorder" 
                 Grid.Column="2" 

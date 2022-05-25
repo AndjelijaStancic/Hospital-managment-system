@@ -21,6 +21,19 @@ namespace Service
             return user_Repository.GetById(id);
         }
 
+        public List<User> GetAllDoctors()
+        {
+            List<User> users = user_Repository.GetAll();
+            List<User> doctors = new List<User>();
+            foreach(User user in users)
+            {
+                if (user.Role.Equals("Doctor"))
+                {
+                    doctors.Add(user);
+                }
+            }
+            return doctors;
+        }
         public List<User> GetAll()
         {
             return user_Repository.GetAll();

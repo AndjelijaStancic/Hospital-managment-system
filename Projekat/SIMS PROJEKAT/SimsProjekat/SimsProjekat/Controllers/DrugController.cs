@@ -21,7 +21,11 @@ namespace Controller
         {
             return drug_Service.GetAllApprovedDrugs();
         }
-        
+        public Drug GetById(int id)
+        {
+            return drug_Service.GetById(id);    
+        }
+      
         public List<Drug> GetAllDrugs()
         {
             return drug_Service.GetAllDrugs();
