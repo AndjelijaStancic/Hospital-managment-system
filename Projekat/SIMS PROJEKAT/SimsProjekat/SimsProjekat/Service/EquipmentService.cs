@@ -37,6 +37,7 @@ namespace Service
             return eqpMen_Repository.GetAll();
         }
 
+
         public List<EquipmentDisplay> GetDynEqpDysplay()
         {
             List<RenovationSplit> renovationSplits = this.renoSplit_Repository.GetAll();
@@ -47,6 +48,8 @@ namespace Service
             List<Equipment> eqpCheckMerge = new List<Equipment>();
             List<EquipmentDisplay> eqsDisplay = new List<EquipmentDisplay>();
             List<Room> magacines = new List<Room>();
+
+            
 
             foreach (Room room in rooms)
             {
@@ -191,101 +194,7 @@ namespace Service
             return eqsDisplay;
         }
 
-        public List<EquipmentDisplay> GetAllFilteredStatic(String Filter)
-        {
-
-            List<EquipmentMenagment> eqpMen = this.eqpMen_Repository.GetAll();
-            List<EquipmentDisplay> eqsDisplay = new List<EquipmentDisplay>();
-            List<EquipmentMenagment> done = new List<EquipmentMenagment>();
-
-
-            foreach (EquipmentMenagment EqpMenDone in eqpMen)
-            {
-                if (DateTime.Compare(EqpMenDone.movingDay, DateTime.Today) <= 0)
-                {
-                    done.Add(EqpMenDone);
-                    Equipment equipment = equipment_Repository.GetById(EqpMenDone.idEqp);
-                    equipment.idRoom = EqpMenDone.idRoom;
-                    equipment_Repository.Update(equipment);
-                }
-            }
-            foreach (EquipmentMenagment doneEqp in done)
-            {
-                eqpMen_Repository.DeleteEqpMen(doneEqp.idEqp);
-            }
-            List<Equipment> eqp = this.equipment_Repository.GetAll();
-
-            foreach (Equipment e in eqp)
-            {
-                if (e.type == "S" && e.name.Contains(Filter))
-                {
-                    eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
-                }
-                else if (e.type == "S" && (room_Repository.GetById(e.idRoom).Name.Contains(Filter)))
-                {
-                    eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
-                }
-                else if (e.type == "S" && e.idEquipment.ToString() == Filter)
-                {
-                    eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
-                }
-                else if (string.IsNullOrEmpty(Filter) && e.type == "S")
-                {
-                    eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
-                }
-
-            }
-
-            return eqsDisplay;
-
-        }
-        public List<EquipmentDisplay> GetAllFilteredDynamic(String Filter)
-        {
-
-            List<EquipmentMenagment> eqpMen = this.eqpMen_Repository.GetAll();
-            List<EquipmentDisplay> eqsDisplay = new List<EquipmentDisplay>();
-            List<EquipmentMenagment> done = new List<EquipmentMenagment>();
-
-
-            foreach (EquipmentMenagment EqpMenDone in eqpMen)
-            {
-                if (DateTime.Compare(EqpMenDone.movingDay, DateTime.Today) <= 0)
-                {
-                    done.Add(EqpMenDone);
-                    Equipment equipment = equipment_Repository.GetById(EqpMenDone.idEqp);
-                    equipment.idRoom = EqpMenDone.idRoom;
-                    equipment_Repository.Update(equipment);
-                }
-            }
-            foreach (EquipmentMenagment doneEqp in done)
-            {
-                eqpMen_Repository.DeleteEqpMen(doneEqp.idEqp);
-            }
-            List<Equipment> eqp = this.equipment_Repository.GetAll();
-
-            foreach (Equipment e in eqp)
-            {
-                if (e.type == "D" && e.name.Equals(Filter))
-                {
-                    eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
-                }
-                else if (e.type == "D" && (room_Repository.GetById(e.idRoom).Name.Equals(Filter)))
-                {
-                    eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
-                }
-                else if (e.type == "D" && e.idEquipment.ToString() == Filter)
-                {
-                    eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
-                }
-                else if (string.IsNullOrEmpty(Filter) && e.type == "D")
-                {
-                    eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
-                }
-
-            }
-
-            return eqsDisplay;
-
-        }
+        
+        
     }
 }

@@ -74,7 +74,7 @@ namespace Service
 
             foreach (RenovationMerge renoMerge in PickedRenoMerges)
             {
-                if ((renovation.Start < renoMerge.Start && renovation.Finish < renoMerge.Finish) == true)
+                if ((renovation.Start <= renoMerge.Start && renovation.Finish <= renoMerge.Finish) == true)
                 {
                     check = true;
                 }
@@ -90,7 +90,7 @@ namespace Service
 
             foreach (Renovation reno in PickedBasicReno)
             {
-                if ((renovation.Start < reno.Start && renovation.Finish < reno.Finish) == true)
+                if ((renovation.Start <= reno.Start && renovation.Finish <= reno.Finish) == true)
                 {
                     check = true;
                 }
@@ -106,7 +106,7 @@ namespace Service
 
             foreach (RenovationSplit renoSplit in PickedRenoSplit)
             {
-                if ((renovation.Start < renoSplit.Start && renovation.Finish < renoSplit.Finish) == true)
+                if ((renovation.Start <= renoSplit.Start && renovation.Finish <= renoSplit.Finish) == true)
                 {
                     check = true;
                 }

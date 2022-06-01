@@ -74,7 +74,7 @@ namespace Service
 
             foreach (RenovationMerge renoMerge in PickedRenoMerges)
             {
-                if ((renovationSplit.Start < renoMerge.Start && renovationSplit.Finish < renoMerge.Finish) == true)
+                if ((renovationSplit.Start <= renoMerge.Start && renovationSplit.Finish <= renoMerge.Finish) == true)
                 {
                     check = true;
                 }
@@ -86,11 +86,12 @@ namespace Service
                 {
                     check = true;
                 }
+                
             }
 
             foreach (Renovation reno in PickedBasicReno)
             {
-                if ((renovationSplit.Start < reno.Start && renovationSplit.Finish < reno.Finish) == true)
+                if ((renovationSplit.Start <= reno.Start && renovationSplit.Finish <= reno.Finish) == true)
                 {
                     check = true;
                 }
@@ -102,11 +103,15 @@ namespace Service
                 {
                     check = true;
                 }
+                else if ((renovationSplit.Start == reno.Start && reno.Finish == renovationSplit.Finish))
+                {
+                    check = true;
+                }
             }
 
             foreach (RenovationSplit renoSplit in PickedRenoSplit)
             {
-                if ((renovationSplit.Start < renoSplit.Start && renovationSplit.Finish < renoSplit.Finish) == true)
+                if ((renovationSplit.Start <= renoSplit.Start && renovationSplit.Finish <= renoSplit.Finish) == true)
                 {
                     check = true;
                 }
@@ -115,6 +120,10 @@ namespace Service
                     check = true;
                 }
                 else if ((renovationSplit.Start > renoSplit.Start && renoSplit.Finish > renovationSplit.Finish))
+                {
+                    check = true;
+                }
+                else if ((renovationSplit.Start == renoSplit.Start && renoSplit.Finish == renovationSplit.Finish))
                 {
                     check = true;
                 }

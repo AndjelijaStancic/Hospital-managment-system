@@ -21,15 +21,7 @@ namespace Controller
         {
             return equipment_Service.GetAll();
         }
-        public List<EquipmentDisplay> GetAllFilteredDynamic(String Filter)
-        {
-            return equipment_Service.GetAllFilteredDynamic(Filter);
-        }
-        public List<EquipmentDisplay> GetAllFilteredStatic(String Filter)
-        {
-            return equipment_Service.GetAllFilteredStatic(Filter);
-        }
-
+       
         public List<EquipmentDisplay> GetAllDisplayDin()
         {
             return equipment_Service.GetDynEqpDysplay();

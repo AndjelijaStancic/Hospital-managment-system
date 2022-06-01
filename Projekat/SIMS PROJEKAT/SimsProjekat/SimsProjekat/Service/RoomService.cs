@@ -33,24 +33,36 @@ namespace Service
         }
 
         public Room GetById(int id)
-      {
+        {
             return  room_Repository.GetById(id);
-      }
-        
-      
- /*    public List<Room> GetAll()
-      {
-         return room_Repository.GetAll();
-      }
-*/
-       public List<Room> GetAll()
-       {
+        }
+
+        public List<Room> FindMagacines()
+        {
+            List<Room> roomList = room_Repository.GetAll();
+            List<Room> magacines = new List<Room>();
+
+            foreach (Room room in roomList)
+            {
+                if (room.Type == RoomType.storage)
+                {
+                    magacines.Add(room);
+                }
+            }
+            return magacines;
+        }
+
+     
+
+        public List<Room> GetAll()
+        {
             List<RenovationSplit> renovationSplits = this.renoSplit_Repository.GetAll();
             List<RenovationMerge> renovationMerges = this.renoMerge_Repository.GetAll();
             List<Room> rooms = this.room_Repository.GetAll();
             List<Room> roomChecked = new List<Room>();
             List<Room> doneSplit = new List<Room>();
             List<Room> doneMerge = new List<Room>();
+            
 
             foreach (RenovationSplit rs in renovationSplits)
             {
@@ -97,7 +109,7 @@ namespace Service
                     }
                 }
             }
-
+            //delete renovation from csv when done
             foreach(RenovationSplit renovationSplit in renovationSplits)
             {
                 if((DateTime.Compare(renovationSplit.Finish, DateTime.Today) <= 0))
@@ -105,6 +117,7 @@ namespace Service
                     renoSplit_Repository.Delete(renovationSplit.Id);
                 }
             }
+            //delete renovation from csv when done
             foreach(RenovationMerge renovationMerge in renovationMerges)
             {
                 if ((DateTime.Compare(renovationMerge.Finish, DateTime.Today) <= 0))
@@ -115,43 +128,43 @@ namespace Service
 
             roomChecked = room_Repository.GetAll();
             return roomChecked;
-       }
+        }
 
         public Room Update(Room room)
         {
-            return room_Repository.Update(room);
-        }
-      
-      public bool Delete(int id)
-      {
             List<Equipment> eqp = this.equipment_Repository.GetAll();
-            List<Equipment> eqsDeletedRoom = new List<Equipment>();
-            List<Room> roomList = room_Repository.GetAll();
-            List<Room> magacines = new List<Room>();
-
-            foreach (Room room in roomList)
-            {
-                if (room.Type == RoomType.storage)
-                {
-                    magacines.Add(room);
-                }
-            }
-
+            List<Room> magacines = FindMagacines();
             foreach (Equipment eqpItem in eqp)
             {
-                if(eqpItem.idRoom == id)
+                if (eqpItem.idRoom == room.Id)
                 {
                     eqpItem.idRoom = magacines.FirstOrDefault().Id;
                     equipment_Repository.Update(eqpItem);
                 }
             }
+            return room_Repository.Update(room);
+        }
+      
+        public bool Delete(int id)
+        {
+            List<Equipment> eqp = this.equipment_Repository.GetAll();
+            List<Room> magacines = FindMagacines();
+
+            foreach (Equipment eqpItem in eqp)
+            {
+               if(eqpItem.idRoom == id)
+               {
+                   eqpItem.idRoom = magacines.FirstOrDefault().Id;
+                   equipment_Repository.Update(eqpItem);
+               }
+            }
             return room_Repository.Delete(id);
-      }
+        }
      
-      public Room Create(Room room)
-      {
-            return room_Repository.Create(room);
-      }
+         public Room Create(Room room)
+         {
+             return room_Repository.Create(room);
+         }
    
    }
 }

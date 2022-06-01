@@ -60,7 +60,7 @@
             <Setter Property="Background" Value="#FF375F5F"></Setter>
             <Setter Property="Opacity" Value="0.85"></Setter>
             <Setter Property="FontSize" Value="15"></Setter>
-            
+
         </Style>
         <Style x:Key="Header" TargetType="DataGridColumnHeader">
             <Setter Property="Height" Value="30"></Setter>
@@ -252,7 +252,7 @@
         <Border Name="UpdateRoom" 
                 Grid.Column="2" 
                 Grid.Row="1" 
-                Grid.ColumnSpan="3" 
+                Grid.ColumnSpan="5" 
                 Grid.RowSpan="5"  
                 Visibility="Collapsed" 
                 Style="{StaticResource BorderAdd}" 
@@ -284,7 +284,7 @@
                 <Button
                     Grid.Column="5" 
                     Style="{StaticResource roomButton}"
-                    Margin="30,10,10,20"
+                    Margin="38,10,10,20"
                     FontSize="17"
                     Click="ExitClick">
                     X
@@ -367,7 +367,7 @@
         <Border Name="RenoRoom" 
                 Grid.Column="2" 
                 Grid.Row="2" 
-                Grid.ColumnSpan="3" 
+                Grid.ColumnSpan="5" 
                 Grid.RowSpan="4"  
                 Visibility="Collapsed" 
                 Style="{StaticResource BorderAdd}" 
@@ -400,14 +400,14 @@
                     Style="{StaticResource roomButton}"
                     Grid.Column="5" 
                     Click="ExitRenovation"
-                    Margin="45,3,3,33" 
+                    Margin="45,3,3,19" 
                     RenderTransformOrigin="1.709,-0.581">
                     X
                 </Button>
                 <TextBlock 
                     Foreground="White"  
                     Grid.ColumnSpan="6" 
-                    Margin="10,27,10,27" 
+                    Margin="10,13,10,27" 
                     Grid.Row="0" 
                     FontFamily="Georgia" 
                     TextAlignment="Center" 
@@ -433,7 +433,7 @@
                     Style="{StaticResource roomButton}"
                     Click="basicRenovation"
                     Grid.ColumnSpan="3" 
-                    Margin="35,45,45,34" 
+                    Margin="34,41,46,38" 
                     Grid.RowSpan="2">
                     renovacija
                 </Button>
@@ -475,7 +475,7 @@
         <Border Name="BasicRenoRoom" 
                 Grid.Column="2" 
                 Grid.Row="2" 
-                Grid.ColumnSpan="3" 
+                Grid.ColumnSpan="5" 
                 Grid.RowSpan="4"  
                 Visibility="Collapsed"
                 Style="{StaticResource BorderAdd}" 
@@ -508,19 +508,19 @@
                     Style="{StaticResource roomButton}"
                     Grid.Column="5" 
                     Click="ExitRenovation"
-                    Margin="35,6,10,28" 
+                    Margin="44,6,10,20" 
                     RenderTransformOrigin="1.709,-0.581">
                     X
                 </Button>
                 <TextBlock 
                     Foreground="White" 
-                    Margin="35,6,0,5" 
+                    Margin="65,6,0,20" 
                     Grid.Row="0" 
                     FontFamily="Georgia" 
                     TextAlignment="Center" 
                     FontWeight="Medium" 
                     TextWrapping="Wrap"
-                    FontSize="15" HorizontalAlignment="Left" Width="219" Grid.ColumnSpan="4" Grid.Column="1" >
+                    FontSize="15" HorizontalAlignment="Left" Width="223" Grid.ColumnSpan="4" Grid.Column="1" >
                     Renovacija izabrane prostorije</TextBlock>
                 <TextBox
                     TextWrapping="Wrap"
@@ -545,7 +545,7 @@
                     Margin="50,21,35,1" RenderTransformOrigin="0.542,0.135"/>
                 <DatePicker  
                     BorderThickness="0"
-                    Margin="10,27,35,0" 
+                    Margin="10,27,65,0" 
                     Name="start" 
                     Grid.Column="3"
                     Grid.Row="1" 
@@ -563,7 +563,7 @@
                     Grid.ColumnSpan="3"/>
                 <DatePicker 
                     BorderThickness="0"
-                    Margin="10,17,35,54" 
+                    Margin="10,17,65,54" 
                     Name="finish" 
                     Grid.Column="3"
                     Grid.Row="2" 
@@ -585,7 +585,7 @@
                     Name="descriptionReno"
                     Grid.Column="3" 
                     Grid.Row="3" 
-                    Margin="10,5,0,5" HorizontalAlignment="Left" Width="154" Grid.ColumnSpan="3"/>
+                    Margin="10,5,0,5" HorizontalAlignment="Left" Width="187" Grid.ColumnSpan="3"/>
                 <Button
                     Name="renoConfirm" 
                     Style="{StaticResource roomButton}"
@@ -605,12 +605,12 @@
 
         <Border Name="MergeRenoRoom" 
                 Grid.Column="2" 
-                Grid.Row="2" 
-                Grid.ColumnSpan="3" 
-                Grid.RowSpan="4"  
+                Grid.Row="1" 
+                Grid.ColumnSpan="5" 
+                Grid.RowSpan="5"  
                 Visibility="Collapsed" 
                 Style="{StaticResource BorderAdd}" 
-                Margin="0,10,5,30">
+                Margin="5,10,5,30">
             <Border.Effect>
                 <DropShadowEffect 
              Direction="270"
@@ -643,21 +643,21 @@
                 <Button 
                     Style="{StaticResource roomButton}"
                     Grid.Column="5" 
-                    Margin="35,6,10,29" 
+                    Margin="43,6,10,37" 
                     Click="ExitRenovation"
                     RenderTransformOrigin="1.709,-0.581" Grid.RowSpan="2">
                     X
                 </Button>
                 <TextBlock 
                     Foreground="White" 
-                    Margin="42,10,0,9" 
+                    Margin="80,10,0,9" 
                     Grid.Row="0" 
                     FontFamily="Georgia" 
                     TextAlignment="Center" 
                     FontWeight="Medium"  
                     TextWrapping="Wrap"
                     FontSize="14" 
-                    Grid.RowSpan="2" HorizontalAlignment="Left" Width="335" Grid.ColumnSpan="6" >
+                    Grid.RowSpan="2" HorizontalAlignment="Left" Width="360" Grid.ColumnSpan="6" >
                     Spajanje dve prostorije<LineBreak></LineBreak> u jednu</TextBlock>
 
                 <Label 
@@ -669,7 +669,7 @@
                     FontSize="14" 
                     Grid.Row="1"
                     Grid.RowSpan="2"
-                    Margin="50,25,35,4" RenderTransformOrigin="0.542,0.135"/>
+                    Margin="50,25,35,19" RenderTransformOrigin="0.542,0.135"/>
                 <TextBox
                     IsReadOnly="True"
                     BorderThickness="0"
@@ -681,8 +681,8 @@
                     TextAlignment="Center"
                     FontWeight="Medium"
                     Grid.Row="1"
-                    Grid.Column="3"
-                    Grid.ColumnSpan="3" Margin="10,28,42,9" Grid.RowSpan="2">
+                    Grid.Column="2"
+                    Grid.ColumnSpan="3" Margin="78,27,21,10" Grid.RowSpan="2">
                 </TextBox>
                 <Label 
                     Grid.ColumnSpan="3"  
@@ -698,12 +698,12 @@
                 <ComboBox 
                     Name="AddSecRoom"  
                     ItemsSource="{Binding Path=Names}" 
-                    Grid.Column="3"
+                    Grid.Column="2"
                     FontFamily="Georgia"
                     FontSize="11"
-                    Grid.ColumnSpan="3" 
-                    Grid.Row="3" 
-                    Margin="10,0,35,6"  />
+                    Grid.ColumnSpan="4" 
+                    Grid.Row="2" 
+                    Margin="82,23,71,25" Grid.RowSpan="2"  />
 
                 <Label 
                     Grid.ColumnSpan="3"  
@@ -716,13 +716,13 @@
                     Grid.RowSpan="2"
                     Margin="50,25,35,6" RenderTransformOrigin="0.542,0.135"/>
                 <DatePicker  
-                    Margin="10,27,29,0" 
+                    Margin="82,25,71,32" 
                     Name="startMerge"
                     BorderThickness="0"
-                    Grid.Column="3"
+                    Grid.Column="2"
                     Grid.Row="3"
-                    Grid.RowSpan="2"
-                    Grid.ColumnSpan="3"/>
+                    Grid.RowSpan="3"
+                    Grid.ColumnSpan="4"/>
 
                 <Label 
                     Grid.Row="4"
@@ -736,12 +736,12 @@
                     Margin="53,23,38,4" 
                     Grid.ColumnSpan="3"/>
                 <DatePicker  
-                    Margin="10,27,29,4" 
+                    Margin="82,27,71,4" 
                     Name="finishMerge" 
-                    Grid.Column="3"
+                    Grid.Column="2"
                     BorderThickness="0"
                     Grid.Row="4" 
-                    Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+                    Grid.ColumnSpan="4" Grid.RowSpan="2"/>
                 <Label  
                     Grid.Row="7"  
                     Foreground="White"
@@ -760,8 +760,8 @@
                     FontSize="12"
                     Name="descriptionMergeReno"
                     Grid.Column="3" 
-                    Grid.Row="8" 
-                    Margin="10,3,0,5" HorizontalAlignment="Left" Width="161" Grid.ColumnSpan="3"/>
+                    Grid.Row="7" 
+                    Margin="0,29,0,21" HorizontalAlignment="Left" Width="188" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
                 <Label  
                     Grid.Row="5"  
                     Foreground="White"
@@ -780,8 +780,8 @@
                     FontSize="15"
                     FontFamily="Georgia"
                     Grid.Column="3" 
-                    Grid.Row="6" 
-                    Margin="10,1,0,9" HorizontalAlignment="Left" Width="161" Grid.ColumnSpan="3"/>
+                    Grid.Row="5" 
+                    Margin="0,27,0,25" HorizontalAlignment="Left" Width="188" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
 
                 <Label 
                     Grid.ColumnSpan="3"  
@@ -801,8 +801,8 @@
                     FontSize="11"
                     FontFamily="Georgia"
                     Grid.ColumnSpan="3" 
-                    Grid.Row="7" 
-                    Margin="10,1,35,4"  />
+                    Grid.Row="6" 
+                    Margin="0,30,71,18" Grid.RowSpan="2"  />
 
 
                 <Button
@@ -823,12 +823,12 @@
 
         <Border Name="SplitRenoRoom" 
                 Grid.Column="2" 
-                Grid.Row="2" 
-                Grid.ColumnSpan="3" 
-                Grid.RowSpan="4"  
+                Grid.Row="1" 
+                Grid.ColumnSpan="5" 
+                Grid.RowSpan="5"  
                 Visibility="Collapsed" 
                 Style="{StaticResource BorderAdd}" 
-                Margin="0,10,5,30">
+                Margin="5,10,5,30">
             <Border.Effect>
                 <DropShadowEffect 
              Direction="270"
@@ -865,8 +865,8 @@
                     Style="{StaticResource roomButton}"
                     Grid.Column="5" 
                     Click="ExitRenovation"
-                    Margin="35,6,10,29" 
-                    RenderTransformOrigin="1.709,-0.581" Grid.RowSpan="2">
+                    Margin="47,6,10,0" 
+                    RenderTransformOrigin="1.709,-0.581">
                     X
                 </Button>
                 <TextBlock 
@@ -891,12 +891,12 @@
 
                 <TextBlock 
                     Foreground="White" 
-                    Margin="27,2,0,11" 
+                    Margin="0,2,0,12" 
                     FontFamily="Georgia" 
                     TextAlignment="Center" 
                     FontWeight="Medium" 
                     TextWrapping="Wrap"
-                    FontSize="15" HorizontalAlignment="Left" Width="127" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="1" >
+                    FontSize="15" HorizontalAlignment="Center" Width="127" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="1" >
                     u dve prostorije</TextBlock>
 
                 <Label 
@@ -915,8 +915,8 @@
                     Foreground="White"
                     Name="FirstRoomNameSplit"
                     Grid.Column="3" 
-                    Grid.Row="2" 
-                    Margin="10,1,0,5" HorizontalAlignment="Left" Width="180" Grid.ColumnSpan="3"/>
+                    Grid.Row="1" 
+                    Margin="28,28,0,22" HorizontalAlignment="Left" Width="180" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
 
                 <Label 
                     Grid.ColumnSpan="3"  
@@ -937,8 +937,8 @@
                     ItemsSource="{Binding Path=TypesList}" 
                     Grid.Column="3" 
                     Grid.ColumnSpan="3" 
-                    Grid.Row="3" 
-                    Margin="10,1,42,8" />
+                    Grid.Row="2" 
+                    Margin="28,30,74,23" Grid.RowSpan="2" />
 
                 <Label 
                     Grid.ColumnSpan="3"  
@@ -956,8 +956,8 @@
                     Foreground="White"
                     Name="SecondRoomNameSplit"
                     Grid.Column="3" 
-                    Grid.Row="4" 
-                    Margin="10,1,0,5" HorizontalAlignment="Left" Width="180" Grid.ColumnSpan="3"/>
+                    Grid.Row="3" 
+                    Margin="28,31,0,20" HorizontalAlignment="Left" Width="180" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
 
                 <Label 
                     Grid.ColumnSpan="3"  
@@ -977,8 +977,8 @@
                     ItemsSource="{Binding Path=TypesList}" 
                     Grid.Column="3" 
                     Grid.ColumnSpan="3" 
-                    Grid.Row="5" 
-                    Margin="10,1,42,9"/>
+                    Grid.Row="4" 
+                    Margin="28,31,74,23" Grid.RowSpan="2"/>
 
 
                 <Label 
@@ -992,7 +992,7 @@
                     Grid.RowSpan="2"
                     Margin="50,25,35,6" RenderTransformOrigin="0.542,0.135"/>
                 <DatePicker  
-                    Margin="10,27,35,0" 
+                    Margin="28,27,74,0" 
                     Name="startSplit"
                     BorderThickness="0"
                     Grid.Column="3"
@@ -1012,7 +1012,7 @@
                     Margin="53,23,38,4" 
                     Grid.ColumnSpan="3"/>
                 <DatePicker  
-                    Margin="10,27,35,4" 
+                    Margin="28,27,74,4" 
                     Name="finishSplit" 
                     Grid.Column="3"
                     BorderThickness="0"
@@ -1035,13 +1035,13 @@
                     Name="descriptionSplitReno"
                     Grid.Column="3" 
                     Grid.Row="7" 
-                    Margin="10,25,0,0" HorizontalAlignment="Left" Width="180" Grid.ColumnSpan="3" Grid.RowSpan="2" Height="25" VerticalAlignment="Top"/>
+                    Margin="28,24,0,0" HorizontalAlignment="Left" Width="180" Grid.ColumnSpan="3" Grid.RowSpan="2" Height="25" VerticalAlignment="Top"/>
 
                 <Button
                     Name="renoSplitConfirm" 
                     Style="{StaticResource roomButton}"
                     Grid.Column="2" 
-                    Margin="19,5,19,5"
+                    Margin="19,0,19,5"
                     Grid.ColumnSpan="2"
                     Grid.Row="9" 
                     FontWeight="Medium" 
@@ -1066,13 +1066,13 @@
 
         <Border 
             Name="AddRoom" 
-            Grid.Column="1" 
+            Grid.Column="2" 
             Grid.Row="1" 
             Grid.ColumnSpan="5" 
             Grid.RowSpan="5"  
             Visibility="Collapsed" 
             Style="{StaticResource BorderAdd}" 
-            Margin="128,38,121,30">
+            Margin="0,10,0,30">
             <Border.Effect>
                 <DropShadowEffect 
              Direction="270"
@@ -1109,7 +1109,7 @@
                     Foreground="White"
                     Grid.Column="1"  
                     Grid.ColumnSpan="4" 
-                    Margin="27,22,27,45" 
+                    Margin="36,22,35,61" 
                     Grid.Row="0" 
                     FontFamily="Georgia" 
                     TextAlignment="Center" 
@@ -1139,7 +1139,7 @@
                     Grid.Column="3" 
                     Grid.Row="1" 
                     Grid.ColumnSpan="3" 
-                    Margin="10,32,60,2"/>
+                    Margin="10,17,60,17"/>
                 <Label 
                     Grid.ColumnSpan="2" 
                     Foreground="White"
@@ -1158,7 +1158,7 @@
                     Grid.Column="3" 
                     Grid.ColumnSpan="3" 
                     Grid.Row="2" 
-                    Margin="10,17,60,15"  />
+                    Margin="10,20,60,22"  />
                 <Label 
                     Grid.ColumnSpan="3"  
                     Foreground="White"
@@ -1180,12 +1180,12 @@
                     FontSize="15" 
                     TextWrapping="Wrap"
                     Grid.Column="3" 
-                    Grid.Row="3" 
+                    Grid.Row="2" 
                     Grid.ColumnSpan="3" 
-                    Margin="10,18,60,17"  />
+                    Margin="10,71,60,36" Grid.RowSpan="2"  />
                 <Button Name="AddConfirm" 
                         Grid.Column="2" 
-                        Margin="15,19,15,10" 
+                        Margin="15,19,15,22" 
                         Grid.ColumnSpan="2" 
                         Style="{StaticResource roomButton}"
                         Grid.Row="4" 
@@ -1199,13 +1199,13 @@
 
 
         <Border Name="WarningDelete" 
-                Grid.Column="1" 
+                Grid.Column="2" 
                 Grid.Row="2" 
                 Grid.ColumnSpan="5" 
                 Grid.RowSpan="3"  
                 Visibility="Collapsed" 
                 Style="{StaticResource BorderAdd}" 
-                Margin="69,20,71,10">
+                Margin="19,20,19,10">
             <Border.Effect>
                 <DropShadowEffect 
              Direction="280"
@@ -1213,7 +1213,7 @@
              ShadowDepth="15"
              BlurRadius="20" />
             </Border.Effect>
-            <Grid>
+            <Grid Background="#FF2A5158">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -1229,6 +1229,7 @@
                 </Grid.RowDefinitions>
                 <TextBlock 
                     Grid.Column="1"  
+                    Foreground="White"
                     Grid.ColumnSpan="4" 
                     Margin="46,29,51,64" 
                     Grid.Row="0" 
@@ -1244,6 +1245,7 @@
                     Grid.ColumnSpan="6" 
                     Margin="0,20,0,0" 
                     Grid.Row="1" 
+                    Foreground="White"
                     FontFamily="Georgia" 
                     TextAlignment="Center" 
                     FontWeight="Medium"  
@@ -1256,6 +1258,7 @@
                     Grid.ColumnSpan="2" 
                     Grid.Row="3" 
                     Margin="15" 
+                    Style="{StaticResource roomButton}"
                     FontWeight="Medium"  
                     FontSize="15"  
                     Click="ConfirmDelete">
@@ -1266,6 +1269,7 @@
                     Grid.Column="3"  
                     Grid.ColumnSpan="2" 
                     Grid.Row="3" 
+                    Style="{StaticResource roomButton}"
                     Margin="15" 
                     FontWeight="Medium"  
                     FontSize="15"  

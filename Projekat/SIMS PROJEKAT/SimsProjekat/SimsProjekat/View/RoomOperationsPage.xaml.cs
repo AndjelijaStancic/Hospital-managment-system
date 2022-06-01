@@ -144,13 +144,14 @@ namespace SimsProjekat
                     floor = r.Floor;
                 }
             }
+            
             Room room = new Room(roomId, UpdatedName.Text, (RoomType)Enum.Parse(typeof(RoomType), AddUpdatedType.Text, true), floor);
             room_Controller.Update(room);
             AllRooms.Visibility = Visibility.Visible;
             AddRoom.Visibility = Visibility.Collapsed;
             UpdateRoom.Visibility = Visibility.Collapsed;
             AddRoomButton.Visibility = Visibility.Visible;
-            NewRoomName.Clear();
+            UpdatedName.Clear();
             RefreshSource();
         }
 

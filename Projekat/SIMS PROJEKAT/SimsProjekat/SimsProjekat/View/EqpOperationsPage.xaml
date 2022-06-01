@@ -85,7 +85,7 @@
             <Setter Property="Margin" Value="20"></Setter>
         </Style>
     </Page.Resources>
-        <Grid>
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2*"/>
@@ -101,15 +101,20 @@
             <RowDefinition Height="3*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
+        <Label FontFamily="Georgia"
+               FontSize="14"
+               Foreground="White"
+               Grid.Row="1" Margin="62,60,93,58" Grid.ColumnSpan="2" Grid.RowSpan="2">Naziv opreme/prostorije:</Label>
         <Border
-            Name="DinSearchEqp" 
+            Name="StaticSearchEqp" 
             Visibility="Visible" 
-            Grid.Column="0"
-            Grid.ColumnSpan="2" Margin="64,39,138,62" Grid.Row="1" Grid.RowSpan="2">
+            Grid.Column="1"
+            Grid.ColumnSpan="2" Margin="62,52,140,50" Grid.Row="1" Grid.RowSpan="2">
             <TextBox 
                 Background="#FF34535E"
                 Foreground="White"
-                Name="DinSearchButton" 
+                Name="StaticFilterData" 
+                Text ="{Binding FilterStatic, UpdateSourceTrigger=PropertyChanged}"
                 Grid.Row="1" 
                 FontSize="15" 
                 FontFamily="Georgia" 
@@ -118,58 +123,28 @@
             </TextBox>
         </Border>
         <Border
-            Name="confirmSearchStatic" 
-            Visibility="Visible" 
-            Grid.Column="1" Margin="39,36,171,66" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
-            <Button
-                Name="confirmSearchButtonS" 
-                Grid.Row="1" 
-                FontSize="12" 
-                Click="SearchButtonConfirmS"
-                Style="{StaticResource Button}"
-                FontFamily="Georgia" 
-                FontWeight="Medium"
-                Margin="0,13,0,10">
-                <DockPanel>
-                    <Image Source="/Resources/Icons/searchIcon.png" Height="13" Width="20"/>
-                    <TextBlock
-                        FontSize="12"
-                        FontFamily="Georgia" 
-                        FontWeight="Medium" Height="17" Width="51">
-                        pretraži
-                    </TextBlock>
-                </DockPanel>
-            </Button>
-        </Border>
-        <Border
-            Name="confirmSearchDynamic" 
+            Name="DinSearchEqp" 
             Visibility="Collapsed" 
-            Grid.Column="1" Margin="39,36,171,66" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
-            <Button
-                Name="confirmSearchButtonD" 
+            Grid.Column="1"
+            Grid.ColumnSpan="2" Margin="62,52,140,50" Grid.Row="1" Grid.RowSpan="2">
+            <TextBox 
+                Background="#FF34535E"
+                Foreground="White"
+                Name="DinFilterData" 
+                Text ="{Binding FilterDin, UpdateSourceTrigger=PropertyChanged}"
                 Grid.Row="1" 
-                FontSize="12" 
-                Click="SearchButtonConfirmD"
-                Style="{StaticResource Button}"
+                FontSize="15" 
                 FontFamily="Georgia" 
                 FontWeight="Medium"
-                Margin="0,13,0,10">
-                <DockPanel>
-                    <Image Source="/Resources/Icons/searchIcon.png" Height="13" Width="20"/>
-                    <TextBlock
-                        FontSize="12"
-                        FontFamily="Georgia" 
-                        FontWeight="Medium" Height="17" Width="51">
-                        pretraži
-                    </TextBlock>
-                </DockPanel>
-            </Button>
+                Margin="0,10,0,15">
+            </TextBox>
         </Border>
+
         <Border
             Name="DinEqp" 
             Visibility="Visible" 
             Grid.Column="2"
-            Grid.ColumnSpan="3" Margin="171,78,10,0" Grid.RowSpan="3" Height="83" VerticalAlignment="Top">
+            Grid.ColumnSpan="3" Margin="171,10,10,0" Grid.RowSpan="2" Height="83" VerticalAlignment="Top" Grid.Row="1">
             <Button 
                 Name="DinButton" 
                 Style="{StaticResource Button}" 
@@ -185,7 +160,7 @@
             Name="StatEqp" 
             Visibility="Collapsed" 
             Grid.Column="2"
-            Grid.ColumnSpan="3" Margin="171,78,10,0" Grid.RowSpan="3" Height="83" VerticalAlignment="Top">
+            Grid.ColumnSpan="3" Margin="171,10,10,0" Grid.RowSpan="3" Height="83" VerticalAlignment="Top" Grid.Row="1">
             <Button 
                 Name="StatEqpButton" 
                 Style="{StaticResource Button}" 
@@ -197,7 +172,7 @@
                 Margin="95,44,70,0" Height="29" VerticalAlignment="Top">
                 STATIČKA OPREMA</Button>
         </Border>
-        
+
         <Border 
             Name="AllEqp" 
             Visibility="Visible" 
@@ -207,6 +182,13 @@
             Grid.ColumnSpan="5" 
             Margin="62,78,62,0" >
             <Grid>
+                <Grid.Effect>
+                    <DropShadowEffect 
+             Direction="270"
+             Opacity="0.8"
+             ShadowDepth="10"
+             BlurRadius="15" />
+                </Grid.Effect>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -224,7 +206,7 @@
                     AutoGenerateColumns="False" 
                     Grid.Row="2" 
                     Grid.Column="1" 
-                    ItemsSource="{Binding equipment}" 
+                    ItemsSource="{Binding EquipmentStatic}" 
                     Style="{StaticResource Table}">
                     <DataGrid.Columns>
                         <DataGridTextColumn 
@@ -290,6 +272,13 @@
             Grid.ColumnSpan="5" 
             Margin="62,78,62,0" >
             <Grid>
+                <Grid.Effect>
+                    <DropShadowEffect 
+             Direction="270"
+             Opacity="0.8"
+             ShadowDepth="10"
+             BlurRadius="15" />
+                </Grid.Effect>
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0"></ColumnDefinition>
@@ -308,7 +297,7 @@
                     AutoGenerateColumns="False" 
                     Grid.Row="2" 
                     Grid.Column="1" 
-                    ItemsSource="{Binding equipmentDin}" 
+                    ItemsSource="{Binding EquipmentDin}" 
                     Style="{StaticResource Table}">
                     <DataGrid.Columns>
                         <DataGridTextColumn 
@@ -340,243 +329,8 @@
             </Grid>
         </Border>
 
-        <Border 
-            Name="AllDinEqpFiltered" 
-            Visibility="Collapsed" 
-            Grid.Column="0"
-            Grid.Row="1" 
-            Grid.RowSpan="5" 
-            Grid.ColumnSpan="5" 
-            Margin="62,78,62,0" >
-            <Grid>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="0"></ColumnDefinition>
-                    <ColumnDefinition Width="5"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1"></RowDefinition>
-                    <RowDefinition Height="11"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="28"></RowDefinition>
-                </Grid.RowDefinitions>
-                <DataGrid 
-                    Name="GridDinEqwFiltered" 
-                    AutoGenerateColumns="False" 
-                    Grid.Row="2" 
-                    Grid.Column="1" 
-                    ItemsSource="{Binding equipmentDFiltered}" 
-                    Style="{StaticResource Table}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn 
-                            Header="Id" 
-                            Width="1*"   
-                            Binding="{Binding idEquipment}" 
-                            HeaderStyle="{StaticResource Header}" 
-                            CellStyle="{StaticResource Column}"/>
-                        <DataGridTextColumn 
-                            Header="Naziv opreme" 
-                            Width="4*"  
-                            Binding="{Binding name}" 
-                            HeaderStyle="{StaticResource Header}" 
-                            CellStyle="{StaticResource Column}"/>
-                        <DataGridTextColumn 
-                            Header="Količina" 
-                            Width="1.5*"   
-                            Binding="{Binding quantity}" 
-                            HeaderStyle="{StaticResource Header}" 
-                            CellStyle="{StaticResource Column}"/>
-                        <DataGridTextColumn 
-                            Header="Prostorija"  
-                            Width="4*"  
-                            Binding="{Binding nameRoom}"  
-                            HeaderStyle="{StaticResource Header}" 
-                            CellStyle="{StaticResource Column}" />
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-        </Border>
 
 
-
-        <Border 
-            Name="FilteredEqpS" 
-            Visibility="Collapsed" 
-            Grid.Column="0"
-            Grid.Row="1" 
-            Grid.RowSpan="5" 
-            Grid.ColumnSpan="5" 
-            Margin="62,78,62,0" >
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="0"></ColumnDefinition>
-                    <ColumnDefinition Width="5"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1"></RowDefinition>
-                    <RowDefinition Height="11"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="28"></RowDefinition>
-                </Grid.RowDefinitions>
-                <DataGrid 
-                    Name="GridFiltered" 
-                    AutoGenerateColumns="False" 
-                    Grid.Row="2" 
-                    Grid.Column="1" 
-                    ItemsSource="{Binding equipmentSFiltered}" 
-                    Style="{StaticResource Table}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn 
-                            Header="Id" 
-                            Width="1*"   
-                            Binding="{Binding idEquipment}" 
-                            HeaderStyle="{StaticResource Header}" 
-                            CellStyle="{StaticResource Column}"/>
-                        <DataGridTextColumn 
-                            Header="Naziv opreme" 
-                            Width="4*"  
-                            Binding="{Binding name}" 
-                            HeaderStyle="{StaticResource Header}" 
-                            CellStyle="{StaticResource Column}"/>
-                        <DataGridTextColumn 
-                            Header="Količina" 
-                            Width="1.5*"   
-                            Binding="{Binding quantity}" 
-                            HeaderStyle="{StaticResource Header}" 
-                            CellStyle="{StaticResource Column}"/>
-                        <DataGridTextColumn 
-                            Header="Prostorija"  
-                            Width="4*"  
-                            Binding="{Binding nameRoom}"  
-                            HeaderStyle="{StaticResource Header}" 
-                            CellStyle="{StaticResource Column}" />
-                        <DataGridTemplateColumn 
-                            Header="Premeštanje" 
-                            Width="3*" 
-                            HeaderStyle="{StaticResource Header}"
-                            CellStyle="{StaticResource Column}">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button 
-                                        Name="ChangeRoomEqp" 
-                                        Content="odaberi" 
-                                        Click="eqpChangeButtonF"   
-                                        Style="{StaticResource changeButton}" >
-                                        <Button.BitmapEffect>
-                                            <DropShadowBitmapEffect 
-                                                Color="#FF007DA7" 
-                                                Direction="320" 
-                                                Softness="1" 
-                                                ShadowDepth="10" 
-                                                Opacity="0.5" />
-                                        </Button.BitmapEffect>
-                                    </Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-        </Border>
-
-
-        <Border 
-            Name="EqpMenagmentF" 
-            Grid.Row="1" 
-            Grid.ColumnSpan="4"
-            Grid.RowSpan="5"  
-            Visibility="Collapsed" 
-            Style="{StaticResource BorderAdd}"
-            Margin="171,74,5,78">
-            <Border.Effect>
-                <DropShadowEffect 
-             Direction="270"
-             Opacity="0.8"
-             ShadowDepth="10"
-             BlurRadius="15" />
-
-            </Border.Effect>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock 
-                    Grid.Column="1"  
-                    Grid.ColumnSpan="4" 
-                    Margin="27,10,27,37" 
-                    Grid.Row="0" 
-                    FontFamily="Georgia" 
-                    TextAlignment="Center" 
-                    FontWeight="Bold" 
-                    FontSize="17" 
-                    Grid.RowSpan="2" >
-                    ZAKAZIVANJE PREMEŠTANJA<LineBreak></LineBreak>OPREME
-                </TextBlock>
-                <Label 
-                    Grid.ColumnSpan="2"   
-                    Content="PROSTORIJA:" 
-                    FontWeight="Medium"
-                    Style="{StaticResource FormLabel}" 
-                    FontSize="13" 
-                    Grid.Row="1" 
-                    Margin="51,18,10,37" 
-                    Grid.RowSpan="2"/>
-                <ComboBox
-                    Name="RoomNameFormF"
-                    ItemsSource="{Binding Path=Names}"
-                    Grid.Column="3" 
-                    Grid.ColumnSpan="3" 
-                    Grid.Row="1" 
-                    Margin="30,24,60,0"
-                    RenderTransformOrigin="0.569,0.046" 
-                    Grid.RowSpan="2" 
-                    Height="24" 
-                    VerticalAlignment="Top"/>
-
-                <Label 
-                    Grid.Row="2"   
-                    Content="DATUM PREMEŠTANJA:" 
-                    FontSize="13" 
-                    Style="{StaticResource FormLabel}"
-                    FontWeight="Medium" 
-                    Grid.RowSpan="2" 
-                    Margin="51,13,33,38" 
-                    Grid.ColumnSpan="3"/>
-                <DatePicker  
-                    Margin="30,10,60,7" 
-                    Name="datePickerF" 
-                    Grid.Column="3"
-                    Grid.Row="2" 
-                    Grid.ColumnSpan="3"/>
-                <Button
-                    Name="ChangeConfirmF" 
-                    Grid.Column="2" 
-                    Margin="20,4,20,10"
-                    Grid.ColumnSpan="2" 
-                    Grid.Row="4" 
-                    FontWeight="Medium" 
-                    FontSize="15" 
-                    Click="ChangeEqpRoomClickF">
-                    PREMESTI
-                </Button>
-            </Grid>
-        </Border>
 
         <Border 
             Name="EqpMenagment" 
@@ -595,6 +349,7 @@
 
             </Border.Effect>
             <Grid>
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>

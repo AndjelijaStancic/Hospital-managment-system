@@ -236,7 +236,7 @@ namespace SimsProjekat
             
             int drugId = -1;
             drugId = ((Drug)RejectedGrid.SelectedItem).Id;
-            Drug drug = new Drug(drugId, UpdatedDrugName.Text, UpdatedDose.Text, UpdatedIngredients.Text, UpdatedAllergens.Text, true);
+            Drug drug = new Drug(drugId, UpdatedDrugName.Text, UpdatedDose.Text, UpdatedIngredients.Text, UpdatedAllergens.Text, false);
             drug_Controller.UpdateDrug(drug);
             ApprovedRefreshSource();
             RejectedRefreshSource();

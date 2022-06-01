@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Statistics
+    public class StatisticsHospital
     {
-        public int IdStat { get; set; } 
+        public int IdStat { get; set; }
 
         public int IdPatient { get; set; }
-
-        public int Id { get; set; }
 
         public int GradeOne { get; set; }
 
@@ -22,16 +20,13 @@ namespace Model
 
 
 
-        public Statistics(int IdStat, int IdPatient, int Id, int GradeOne, int GradeTwo, int GradeThree)
+        public StatisticsHospital(int IdStat,int IdPatient, int GradeOne, int GradeTwo, int GradeThree)
         {
             this.IdStat = IdStat;
             this.IdPatient = IdPatient;
-            this.Id = Id;
-            this.GradeOne = GradeOne;   
+            this.GradeOne = GradeOne;
             this.GradeTwo = GradeTwo;
             this.GradeThree = GradeThree;
         }
-
-
     }
 }

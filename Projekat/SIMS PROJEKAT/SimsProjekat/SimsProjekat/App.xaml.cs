@@ -23,10 +23,10 @@ namespace SimsProjekat
         private string RenoMergeFile = _projectPath + "\\Resources\\Data\\renoMerge.csv";
         private string RenoSplitFile = _projectPath + "\\Resources\\Data\\renoSplit.csv";
         private string EqpMenagmentFile = _projectPath + "\\Resources\\Data\\eqpMenagment.csv";
-        private string userFile = _projectPath + "\\Resources\\Data\\user.csv";
-        private string accFile = _projectPath + "\\Resources\\Data\\user.csv";
-        private string renoFile = _projectPath + "\\Resources\\Data\\reno.csv";
-        private string statFile = _projectPath + "\\Resources\\Data\\stat.csv";
+        private string UserFile = _projectPath + "\\Resources\\Data\\user.csv";
+        private string StatHospitalFile = _projectPath + "\\Resources\\Data\\statHospital.csv";
+        private string RenoFile = _projectPath + "\\Resources\\Data\\reno.csv";
+        private string StatFile = _projectPath + "\\Resources\\Data\\stat.csv";
         private string APPOINTMENT_FILE = _projectPath + "\\Resources\\Data\\appointments.csv";
         private const string CSV_DELIMITER = ";";
 
@@ -76,15 +76,15 @@ namespace SimsProjekat
         
             AppointmentController = new AppointmentController(appointmentService);
 
-            var userRepository = new UserRepository(userFile, CSV_DELIMITER);
+            var userRepository = new UserRepository(UserFile, CSV_DELIMITER);
 
             var userService = new UserService(userRepository);
 
             UserController = new UserController(userService);
 
-            var renoRepository = new RenovationRepository(renoFile, CSV_DELIMITER);
+            var renoRepository = new RenovationRepository(RenoFile, CSV_DELIMITER);
 
-            var accRepository = new AccRepository(userFile, CSV_DELIMITER);
+            var accRepository = new AccRepository(UserFile, CSV_DELIMITER);
 
             var accService = new AccService(accRepository);
 
@@ -114,11 +114,15 @@ namespace SimsProjekat
 
             RoomController = new RoomController(roomService);
 
-            var statRepository = new StatRepository(statFile, CSV_DELIMITER);
+            var statHospitalRepository = new StatHospitalRepository(StatHospitalFile, CSV_DELIMITER);
 
-            var statService = new StatService(statRepository);
+            var statRepository = new StatRepository(StatFile, CSV_DELIMITER);
 
-            StatController = new StatController(statService, userService);
+            var statService = new StatService(statRepository, statHospitalRepository, userRepository);
+
+            StatController = new StatController(statService);
+
+            
 
 
 

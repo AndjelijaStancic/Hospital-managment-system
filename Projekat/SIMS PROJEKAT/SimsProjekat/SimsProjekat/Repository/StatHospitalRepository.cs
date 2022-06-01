@@ -8,69 +8,51 @@ using System.IO;
 
 namespace Repository
 {
-    public class StatRepository
+    public class StatHospitalRepository
     {
         private string Path;
         private string Delimiter;
-        public StatRepository(string path, string delimiter)
+        public StatHospitalRepository(string path, string delimiter)
         {
             Path = path;
             Delimiter = delimiter;
         }
 
-        public string ConvertCsv(Statistics stat)
+        public string ConvertCsv(StatisticsHospital stat)
         {
             return string.Join(Delimiter,
                 stat.IdStat,
                 stat.IdPatient,
-                stat.Id,
                 stat.GradeOne,
                 stat.GradeTwo,
                 stat.GradeThree
                 );
         }
 
-        public Statistics ConvertToStat(string CsvFormat)
+        public StatisticsHospital ConvertToStat(string CsvFormat)
         {
             var tokens = CsvFormat.Split(Delimiter.ToCharArray());
             int IdStat = int.Parse(tokens[0]);
             int IdPatient = int.Parse(tokens[1]);
-            int Id = int.Parse(tokens[2]);
-            int GradeOne = int.Parse(tokens[3]);
-            int GradeTwo = int.Parse(tokens[4]);
-            int GradeThree = int.Parse(tokens[5]);
-            return new Statistics(IdStat, IdPatient, Id, GradeOne, GradeTwo, GradeThree);
+            int GradeOne = int.Parse(tokens[2]);
+            int GradeTwo = int.Parse(tokens[3]);
+            int GradeThree = int.Parse(tokens[4]);
+            return new StatisticsHospital(IdStat, IdPatient, GradeOne, GradeTwo, GradeThree);
         }
 
-        public Statistics GetById(int id)
-        {
-            List<Statistics> stats = GetAll().ToList();
-            Statistics stat = new Statistics(-1, -1, -1, -1, -1, -1);
-            foreach (Statistics s in stats)
-            {
-                if (s.IdStat == id)
-                {
-                    stat.IdPatient = s.IdPatient;
-                    stat.Id = s.Id;
-                    stat.GradeOne = s.GradeOne;
-                    stat.GradeTwo = s.GradeTwo;
-                    stat.GradeThree = s.GradeThree;
-                }
-            }
-            return stat;
-        }
+        
 
-        public List<Statistics> GetAll()
+        public List<StatisticsHospital> GetAll()
         {
             return File.ReadAllLines(Path).Select(ConvertToStat).ToList();
         }
 
         public bool Delete(int id)
         {
-            List<Statistics> stats = GetAll().ToList();
+            List<StatisticsHospital> stats = GetAll().ToList();
             bool delete = false;
             List<string> updated = new List<string>();
-            foreach (Statistics statistics in stats)
+            foreach (StatisticsHospital statistics in stats)
             {
                 if (statistics.IdStat != id)
                 {
@@ -81,8 +63,5 @@ namespace Repository
             File.WriteAllLines(Path, updated);
             return delete;
         }
-
-        
-        
     }
 }
