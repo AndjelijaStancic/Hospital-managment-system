@@ -75,6 +75,7 @@ namespace SimsProjekat
 
         private void SettNav(object sender, RoutedEventArgs e)
         {
+            
             SettingsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF4C7883");
             StatButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF2A393A");
             RoomAllButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF2A393A");

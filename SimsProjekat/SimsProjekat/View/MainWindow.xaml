@@ -78,9 +78,11 @@
             <Setter Property="Opacity" Value="0.95"></Setter>
             <Setter Property="Margin" Value="20"></Setter>
         </Style>
+        
 
     </Window.Resources>
     <Window.Background>
+        
         <LinearGradientBrush EndPoint="0.4,2"
                              StartPoint="0.4,0">
 
@@ -141,7 +143,7 @@
                 FontSize="12" 
                 Margin="0,7,0,10">
                 <DockPanel>
-                    <Image Source="/Resources/Icons/drug1.png" Height="21" Width="22" Margin="5,0,0,0"/>
+                    <Image Source="/Resources/Icons/drug1.png" Height="21" Width="22" Margin="10.5,0,0,0"/>
                     <TextBlock
                         FontSize="11.5"
                         FontFamily="Georgia" 
@@ -238,11 +240,11 @@
                 FontSize="12" 
                 Margin="0,7,0,10">
                 <DockPanel>
-                    <Image Source="/Resources/Icons/user.png" Height="17.4" Width="22" Margin="0,0,4,0"/>
+                    <Image Source="/Resources/Icons/user.png" Height="17.4" Width="22" Margin="10,0,4,0"/>
                     <TextBlock
                         FontSize="11.5"
                         FontFamily="Georgia" 
-                        Margin="0,2,0,0" Width="102">
+                        Margin="1,2,0,0" Width="102">
                         NALOG
                     </TextBlock>
                 </DockPanel>

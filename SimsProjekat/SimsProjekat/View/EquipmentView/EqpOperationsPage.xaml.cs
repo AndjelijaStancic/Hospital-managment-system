@@ -265,6 +265,7 @@ namespace SimsProjekat
         
         public void FilterDataStatic()
         {
+    
             EquipmentStatic.Clear();
             foreach(EquipmentDisplay equipmentDisplay in EquipmentSourceStatic)
             {
@@ -284,6 +285,7 @@ namespace SimsProjekat
                     EquipmentDin.Add(equipmentDisplay);
                 }
             }
+            
         }
     }
 }

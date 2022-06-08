@@ -40,66 +40,18 @@ namespace Service
             return eqpMen_Repository.GetAll();
         }
 
-
-        public List<EquipmentDisplay> GetDynEqpDysplay()
+        public List<EquipmentDisplay> getDynamic(List<Equipment> equipment)
         {
-            List<RenovationSplit> renovationSplits = this.renoSplit_Repository.GetAll();
-            List<RenovationMerge> renovationMerges = this.renoMerge_Repository.GetAll();
-            List<Room> rooms = this.room_Repository.GetAll();
-            List<Equipment> eqs = this.equipment_Repository.GetAll();
-            List<Equipment> eqpCheckSplit = new List<Equipment>();
-            List<Equipment> eqpCheckMerge = new List<Equipment>();
-            List<EquipmentDisplay> eqsDisplay = new List<EquipmentDisplay>();
+            List<EquipmentDisplay> eqsDyn = new List<EquipmentDisplay>();
 
-
-            List<Room> magacines = new List<Room>();
-            magacines = room_Service.FindMagacines();
-            
-
-            foreach (Equipment e in eqs)
-            {
-                foreach (RenovationSplit renoS in renovationSplits)
-                {
-                    if (e.idRoom == renoS.RoomId && (DateTime.Compare(renoS.Start, DateTime.Today) <= 0))
-                    {
-                        e.idRoom = magacines.FirstOrDefault().Id;
-                        equipment_Repository.Update(e);
-                    }
-                }
-                eqpCheckSplit.Add(e);
-            }
-
-            foreach (Equipment e in eqpCheckSplit)
-            {
-                foreach (RenovationMerge renoM in renovationMerges)
-                {
-                    if ((e.idRoom == renoM.RoomId1 && (DateTime.Compare(renoM.Start, DateTime.Today) <= 0)) || (e.idRoom == renoM.RoomId2 && (DateTime.Compare(renoM.Start, DateTime.Today) <= 0)))
-                    {
-                        e.idRoom = magacines.FirstOrDefault().Id;
-                        equipment_Repository.Update(e);
-                    }
-                }
-                eqpCheckMerge.Add(e);
-            }
-
-            foreach (Equipment e in eqpCheckMerge)
+            foreach (Equipment e in equipment)
             {
                 if (e.type == "D")
                 {
-                    eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
+                    eqsDyn.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
                 }
             }
-            return eqsDisplay;
-        }
-        public List<EquipmentDisplay> GetAllDisplay()
-        {
-            List<Equipment> eqp = this.equipment_Repository.GetAll();
-            List<EquipmentDisplay> eqsDisplay = new List<EquipmentDisplay>();
-            foreach (Equipment e in eqp)
-            {
-                eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
-            }
-            return eqsDisplay;
+            return eqsDyn;
         }
 
         //puts equipment in magacine if there is split renovation scheduled for the room
@@ -128,7 +80,7 @@ namespace Service
 
         }
 
-        //puts equipment in magacine if there is merge renovation scheduled for the room
+        //puts  equipment in magacine if there is merge renovation scheduled for the room
         public List<Equipment> CheckIfMergeReno(List<Equipment> eqp)
         {
             List<RenovationMerge> renovationMerges = this.renoMerge_Repository.GetAll();
@@ -155,6 +107,51 @@ namespace Service
         }
 
 
+        public List<EquipmentDisplay> GetDynEqpDysplay()
+        { 
+            List<Equipment> eqs = this.equipment_Repository.GetAll();
+            List<Equipment> eqpCheckSplit = new List<Equipment>();
+            eqpCheckSplit = CheckIfSplitReno(eqs);
+
+            List<Equipment> eqpCheckMerge = new List<Equipment>();
+            eqpCheckMerge = CheckIfMergeReno(eqpCheckSplit);
+
+            //gets only dynamic equipment from list
+            List<EquipmentDisplay> eqsDisplay = getDynamic(eqpCheckMerge);
+            return eqsDisplay;
+        }
+        public List<EquipmentDisplay> GetAllDisplay()
+        {
+            List<Equipment> eqp = this.equipment_Repository.GetAll();
+            List<EquipmentDisplay> eqsDisplay = new List<EquipmentDisplay>();
+            foreach (Equipment e in eqp)
+            {
+                eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
+            }
+            return eqsDisplay;
+        }
+
+        public void DeleteFinished(List<EquipmentMenagment> doneEqp)
+        {
+            foreach (EquipmentMenagment doneEqpMen in doneEqp)
+            {
+                eqpMen_Repository.DeleteEqpMen(doneEqpMen.idEqp);
+            }
+        }
+        //gets static eqp from list of eqp
+        public List<EquipmentDisplay> getStatic(List<Equipment> equipment)
+        {
+            List<EquipmentDisplay> eqsStatic = new List<EquipmentDisplay>();
+
+            foreach (Equipment e in equipment)
+            {
+                if (e.type == "S")
+                {
+                    eqsStatic.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
+                }
+            }
+            return eqsStatic;
+        }
 
         public List<EquipmentDisplay> GetStaticEqpDisplay()
         {
@@ -191,25 +188,16 @@ namespace Service
             List<Equipment> eqpCheckSplit = CheckIfSplitReno(eqp);
             //puts equipment in magacine if there is merge renovation scheduled for the room
             List<Equipment> eqpCheckMerge = CheckIfMergeReno(eqpCheckSplit);
+            //Deletes finished equipment moving
+            DeleteFinished(done);
 
-            foreach (EquipmentMenagment doneEqp in done)
-            {
-                eqpMen_Repository.DeleteEqpMen(doneEqp.idEqp);
-            }
-
-            List<EquipmentDisplay> eqsDisplay = new List<EquipmentDisplay>();
-
-            foreach (Equipment e in eqpCheckMerge)
-            {
-                if (e.type == "S")
-                {
-                    eqsDisplay.Add(new EquipmentDisplay(this.room_Repository.GetById(e.idRoom).Name, e.idEquipment, e.name, e.quantity, e.type));
-                }
-            }
+            List<EquipmentDisplay> eqsDisplay = getStatic(eqpCheckMerge);
             return eqsDisplay;
         }
 
         
-        
+
+
+
     }
 }

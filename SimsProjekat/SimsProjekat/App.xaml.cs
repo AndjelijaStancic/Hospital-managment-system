@@ -9,12 +9,14 @@ using Controller;
 using Model;
 using Repository;
 using Service;
+using SimsProjekat.Properties;
 
 namespace SimsProjekat
 {
     
     public partial class App : Application
     {
+        private ResourceDictionary ThemeDictionary => Resources.MergedDictionaries[0];
         
         private static string _projectPath = System.Reflection.Assembly.GetExecutingAssembly().Location.Split(new string[] { "bin" }, StringSplitOptions.None)[0];
         private string RoomFile = _projectPath + "\\Resources\\Data\\rooms.csv";
@@ -51,6 +53,25 @@ namespace SimsProjekat
 
         public App()
         {
+            InitializeComponent();
+
+            switch(Settings.Default.CurrentTheme)
+            {
+                case "Style1":
+                    ChangeTheme(new Uri("/Styles/Style1.xaml",
+                        UriKind.RelativeOrAbsolute));
+                    Settings.Default.CurrentTheme = "Style1";
+                    Settings.Default.Save();
+                    break;
+                case "Default":
+                    ChangeTheme(new Uri("/Styles/DefaultStyle.xaml",
+                        UriKind.RelativeOrAbsolute));
+                    Settings.Default.CurrentTheme = "Default";
+                    Settings.Default.Save();
+                    break;
+            }
+
+
             var roomRepository = new RoomRepositoryImpl(RoomFile, CSV_DELIMITER);
 
             var equipmentRepository = new EquipmentRepositoryImpl(EquipmentFile, CSV_DELIMITER);
@@ -116,6 +137,12 @@ namespace SimsProjekat
             StatController = new StatController(statService);
 
         }
+        public void ChangeTheme(Uri uri)
+        {
+            ThemeDictionary.MergedDictionaries.Clear();
+            ThemeDictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = uri });
+        }
     }
+
 }
 

@@ -57,13 +57,9 @@ namespace Service
         public List<Room> GetAll()
         {
             List<RenovationSplit> renovationSplits = this.renoSplit_Repository.GetAll();
-            List<RenovationMerge> renovationMerges = this.renoMerge_Repository.GetAll();
             List<Room> rooms = this.room_Repository.GetAll();
-            List<Room> roomChecked = new List<Room>();
             List<Room> doneSplit = new List<Room>();
-            List<Room> doneMerge = new List<Room>();
             
-
             foreach (RenovationSplit rs in renovationSplits)
             {
                 foreach (Room room in rooms)
@@ -82,6 +78,7 @@ namespace Service
             }
             
             List<Room> roomOne = new List<Room>();
+            List<RenovationMerge> renovationMerges = this.renoMerge_Repository.GetAll();
 
             foreach (Room room in rooms)
             {
@@ -94,6 +91,7 @@ namespace Service
                 }
             }
 
+            List<Room> doneMerge = new List<Room>();
 
             foreach (RenovationMerge rm in renovationMerges)
             {
@@ -125,7 +123,7 @@ namespace Service
                     renoMerge_Repository.Delete(renovationMerge.Id);
                 }
             }
-
+            List<Room> roomChecked = new List<Room>();
             roomChecked = room_Repository.GetAll();
             return roomChecked;
         }

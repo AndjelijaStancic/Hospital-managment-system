@@ -29,6 +29,7 @@ namespace SimsProjekat
         public event PropertyChangedEventHandler PropertyChangedEvent;
 
         public List<StatDisplay> statisticsDoctors { get; set; }
+
         public StatHospitalDisplay statisticsHospital { get; set; }
 
         public List<GradeCount> gradeCount { get; set; }
@@ -43,7 +44,7 @@ namespace SimsProjekat
             this.statisticsDoctors = stat_Controller.GetAllStatDoctor();
             this.statisticsHospital = stat_Controller.GetStatHospital();
             this.gradeCount = stat_Controller.CountGradesHospital();
-            
+            this.gradeCountDoctor = new List<GradeCount>();
             gradeOne.Text = statisticsHospital.GradeOne.ToString();
             gradeTwo.Text = statisticsHospital.GradeTwo.ToString();
             gradeThree.Text = statisticsHospital.GradeThree.ToString();
@@ -57,13 +58,14 @@ namespace SimsProjekat
         private void Show(object sender, RoutedEventArgs e)
         {
             Statistics.Visibility = Visibility.Visible;
+            HosStatsQ.Visibility = Visibility.Collapsed;
         }
 
         private void ExitClick(object sender, RoutedEventArgs e)
         {
             Statistics.Visibility = Visibility.Collapsed;
-            HospitalGrades.Visibility = Visibility.Collapsed;
             Grades.Visibility = Visibility.Collapsed;
+            StatisticsHos.Visibility = Visibility.Collapsed;
             //DocGrades.Visibility = Visibility.Collapsed;
         }
 
@@ -71,8 +73,10 @@ namespace SimsProjekat
         {
             Grades.Visibility = Visibility.Visible;
             this.gradeCountDoctor = stat_Controller.CountGradesDoctor(((StatDisplay)StatGrid.SelectedItem).Id);
-            Name1.Text = gradeCountDoctor.ElementAt(1).grade1.ToString();
-            //DocGrades.Visibility = Visibility.Visible;
+            DocGradeGrid.ItemsSource = gradeCountDoctor;
+            DocGradeGrid.Items.Refresh();   
+
+
             Name.Text = ((StatDisplay)StatGrid.SelectedItem).Name;
         }
 
@@ -82,16 +86,25 @@ namespace SimsProjekat
             {
                 StatisticsGrid.Visibility = Visibility.Collapsed;
                 StatHospital.Visibility = Visibility.Visible;
-                HospitalGrades.Visibility= Visibility.Visible;  
+                HospitalGrades.Visibility= Visibility.Visible;
+                HosStatsQ.Visibility = Visibility.Visible;
+                DocStatsQ.Visibility = Visibility.Collapsed;
             }
             else if (Stat.Text.Equals("Bolnica"))
             {
                 StatisticsGrid.Visibility = Visibility.Visible;
                 StatHospital.Visibility = Visibility.Collapsed;
                 HospitalGrades.Visibility = Visibility.Collapsed;
+                DocStatsQ.Visibility = Visibility.Visible;
+                HosStatsQ.Visibility = Visibility.Collapsed;
+                
             }
 
         }
 
+        private void ShowHos(object sender, RoutedEventArgs e)
+        {
+            StatisticsHos.Visibility = Visibility.Visible;
+        }
     }
 }

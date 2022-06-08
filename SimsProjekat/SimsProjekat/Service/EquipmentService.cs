@@ -13,8 +13,6 @@ namespace Service
         public List<EquipmentMenagment> GetAllEqpMen();
         public List<EquipmentDisplay> GetDynEqpDysplay();
         public List<EquipmentDisplay> GetAllDisplay();
-        public List<Equipment> CheckIfSplitReno(List<Equipment> eqp);
-        public List<Equipment> CheckIfMergeReno(List<Equipment> eqp);
         public List<EquipmentDisplay> GetStaticEqpDisplay();
     }
 }

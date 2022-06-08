@@ -8,75 +8,7 @@
       d:DesignHeight="485" 
       d:DesignWidth="857"
       Title="RoomOperationsPage">
-    <Page.Resources>
-        <Style x:Key="roomButton" TargetType="Button">
-            <Setter Property="FontFamily" Value="Georgia"></Setter>
-            <Setter Property="FontWeight" Value="Medium"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="Margin" Value="0,0,6,0"></Setter>
-            <Setter Property="Background" Value="#FF142223"></Setter>
-        </Style>
-        <Style x:Key="navButton" TargetType="Button">
-            <Setter Property="FontFamily" Value="Georgia"></Setter>
-            <Setter Property="FontWeight" Value="DemiBold"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="BorderThickness" Value="0"></Setter>
-            <Setter Property="Background" Value="#FF2A393A"></Setter>
-        </Style>
-        <Style x:Key="Title" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="18"></Setter>
-            <Setter Property="FontFamily" Value="Georgia"></Setter>
-            <Setter Property="FontWeight" Value="Bold"></Setter>
-            <Setter Property="VerticalAlignment" Value="Center"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="Foreground" Value="AntiqueWhite"></Setter>
-        </Style>
-        <Style x:Key="Table" TargetType="DataGrid">
-            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
-            <Setter Property="VerticalAlignment" Value="Top"></Setter>
-            <Setter Property="FontFamily" Value="Georgia"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="FontSize" Value="14"></Setter>
-            <Setter Property="FontWeight" Value="Bold"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-        </Style>
-        <Style x:Key="DeleteButton" TargetType="Button">
-            <Setter Property="FontFamily" Value="Georgia"></Setter>
-            <Setter Property="Background" Value="#FF1F3233"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-        </Style>
-        <Style x:Key="FormLabel" TargetType="Label">
-            <Setter Property="FontSize" Value="16"></Setter>
-            <Setter Property="FontFamily" Value="Georgia"></Setter>
-            <Setter Property="Foreground" Value="#FF1F3233"></Setter>
-        </Style>
-        <Style x:Key="UpdateButton" TargetType="Button">
-            <Setter Property="FontFamily" Value="Georgia"></Setter>
-            <Setter Property="Background" Value="#FF1F3233"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-        </Style>
-        <Style x:Key="Column" TargetType="DataGridCell">
-            <Setter Property="BorderBrush" Value="#FF284344"></Setter>
-            <Setter Property="Background" Value="#FF375F5F"></Setter>
-            <Setter Property="Opacity" Value="0.85"></Setter>
-            <Setter Property="FontSize" Value="15"></Setter>
-
-        </Style>
-        <Style x:Key="Header" TargetType="DataGridColumnHeader">
-            <Setter Property="Height" Value="30"></Setter>
-            <Setter Property="FontSize" Value="16"></Setter>
-            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
-            <Setter Property="FontFamily" Value="Georgia"></Setter>
-            <Setter Property="FontWeight" Value="Medium"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="Background" Value="#FF203439"></Setter>
-        </Style>
-        <Style x:Key="BorderAdd" TargetType="Border">
-            <Setter Property="Background" Value="White"></Setter>
-            <Setter Property="Opacity" Value="0.95"></Setter>
-            <Setter Property="Margin" Value="20"></Setter>
-        </Style>
-    </Page.Resources>
+    
     <Grid Margin="0,0,10,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -181,7 +113,7 @@
                                         Content="ažuriraj" 
                                         Click="updateButton"  
                                         Command="{Binding UpdateSelectedRoom}" 
-                                        Style="{StaticResource UpdateButton}" >
+                                        Style="{StaticResource DeleteButton}" >
                                         <Button.BitmapEffect>
                                             <DropShadowBitmapEffect 
                                                 Color="#FF007DA7" 
@@ -343,6 +275,7 @@
                 <ComboBox 
                     Name="AddUpdatedType" 
                     FontFamily="Georgia"
+                    Foreground="White"
                     FontSize="14"
                     ItemsSource="{Binding Path=TypesList}" 
                     Grid.Column="2" 
@@ -671,14 +604,9 @@
                     Grid.RowSpan="2"
                     Margin="50,25,35,19" RenderTransformOrigin="0.542,0.135"/>
                 <TextBox
+                    Style="{StaticResource TextBoxReadOnly}"
                     IsReadOnly="True"
-                    BorderThickness="0"
-                    Background="#FF2A5358"
-                    Foreground="White"
                     Name="RoomNumberOne"
-                    FontSize="14"
-                    FontFamily="Georgia"
-                    TextAlignment="Center"
                     FontWeight="Medium"
                     Grid.Row="1"
                     Grid.Column="2"
@@ -696,7 +624,9 @@
                     Margin="50,25,35,0" RenderTransformOrigin="0.542,0.135"/>
 
                 <ComboBox 
+                    Style="{StaticResource ComboBoxStyle}"
                     Name="AddSecRoom"  
+                    Foreground="White"
                     ItemsSource="{Binding Path=Names}" 
                     Grid.Column="2"
                     FontFamily="Georgia"
@@ -796,8 +726,10 @@
 
                 <ComboBox 
                     Name="AddNewRoomType"  
+                    Style="{StaticResource ComboBoxStyle}"
                     ItemsSource="{Binding Path=TypesList}" 
                     Grid.Column="3"
+                    Foreground="White"
                     FontSize="11"
                     FontFamily="Georgia"
                     Grid.ColumnSpan="3" 
@@ -881,12 +813,9 @@
                     Razdvajanje</TextBlock>
                 <TextBox
                     TextWrapping="Wrap"
-                    Background="#FF2A5158"
-                    Foreground="White"
-                    FontFamily="Georgia"
+                    Style="{StaticResource TextBoxReadOnly}"
                     FontSize="15"
                     Name="RoomName"
-                    BorderThickness="0"
                     IsReadOnly="True" Grid.ColumnSpan="2" Margin="0,9,28,1" Grid.Column="3"/>
 
                 <TextBlock 
@@ -898,7 +827,6 @@
                     TextWrapping="Wrap"
                     FontSize="15" HorizontalAlignment="Center" Width="127" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="1" >
                     u dve prostorije</TextBlock>
-
                 <Label 
                     Grid.ColumnSpan="3"  
                     Foreground="White"
@@ -917,7 +845,6 @@
                     Grid.Column="3" 
                     Grid.Row="1" 
                     Margin="28,28,0,22" HorizontalAlignment="Left" Width="180" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
-
                 <Label 
                     Grid.ColumnSpan="3"  
                     Foreground="White"
@@ -930,7 +857,9 @@
                     Margin="50,25,35,0" RenderTransformOrigin="0.542,0.135"/>
 
                 <ComboBox 
+                    Style="{StaticResource ComboBoxStyle}"
                     Background="#FF2A5158"
+                    Foreground="White"
                     FontFamily="Georgia"
                     FontSize="13"
                     Name="Room1Type"  
@@ -958,7 +887,6 @@
                     Grid.Column="3" 
                     Grid.Row="3" 
                     Margin="28,31,0,20" HorizontalAlignment="Left" Width="180" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
-
                 <Label 
                     Grid.ColumnSpan="3"  
                     Foreground="White"
@@ -971,7 +899,9 @@
                     Margin="50,25,35,0" RenderTransformOrigin="0.542,0.135"/>
 
                 <ComboBox 
+                    Style="{StaticResource ComboBoxStyle}"
                     Name="Room2Type"  
+                    Foreground="White"
                     FontFamily="Georgia"
                     FontSize="13"
                     ItemsSource="{Binding Path=TypesList}" 
@@ -1151,7 +1081,9 @@
                     Margin="51,20,10,34" 
                     Grid.RowSpan="2"/>
                 <ComboBox 
+                    Style="{StaticResource ComboBoxStyle}"
                     Name="AddRoomType" 
+                    Foreground="White"
                     FontFamily="Georgia"
                     FontSize="14"
                     ItemsSource="{Binding Path=TypesList}" 

@@ -9,10 +9,14 @@
       Title="AccPage">
 
     <Grid>
-        
+
 
         <Grid Background="#FF2A5158"
-              Margin="156,127,157,84">
+              Margin="191,133,191,79">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="94*"/>
+                <ColumnDefinition Width="129*"/>
+            </Grid.ColumnDefinitions>
             <Grid.Effect>
                 <DropShadowEffect 
                 Direction="270"
@@ -20,14 +24,23 @@
                 ShadowDepth="10"
                 BlurRadius="15" />
             </Grid.Effect>
-
+            <Ellipse 
+                Margin="8,-41,184,0"
+                Stroke ="White"
+                StrokeThickness="2"
+                Height="69"
+                VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="0.452,0.456">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Resources/Icons/profile5.png"/>
+                </Ellipse.Fill>
+            </Ellipse>
             <Label Content="Ime:"
                    HorizontalAlignment="Left"
                    Foreground="White"
                    FontSize="16"
-                   Margin="221,28,0,0"
+                   Margin="60,52,0,0"
                    FontFamily="Georgia"
-                   VerticalAlignment="Top" Width="88" Height="48" />
+                   VerticalAlignment="Top" Width="88" Height="48" RenderTransformOrigin="-0.548,0.375" />
             <TextBox HorizontalAlignment="Left"
                      Background="#FF2A5158"
                      IsReadOnly="True"
@@ -38,13 +51,13 @@
                      FontSize="16"
                      FontFamily="Georgia"
                      FontWeight="Medium"
-                     Margin="367,28,0,0"
+                     Margin="69,57,0,0"
                      Name="Name"
                      TextAlignment="Center"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
                      Width="154"
-                     RenderTransformOrigin="0.464,0.565">
+                     RenderTransformOrigin="0.464,0.565" Grid.Column="1">
 
             </TextBox>
             <Label Content="Prezime:"
@@ -53,10 +66,10 @@
                    FontSize="16"
                    FontFamily="Georgia"
                    VerticalAlignment="Top" 
-                   Margin="213,81,0,0" />
+                   Margin="60,95,0,0" />
             <TextBox HorizontalAlignment="Left"
                      Height="20"
-                     Margin="367,193,0,0"
+                     Margin="69,183,0,0"
                      Background="#FF2A5158"
                      BorderBrush="#FF2A5158"
                      BorderThickness="0,0,0,1"
@@ -70,21 +83,21 @@
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
                      Width="154"
-                     RenderTransformOrigin="0.464,0.565">
+                     RenderTransformOrigin="0.464,0.565" Grid.Column="1">
 
             </TextBox>
             <Label Content="Korisničko ime:"
                    HorizontalAlignment="Left"
                    Foreground="White"
                    FontSize="16"
-                   Margin="213,134,0,0"
+                   Margin="60,136,0,0"
                    FontFamily="Georgia"
-                   VerticalAlignment="Top" Width="177" Height="54" />
+                   VerticalAlignment="Top" Width="177" Height="54" Grid.ColumnSpan="2" />
             <TextBox HorizontalAlignment="Left"
-                     Height="25"
+                     Height="24"
                      Background="#FF2A5158"
                      Foreground="White"
-                     Margin="367,136,0,0"
+                     Margin="69,139,0,0"
                      Name="UserName"
                      TextWrapping="Wrap"
                      FontWeight="Medium"
@@ -96,7 +109,7 @@
                      FontSize="16"
                      FontFamily="Georgia"
                      Width="154"
-                     RenderTransformOrigin="0.464,0.565">
+                     RenderTransformOrigin="0.464,0.565" Grid.Column="1">
 
             </TextBox>
             <Label Content="Email:"
@@ -104,9 +117,9 @@
                    
                    Foreground="White"
                    FontSize="16"
-                   Margin="213,190,0,0"
+                   Margin="60,180,0,0"
                    FontFamily="Georgia"
-                   VerticalAlignment="Top" Width="104" Height="46" />
+                   VerticalAlignment="Top" Width="104" Height="46" RenderTransformOrigin="-0.163,0.18" />
             <TextBox HorizontalAlignment="Left"
                      Height="28"
                      FontSize="16"
@@ -118,33 +131,19 @@
                      IsReadOnly="True"
                      TextAlignment="Center"
                      Foreground="White"
-                     Margin="367,81,0,0"
+                     Margin="69,95,0,0"
                      Name="Surname"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
                      Width="154"
-                     RenderTransformOrigin="0.464,0.565">
+                     RenderTransformOrigin="0.464,0.565" Grid.Column="1">
             </TextBox>
-            <Image HorizontalAlignment="Left"
-                   Height="132"
-                   VerticalAlignment="Top"
-                   Width="115"
-                   Stretch="Uniform"
-                   Source="/Resources/Icons/profile5.png" 
-                   Margin="42,65,0,0" 
-                   RenderTransformOrigin="0.5,0.5" >
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleX="-0.576"/>
-                        <RotateTransform/>
-                        <TranslateTransform X="-0.432"/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
+
+
 
 
 
         </Grid>
+
     </Grid>
 </Page>

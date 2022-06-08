@@ -34,8 +34,6 @@ namespace Service
             return doctors;
         }
 
-        
-
         public List<StatDisplay> GetAllStatDoctor()
         {
             List<StatDisplay> statistics = new List<StatDisplay>();
@@ -108,7 +106,7 @@ namespace Service
                     if (sh.GradeOne == 5) { count5++; }
                 }
             }
-            GradeCount QuestionOne = new GradeCount(count1, count2, count3, count4, count5);
+            GradeCount QuestionOne = new GradeCount("1. pitanje",count1, count2, count3, count4, count5);
             grades.Add(QuestionOne);
 
             count1 = 0;
@@ -128,7 +126,7 @@ namespace Service
                     if (sh.GradeTwo == 5) { count5++; }
                 }
             }
-            GradeCount QuestionTwo = new GradeCount(count1, count2, count3, count4, count5);
+            GradeCount QuestionTwo = new GradeCount("2. pitanje", count1, count2, count3, count4, count5);
             grades.Add(QuestionTwo);
 
             count1 = 0;
@@ -148,7 +146,7 @@ namespace Service
                     if (sh.GradeThree == 5) { count5++; }
                 }
             }
-            GradeCount QuestionThree = new GradeCount(count1, count2, count3, count4, count5);
+            GradeCount QuestionThree = new GradeCount("3. pitanje", count1, count2, count3, count4, count5);
             grades.Add(QuestionThree);
             return grades;
 
@@ -172,7 +170,7 @@ namespace Service
                 if(sh.GradeOne == 4) { count4++; }
                 if(sh.GradeOne == 5) { count5++; }
             }
-            GradeCount QuestionOne = new GradeCount(count1, count2, count3, count4, count5);
+            GradeCount QuestionOne = new GradeCount("1. pitanje", count1, count2, count3, count4, count5);
             grades.Add(QuestionOne);
 
             count1 = 0;
@@ -189,7 +187,7 @@ namespace Service
                 if (sh.GradeTwo == 4) { count4++; }
                 if (sh.GradeTwo == 5) { count5++; }
             }
-            GradeCount QuestionTwo = new GradeCount(count1, count2, count3, count4, count5);
+            GradeCount QuestionTwo = new GradeCount("2. pitanje", count1, count2, count3, count4, count5);
             grades.Add(QuestionTwo);
 
             count1 = 0;
@@ -206,7 +204,7 @@ namespace Service
                 if (sh.GradeThree == 4) { count4++; }
                 if (sh.GradeThree == 5) { count5++; }
             }
-            GradeCount QuestionThree = new GradeCount(count1, count2, count3, count4, count5);
+            GradeCount QuestionThree = new GradeCount("3. pitanje", count1, count2, count3, count4, count5);
             grades.Add(QuestionThree);
 
             return grades;
